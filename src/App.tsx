@@ -78,13 +78,14 @@ interface IResultsItem {
   doc: any;
   key: number;
 }
-const ResultsItem: React.FC<IResultsItem> = ({ doc, key }) => {
+const ResultsItem = ({ doc, key }: IResultsItem) => {
   return (
     <ul key={key}>
       <h2>{doc.title}</h2>
+      <li>OL API type: {doc.type}</li>
       <li>author: {doc.author_name}</li>
-      <li>published on: {doc.publish_date}</li>
-      <li>publisher: {doc.publisher}</li>
+      <li>published on: {doc.publish_date[0]}</li>
+      <li>publisher: {doc.publisher?.[0]}</li>
       <li>1st isbn: {doc.isbn?.[0]}</li>
     </ul>
 
