@@ -1,0 +1,3755 @@
+{
+  "numFound": 43,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+    {
+      "key": "/works/OL6462589W",
+      "type": "work",
+      "seed": [
+        "/books/OL18988329M",
+        "/works/OL6462589W",
+        "/subjects/algorithms",
+        "/authors/OL1714523A"
+      ],
+      "title": "An introduction to algorithms",
+      "title_suggest": "An introduction to algorithms",
+      "title_sort": "An introduction to algorithms",
+      "edition_count": 1,
+      "edition_key": [
+        "OL18988329M"
+      ],
+      "publish_date": [
+        "1967"
+      ],
+      "publish_year": [
+        1967
+      ],
+      "first_publish_year": 1967,
+      "number_of_pages_median": 57,
+      "publish_place": [
+        "Toronto"
+      ],
+      "contributor": [
+        "Nicholls, G. T.",
+        "Wong, R. C."
+      ],
+      "last_modified_i": 1291411437,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "readinglog_count": 2,
+      "want_to_read_count": 2,
+      "currently_reading_count": 0,
+      "already_read_count": 0,
+      "publisher": [
+        "W.J. Gage"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL1714523A"
+      ],
+      "author_name": [
+        "T. E. Hull"
+      ],
+      "subject": [
+        "Algorithms"
+      ],
+      "publisher_facet": [
+        "W.J. Gage"
+      ],
+      "subject_facet": [
+        "Algorithms"
+      ],
+      "_version_": 1759797260991856641,
+      "author_facet": [
+        "OL1714523A T. E. Hull"
+      ],
+      "subject_key": [
+        "algorithms"
+      ]
+    },
+    {
+      "key": "/works/OL21711587W",
+      "type": "work",
+      "seed": [
+        "/books/OL9801324M",
+        "/books/OL29753762M",
+        "/books/OL29597979M",
+        "/books/OL29592483M",
+        "/works/OL21711587W",
+        "/subjects/algorithms",
+        "/authors/OL1004780A",
+        "/authors/OL3328609A",
+        "/authors/OL2682480A",
+        "/authors/OL2633511A"
+      ],
+      "title": "Introduction to Algorithms",
+      "title_suggest": "Introduction to Algorithms",
+      "title_sort": "Introduction to Algorithms",
+      "edition_count": 4,
+      "edition_key": [
+        "OL9801324M",
+        "OL29753762M",
+        "OL29597979M",
+        "OL29592483M"
+      ],
+      "publish_date": [
+        "September 1, 2001",
+        "2009"
+      ],
+      "publish_year": [
+        2001,
+        2009
+      ],
+      "first_publish_year": 2001,
+      "number_of_pages_median": 1320,
+      "lcc": [
+        "QA-0076.60000000.C662 2009"
+      ],
+      "isbn": [
+        "9780262270830",
+        "0262531968",
+        "0262270838",
+        "9780262258104",
+        "9780262259460",
+        "0262258102",
+        "9780262531962",
+        "026225946X"
+      ],
+      "last_modified_i": 1598819142,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "ratings_count_1": 0,
+      "ratings_count_2": 0,
+      "ratings_count_3": 0,
+      "ratings_count_4": 1,
+      "ratings_count_5": 0,
+      "ratings_average": 4.0,
+      "ratings_sortable": 2.3286738,
+      "ratings_count": 1,
+      "readinglog_count": 39,
+      "want_to_read_count": 38,
+      "currently_reading_count": 0,
+      "already_read_count": 1,
+      "cover_edition_key": "OL9801324M",
+      "cover_i": 151333,
+      "publisher": [
+        "MIT Press",
+        "The MIT Press"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL1004780A",
+        "OL3328609A",
+        "OL2682480A",
+        "OL2633511A"
+      ],
+      "author_name": [
+        "Thomas H. Cormen",
+        "Charles E. Leiserson",
+        "Ronald L. Rivest",
+        "Clifford Stein"
+      ],
+      "author_alternative_name": [
+        "Charles E Leiserson",
+        "Thomas Cormen",
+        "Ronald L Rivest",
+        "Charles Eric Leiserson"
+      ],
+      "subject": [
+        "Algorithms"
+      ],
+      "id_goodreads": [
+        "1231710"
+      ],
+      "id_librarything": [
+        "13005"
+      ],
+      "publisher_facet": [
+        "MIT Press",
+        "The MIT Press"
+      ],
+      "subject_facet": [
+        "Algorithms"
+      ],
+      "_version_": 1759765045300953088,
+      "lcc_sort": "QA-0076.60000000.C662 2009",
+      "author_facet": [
+        "OL1004780A Thomas H. Cormen",
+        "OL2633511A Clifford Stein",
+        "OL2682480A Ronald L. Rivest",
+        "OL3328609A Charles E. Leiserson"
+      ],
+      "subject_key": [
+        "algorithms"
+      ]
+    },
+    {
+      "key": "/works/OL16965448W",
+      "type": "work",
+      "seed": [
+        "/books/OL7294306M",
+        "/books/OL9249010M",
+        "/works/OL16965448W",
+        "/subjects/computer_algorithms",
+        "/subjects/computer_programming",
+        "/subjects/algorithms",
+        "/subjects/\u043a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u044b//\u0430\u043b\u0433\u043e\u0440\u0438\u0442\u043c\u044b_\u0438_\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b_\u0434\u0430\u043d\u043d\u044b\u0445",
+        "/subjects/\u043a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u044b",
+        "/subjects/\u0430\u043b\u0433\u043e\u0440\u0438\u0442\u043c\u044b_\u0438_\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b_\u0434\u0430\u043d\u043d\u044b\u0445",
+        "/subjects/computers",
+        "/subjects/algorithms_and_data_structures",
+        "/authors/OL1004780A"
+      ],
+      "title": "Introduction to algorithms",
+      "title_suggest": "Introduction to algorithms",
+      "title_sort": "Introduction to algorithms",
+      "edition_count": 2,
+      "edition_key": [
+        "OL7294306M",
+        "OL9249010M"
+      ],
+      "publish_date": [
+        "July 16, 2001"
+      ],
+      "publish_year": [
+        2001
+      ],
+      "first_publish_year": 2001,
+      "number_of_pages_median": 1056,
+      "lcc": [
+        "QA-0076.60000000"
+      ],
+      "isbn": [
+        "0070131511",
+        "9780070131514"
+      ],
+      "last_modified_i": 1645901520,
+      "ebook_count_i": 2,
+      "ebook_access": "printdisabled",
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": [
+        "introductiontoal00corm_487",
+        "introductiontoal00corm_781"
+      ],
+      "ia_collection": [
+        "librarygenesis",
+        "printdisabled"
+      ],
+      "ia_collection_s": "librarygenesis;printdisabled",
+      "printdisabled_s": "OL7294306M;OL9249010M",
+      "readinglog_count": 10,
+      "want_to_read_count": 10,
+      "currently_reading_count": 0,
+      "already_read_count": 0,
+      "cover_edition_key": "OL7294306M",
+      "cover_i": 53671,
+      "publisher": [
+        "McGraw-Hill Science/Engineering/Math"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL1004780A"
+      ],
+      "author_name": [
+        "Thomas H. Cormen"
+      ],
+      "author_alternative_name": [
+        "Thomas Cormen"
+      ],
+      "subject": [
+        "Computer algorithms",
+        "Computer programming",
+        "Algorithms",
+        "\u041a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u044b//\u0410\u043b\u0433\u043e\u0440\u0438\u0442\u043c\u044b \u0438 \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b \u0434\u0430\u043d\u043d\u044b\u0445",
+        "\u041a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u044b",
+        "\u0410\u043b\u0433\u043e\u0440\u0438\u0442\u043c\u044b \u0438 \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b \u0434\u0430\u043d\u043d\u044b\u0445",
+        "Computers",
+        "Algorithms and Data Structures"
+      ],
+      "id_goodreads": [
+        "515581"
+      ],
+      "id_librarything": [
+        "13005"
+      ],
+      "publisher_facet": [
+        "McGraw-Hill Science/Engineering/Math"
+      ],
+      "subject_facet": [
+        "Algorithms",
+        "Algorithms and Data Structures",
+        "Computer algorithms",
+        "Computer programming",
+        "Computers",
+        "\u0410\u043b\u0433\u043e\u0440\u0438\u0442\u043c\u044b \u0438 \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b \u0434\u0430\u043d\u043d\u044b\u0445",
+        "\u041a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u044b",
+        "\u041a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u044b//\u0410\u043b\u0433\u043e\u0440\u0438\u0442\u043c\u044b \u0438 \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b \u0434\u0430\u043d\u043d\u044b\u0445"
+      ],
+      "_version_": 1759754440804401154,
+      "lcc_sort": "QA-0076.60000000",
+      "author_facet": [
+        "OL1004780A Thomas H. Cormen"
+      ],
+      "subject_key": [
+        "algorithms",
+        "algorithms_and_data_structures",
+        "computer_algorithms",
+        "computer_programming",
+        "computers",
+        "\u0430\u043b\u0433\u043e\u0440\u0438\u0442\u043c\u044b_\u0438_\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b_\u0434\u0430\u043d\u043d\u044b\u0445",
+        "\u043a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u044b",
+        "\u043a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u044b\u0430\u043b\u0433\u043e\u0440\u0438\u0442\u043c\u044b_\u0438_\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b_\u0434\u0430\u043d\u043d\u044b\u0445"
+      ]
+    },
+    {
+      "key": "/works/OL5092129W",
+      "type": "work",
+      "seed": [
+        "/books/OL2526964M",
+        "/books/OL44096214M",
+        "/works/OL5092129W",
+        "/subjects/computer_algorithms",
+        "/subjects/data_structures_(computer_science)",
+        "/subjects/algorithm_design",
+        "/subjects/induction",
+        "/subjects/reasoning",
+        "/subjects/recursion",
+        "/subjects/data_structures_(computer_science)",
+        "/subjects/algorithms",
+        "/authors/OL1120706A"
+      ],
+      "title": "Introduction to algorithms",
+      "title_suggest": "Introduction to algorithms",
+      "title_sort": "Introduction to algorithms",
+      "edition_count": 2,
+      "edition_key": [
+        "OL2526964M",
+        "OL44096214M"
+      ],
+      "publish_date": [
+        "1995",
+        "1989"
+      ],
+      "publish_year": [
+        1995,
+        1989
+      ],
+      "first_publish_year": 1989,
+      "number_of_pages_median": 478,
+      "lccn": [
+        "88002186"
+      ],
+      "publish_place": [
+        "Reading, Mass"
+      ],
+      "lcc": [
+        "QA-0076.90000000.D35 M36 1989",
+        "QA-0076.90000000.D35M36 1989"
+      ],
+      "ddc": [
+        "005.73"
+      ],
+      "isbn": [
+        "0201524899",
+        "9780201120370",
+        "0201120372",
+        "9780201524895"
+      ],
+      "last_modified_i": 1671246461,
+      "ebook_count_i": 1,
+      "ebook_access": "printdisabled",
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": [
+        "introductiontoal00manb"
+      ],
+      "ia_collection": [
+        "librarygenesis",
+        "printdisabled"
+      ],
+      "ia_collection_s": "librarygenesis;printdisabled",
+      "printdisabled_s": "OL2526964M",
+      "readinglog_count": 12,
+      "want_to_read_count": 12,
+      "currently_reading_count": 0,
+      "already_read_count": 0,
+      "cover_edition_key": "OL2526964M",
+      "cover_i": 134112,
+      "publisher": [
+        "Addison-Wesley",
+        "Addison-Wesley Longman, Limited"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL1120706A"
+      ],
+      "author_name": [
+        "Udi Manber"
+      ],
+      "subject": [
+        "Computer algorithms",
+        "Data structures (Computer science)",
+        "algorithm design",
+        "induction",
+        "reasoning",
+        "recursion",
+        "Data structures (computer science)",
+        "Algorithms"
+      ],
+      "id_goodreads": [
+        "105136"
+      ],
+      "id_librarything": [
+        "393404"
+      ],
+      "publisher_facet": [
+        "Addison-Wesley",
+        "Addison-Wesley Longman, Limited"
+      ],
+      "subject_facet": [
+        "Algorithms",
+        "Computer algorithms",
+        "Data structures (Computer science)",
+        "Data structures (computer science)",
+        "algorithm design",
+        "induction",
+        "reasoning",
+        "recursion"
+      ],
+      "_version_": 1759794084354981890,
+      "lcc_sort": "QA-0076.90000000.D35 M36 1989",
+      "author_facet": [
+        "OL1120706A Udi Manber"
+      ],
+      "subject_key": [
+        "algorithm_design",
+        "algorithms",
+        "computer_algorithms",
+        "data_structures_(computer_science)",
+        "induction",
+        "reasoning",
+        "recursion"
+      ],
+      "ddc_sort": "005.73"
+    },
+    {
+      "key": "/works/OL26573715W",
+      "type": "work",
+      "seed": [
+        "/books/OL35970640M",
+        "/books/OL35973651M",
+        "/works/OL26573715W",
+        "/authors/OL9984261A"
+      ],
+      "title": "Introduction to Algorithms",
+      "title_suggest": "Introduction to Algorithms",
+      "title_sort": "Introduction to Algorithms",
+      "edition_count": 2,
+      "edition_key": [
+        "OL35970640M",
+        "OL35973651M"
+      ],
+      "publish_date": [
+        "2019",
+        "2018"
+      ],
+      "publish_year": [
+        2019,
+        2018
+      ],
+      "first_publish_year": 2018,
+      "isbn": [
+        "9781773612188",
+        "1773612182",
+        "177361617X",
+        "9781773616179"
+      ],
+      "last_modified_i": 1640604726,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Arcler Education Inc"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL9984261A"
+      ],
+      "author_name": [
+        "Rex Porbasas Flejoles"
+      ],
+      "publisher_facet": [
+        "Arcler Education Inc"
+      ],
+      "_version_": 1759774342472794113,
+      "author_facet": [
+        "OL9984261A Rex Porbasas Flejoles"
+      ]
+    },
+    {
+      "key": "/works/OL24495857W",
+      "type": "work",
+      "seed": [
+        "/books/OL32457466M",
+        "/books/OL32457467M",
+        "/works/OL24495857W",
+        "/authors/OL3896762A",
+        "/authors/OL5995065A",
+        "/authors/OL3896763A",
+        "/authors/OL9225613A",
+        "/authors/OL3896764A",
+        "/authors/OL9225614A",
+        "/authors/OL4318158A",
+        "/authors/OL2751602A"
+      ],
+      "title": "Introduction to Algorithms",
+      "title_suggest": "Introduction to Algorithms",
+      "title_sort": "Introduction to Algorithms",
+      "edition_count": 2,
+      "edition_key": [
+        "OL32457466M",
+        "OL32457467M"
+      ],
+      "publish_date": [
+        "Feb 02, 2010"
+      ],
+      "publish_year": [
+        2010
+      ],
+      "first_publish_year": 2010,
+      "number_of_pages_median": 1312,
+      "isbn": [
+        "9788120340077",
+        "8120340078"
+      ],
+      "last_modified_i": 1621309793,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "readinglog_count": 5,
+      "want_to_read_count": 5,
+      "currently_reading_count": 0,
+      "already_read_count": 0,
+      "cover_edition_key": "OL32457466M",
+      "cover_i": 11115497,
+      "publisher": [
+        "PHI Learning Pvt. Ltd. (Originally MIT Press)",
+        "Brand: PHI Learning"
+      ],
+      "author_key": [
+        "OL3896762A",
+        "OL5995065A",
+        "OL3896763A",
+        "OL9225613A",
+        "OL3896764A",
+        "OL9225614A",
+        "OL4318158A",
+        "OL2751602A"
+      ],
+      "author_name": [
+        "Cormen",
+        "Thomas H.",
+        "Leiserson",
+        "Charles E.",
+        "Rivest",
+        "Ronald L.",
+        "Stein",
+        "Clifford"
+      ],
+      "publisher_facet": [
+        "Brand: PHI Learning",
+        "PHI Learning Pvt. Ltd. (Originally MIT Press)"
+      ],
+      "_version_": 1759770291773374465,
+      "author_facet": [
+        "OL2751602A Clifford",
+        "OL3896762A Cormen",
+        "OL3896763A Leiserson",
+        "OL3896764A Rivest",
+        "OL4318158A Stein",
+        "OL5995065A Thomas H.",
+        "OL9225613A Charles E.",
+        "OL9225614A Ronald L."
+      ]
+    },
+    {
+      "key": "/works/OL19858857W",
+      "type": "work",
+      "seed": [
+        "/books/OL7306164M",
+        "/books/OL9260837M",
+        "/works/OL19858857W",
+        "/subjects/algorithmes",
+        "/subjects/programmation_(informatique)",
+        "/authors/OL1004780A",
+        "/authors/OL3328609A",
+        "/authors/OL2682480A",
+        "/authors/OL2633511A"
+      ],
+      "title": "Introduction to algorithms",
+      "title_suggest": "Introduction to algorithms",
+      "title_sort": "Introduction to algorithms",
+      "edition_count": 2,
+      "edition_key": [
+        "OL7306164M",
+        "OL9260837M"
+      ],
+      "publish_date": [
+        "December 16, 2003"
+      ],
+      "publish_year": [
+        2003
+      ],
+      "first_publish_year": 2003,
+      "number_of_pages_median": 1056,
+      "isbn": [
+        "9780072970548",
+        "0072970545"
+      ],
+      "last_modified_i": 1677262281,
+      "ebook_count_i": 1,
+      "ebook_access": "printdisabled",
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": [
+        "introductiontoal00corm_445"
+      ],
+      "ia_collection": [
+        "librarygenesis",
+        "printdisabled"
+      ],
+      "ia_collection_s": "librarygenesis;printdisabled",
+      "printdisabled_s": "OL7306164M",
+      "readinglog_count": 2,
+      "want_to_read_count": 2,
+      "currently_reading_count": 0,
+      "already_read_count": 0,
+      "cover_edition_key": "OL7306164M",
+      "cover_i": 8664679,
+      "publisher": [
+        "McGraw-Hill Science/Engineering/Math"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL1004780A",
+        "OL3328609A",
+        "OL2682480A",
+        "OL2633511A"
+      ],
+      "author_name": [
+        "Thomas H. Cormen",
+        "Charles E. Leiserson",
+        "Ronald L. Rivest",
+        "Clifford Stein"
+      ],
+      "author_alternative_name": [
+        "Charles Eric Leiserson",
+        "Thomas Cormen",
+        "Ronald L Rivest",
+        "Charles E Leiserson"
+      ],
+      "subject": [
+        "Algorithmes",
+        "Programmation (Informatique)"
+      ],
+      "id_goodreads": [
+        "78616"
+      ],
+      "id_librarything": [
+        "13005"
+      ],
+      "publisher_facet": [
+        "McGraw-Hill Science/Engineering/Math"
+      ],
+      "subject_facet": [
+        "Algorithmes",
+        "Programmation (Informatique)"
+      ],
+      "_version_": 1759761437095362561,
+      "author_facet": [
+        "OL1004780A Thomas H. Cormen",
+        "OL2633511A Clifford Stein",
+        "OL2682480A Ronald L. Rivest",
+        "OL3328609A Charles E. Leiserson"
+      ],
+      "subject_key": [
+        "algorithmes",
+        "programmation_(informatique)"
+      ]
+    },
+    {
+      "key": "/works/OL16516731W",
+      "type": "work",
+      "seed": [
+        "/books/OL43133326M",
+        "/books/OL25210023M",
+        "/works/OL16516731W",
+        "/subjects/computer_algorithms",
+        "/subjects/computer_programming",
+        "/authors/OL1004780A"
+      ],
+      "title": "Mavo le-algoritmim",
+      "title_suggest": "Mavo le-algoritmim",
+      "title_sort": "Mavo le-algoritmim",
+      "edition_count": 2,
+      "edition_key": [
+        "OL43133326M",
+        "OL25210023M"
+      ],
+      "publish_date": [
+        "2008",
+        "1999"
+      ],
+      "publish_year": [
+        2008,
+        1999
+      ],
+      "first_publish_year": 1999,
+      "lccn": [
+        "2009663600"
+      ],
+      "publish_place": [
+        "Ra\u02bbananah"
+      ],
+      "oclc": [
+        "881145484"
+      ],
+      "contributor": [
+        "Almog-Alson, Tamar",
+        "Rivest, Ronald L.",
+        "Leiserson, Charles Eric"
+      ],
+      "lcc": [
+        "QA-0076.90000000.A4313 2008"
+      ],
+      "isbn": [
+        "9650604154",
+        "9650609717",
+        "9789650609719",
+        "9789650604158"
+      ],
+      "last_modified_i": 1670418864,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "a-Universi\u1e6dah ha-petu\u1e25ah"
+      ],
+      "language": [
+        "heb"
+      ],
+      "author_key": [
+        "OL1004780A"
+      ],
+      "author_name": [
+        "Thomas H. Cormen"
+      ],
+      "author_alternative_name": [
+        "Thomas Cormen"
+      ],
+      "subject": [
+        "Computer algorithms",
+        "Computer programming"
+      ],
+      "publisher_facet": [
+        "a-Universi\u1e6dah ha-petu\u1e25ah"
+      ],
+      "subject_facet": [
+        "Computer algorithms",
+        "Computer programming"
+      ],
+      "_version_": 1759753199912222720,
+      "lcc_sort": "QA-0076.90000000.A4313 2008",
+      "author_facet": [
+        "OL1004780A Thomas H. Cormen"
+      ],
+      "subject_key": [
+        "computer_algorithms",
+        "computer_programming"
+      ]
+    },
+    {
+      "key": "/works/OL26710952W",
+      "type": "work",
+      "seed": [
+        "/books/OL36163638M",
+        "/works/OL26710952W",
+        "/authors/OL10045893A"
+      ],
+      "title": "Introduction to Algorithms",
+      "title_suggest": "Introduction to Algorithms",
+      "title_sort": "Introduction to Algorithms",
+      "edition_count": 1,
+      "edition_key": [
+        "OL36163638M"
+      ],
+      "publish_date": [
+        "2021"
+      ],
+      "publish_year": [
+        2021
+      ],
+      "first_publish_year": 2021,
+      "isbn": [
+        "9798499199893"
+      ],
+      "last_modified_i": 1640720895,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Independently Published"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL10045893A"
+      ],
+      "author_name": [
+        "Juan Hansen"
+      ],
+      "publisher_facet": [
+        "Independently Published"
+      ],
+      "_version_": 1759774596862574593,
+      "author_facet": [
+        "OL10045893A Juan Hansen"
+      ]
+    },
+    {
+      "key": "/works/OL28933440W",
+      "type": "work",
+      "seed": [
+        "/books/OL39781357M",
+        "/works/OL28933440W",
+        "/authors/OL9234832A"
+      ],
+      "title": "Introduction to Algorithms",
+      "title_suggest": "Introduction to Algorithms",
+      "title_sort": "Introduction to Algorithms",
+      "edition_count": 1,
+      "edition_key": [
+        "OL39781357M"
+      ],
+      "publish_date": [
+        "2022"
+      ],
+      "publish_year": [
+        2022
+      ],
+      "first_publish_year": 2022,
+      "isbn": [
+        "1639893008",
+        "9781639893003"
+      ],
+      "last_modified_i": 1663594173,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "States Academic Press"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL9234832A"
+      ],
+      "author_name": [
+        "Joe Oswald"
+      ],
+      "publisher_facet": [
+        "States Academic Press"
+      ],
+      "_version_": 1759778802999754754,
+      "author_facet": [
+        "OL9234832A Joe Oswald"
+      ]
+    },
+    {
+      "key": "/works/OL16921783W",
+      "type": "work",
+      "seed": [
+        "/books/OL23170657M",
+        "/works/OL16921783W",
+        "/subjects/computer_algorithms",
+        "/subjects/computer_programming",
+        "/subjects/long_now_manual_for_civilization",
+        "/subjects/algorithms",
+        "/subjects/programmation_(informatique)",
+        "/subjects/algorithmes",
+        "/subjects/computers",
+        "/subjects/programming",
+        "/subjects/open_source",
+        "/subjects/software_development_&_engineering",
+        "/subjects/tools",
+        "/subjects/general",
+        "/subjects/algorithmentheorie",
+        "/subjects/algorithmische_programmierung",
+        "/subjects/algoritmen",
+        "/subjects/algorithmus",
+        "/subjects/datenstruktur",
+        "/subjects/datoralgoritmer",
+        "/subjects/datastrukturer",
+        "/authors/OL1004780A",
+        "/authors/OL3328609A",
+        "/authors/OL2682480A",
+        "/authors/OL2633511A"
+      ],
+      "title": "Introduction to Algorithms",
+      "title_suggest": "Introduction to Algorithms",
+      "title_sort": "Introduction to Algorithms",
+      "edition_count": 1,
+      "edition_key": [
+        "OL23170657M"
+      ],
+      "publish_date": [
+        "2009"
+      ],
+      "publish_year": [
+        2009
+      ],
+      "first_publish_year": 2009,
+      "lccn": [
+        "2009008593"
+      ],
+      "publish_place": [
+        "Cambridge, MA, USA"
+      ],
+      "oclc": [
+        "311310321",
+        "676697295"
+      ],
+      "contributor": [
+        "Cormen, Thomas H."
+      ],
+      "lcc": [
+        "QA-0076.60000000.I5858 2009",
+        "QA-0076.60000000.C662 2009eb",
+        "QA-0076.60000000.C662 2009"
+      ],
+      "ddc": [
+        "005.1"
+      ],
+      "isbn": [
+        "0262533057",
+        "0262033844",
+        "9780262033848",
+        "9780262533058"
+      ],
+      "last_modified_i": 1672585851,
+      "ebook_count_i": 1,
+      "ebook_access": "printdisabled",
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": [
+        "introductiontoal00corm_453"
+      ],
+      "ia_collection": [
+        "americana",
+        "librarygenesis",
+        "mitpress",
+        "printdisabled"
+      ],
+      "ia_collection_s": "americana;librarygenesis;mitpress;printdisabled",
+      "printdisabled_s": "OL23170657M",
+      "ratings_count_1": 0,
+      "ratings_count_2": 0,
+      "ratings_count_3": 0,
+      "ratings_count_4": 1,
+      "ratings_count_5": 1,
+      "ratings_average": 4.5,
+      "ratings_sortable": 2.6120331,
+      "ratings_count": 2,
+      "readinglog_count": 20,
+      "want_to_read_count": 14,
+      "currently_reading_count": 3,
+      "already_read_count": 3,
+      "cover_edition_key": "OL23170657M",
+      "cover_i": 6959894,
+      "publisher": [
+        "The MIT Press"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL1004780A",
+        "OL3328609A",
+        "OL2682480A",
+        "OL2633511A"
+      ],
+      "author_name": [
+        "Thomas H. Cormen",
+        "Charles E. Leiserson",
+        "Ronald L. Rivest",
+        "Clifford Stein"
+      ],
+      "author_alternative_name": [
+        "Ronald L Rivest",
+        "Thomas Cormen",
+        "Charles E Leiserson",
+        "Charles Eric Leiserson"
+      ],
+      "subject": [
+        "Computer algorithms",
+        "Computer programming",
+        "Long Now Manual for Civilization",
+        "Algorithms",
+        "Programmation (Informatique)",
+        "Algorithmes",
+        "COMPUTERS",
+        "Programming",
+        "Open Source",
+        "Software Development & Engineering",
+        "Tools",
+        "General",
+        "Algorithmentheorie",
+        "Algorithmische Programmierung",
+        "Algoritmen",
+        "Algorithmus",
+        "Datenstruktur",
+        "Datoralgoritmer",
+        "Datastrukturer"
+      ],
+      "id_goodreads": [
+        "6752187",
+        "7160858"
+      ],
+      "id_librarything": [
+        "9820219"
+      ],
+      "publisher_facet": [
+        "The MIT Press"
+      ],
+      "subject_facet": [
+        "Algorithmentheorie",
+        "Algorithmes",
+        "Algorithmische Programmierung",
+        "Algorithms",
+        "Algorithmus",
+        "Algoritmen",
+        "COMPUTERS",
+        "Computer algorithms",
+        "Computer programming",
+        "Datastrukturer",
+        "Datenstruktur",
+        "Datoralgoritmer",
+        "General",
+        "Long Now Manual for Civilization",
+        "Open Source",
+        "Programmation (Informatique)",
+        "Programming",
+        "Software Development & Engineering",
+        "Tools"
+      ],
+      "_version_": 1759754582167126017,
+      "lcc_sort": "QA-0076.60000000.C662 2009eb",
+      "author_facet": [
+        "OL1004780A Thomas H. Cormen",
+        "OL2633511A Clifford Stein",
+        "OL2682480A Ronald L. Rivest",
+        "OL3328609A Charles E. Leiserson"
+      ],
+      "subject_key": [
+        "algorithmentheorie",
+        "algorithmes",
+        "algorithmische_programmierung",
+        "algorithms",
+        "algorithmus",
+        "algoritmen",
+        "computer_algorithms",
+        "computer_programming",
+        "computers",
+        "datastrukturer",
+        "datenstruktur",
+        "datoralgoritmer",
+        "general",
+        "long_now_manual_for_civilization",
+        "open_source",
+        "programmation_(informatique)",
+        "programming",
+        "software_development__engineering",
+        "tools"
+      ],
+      "ddc_sort": "005.1"
+    },
+    {
+      "key": "/works/OL19857912W",
+      "type": "work",
+      "seed": [
+        "/books/OL27045857M",
+        "/works/OL19857912W",
+        "/subjects/computer_algorithms",
+        "/subjects/computer_programming",
+        "/authors/OL596156A"
+      ],
+      "title": "Instructor's manual to accompany Introduction to algorithms",
+      "title_suggest": "Instructor's manual to accompany Introduction to algorithms",
+      "title_sort": "Instructor's manual to accompany Introduction to algorithms",
+      "edition_count": 1,
+      "edition_key": [
+        "OL27045857M"
+      ],
+      "publish_date": [
+        "1991"
+      ],
+      "publish_year": [
+        1991
+      ],
+      "first_publish_year": 1991,
+      "number_of_pages_median": 260,
+      "publish_place": [
+        "New York",
+        "Cambridge, Mass"
+      ],
+      "oclc": [
+        "26648853"
+      ],
+      "lcc": [
+        "QA-0076.60000000.S97"
+      ],
+      "isbn": [
+        "0070131449",
+        "9780070131446",
+        "0262531054",
+        "9780262531054"
+      ],
+      "last_modified_i": 1668198863,
+      "ebook_count_i": 1,
+      "ebook_access": "printdisabled",
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": [
+        "instructorsmanua00jsus"
+      ],
+      "ia_collection": [
+        "librarygenesis",
+        "printdisabled"
+      ],
+      "ia_collection_s": "librarygenesis;printdisabled",
+      "printdisabled_s": "OL27045857M",
+      "cover_edition_key": "OL27045857M",
+      "cover_i": 8663242,
+      "publisher": [
+        "MIT Press",
+        "McGraw-Hill"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL596156A"
+      ],
+      "author_name": [
+        "Julie Sussman"
+      ],
+      "subject": [
+        "Computer algorithms",
+        "Computer programming"
+      ],
+      "publisher_facet": [
+        "MIT Press",
+        "McGraw-Hill"
+      ],
+      "subject_facet": [
+        "Computer algorithms",
+        "Computer programming"
+      ],
+      "_version_": 1759761324857884673,
+      "lcc_sort": "QA-0076.60000000.S97",
+      "author_facet": [
+        "OL596156A Julie Sussman"
+      ],
+      "subject_key": [
+        "computer_algorithms",
+        "computer_programming"
+      ]
+    },
+    {
+      "key": "/works/OL22255129W",
+      "type": "work",
+      "seed": [
+        "/books/OL30318364M",
+        "/works/OL22255129W",
+        "/authors/OL8512145A"
+      ],
+      "title": "Introduction to Algorithms",
+      "title_suggest": "Introduction to Algorithms",
+      "title_sort": "Introduction to Algorithms",
+      "edition_count": 1,
+      "edition_key": [
+        "OL30318364M"
+      ],
+      "publish_date": [
+        "2020"
+      ],
+      "publish_year": [
+        2020
+      ],
+      "first_publish_year": 2020,
+      "number_of_pages_median": 25,
+      "isbn": [
+        "9798666537640"
+      ],
+      "last_modified_i": 1600373214,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "readinglog_count": 1,
+      "want_to_read_count": 1,
+      "currently_reading_count": 0,
+      "already_read_count": 0,
+      "publisher": [
+        "Independently Published"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL8512145A"
+      ],
+      "author_name": [
+        "Moubachir MADANI FADOUL"
+      ],
+      "publisher_facet": [
+        "Independently Published"
+      ],
+      "_version_": 1759765759861456899,
+      "author_facet": [
+        "OL8512145A Moubachir MADANI FADOUL"
+      ]
+    },
+    {
+      "key": "/works/OL30829083W",
+      "type": "work",
+      "seed": [
+        "/books/OL42357557M",
+        "/works/OL30829083W",
+        "/authors/OL2444150A"
+      ],
+      "title": "Introduction to Algorithms",
+      "title_suggest": "Introduction to Algorithms",
+      "title_sort": "Introduction to Algorithms",
+      "edition_count": 1,
+      "edition_key": [
+        "OL42357557M"
+      ],
+      "publish_date": [
+        "2021"
+      ],
+      "publish_year": [
+        2021
+      ],
+      "first_publish_year": 2021,
+      "isbn": [
+        "9798590247790"
+      ],
+      "last_modified_i": 1669920414,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Independently Published"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL2444150A"
+      ],
+      "author_name": [
+        "Michael David"
+      ],
+      "publisher_facet": [
+        "Independently Published"
+      ],
+      "_version_": 1759782974542315521,
+      "author_facet": [
+        "OL2444150A Michael David"
+      ]
+    },
+    {
+      "key": "/works/OL4781294W",
+      "type": "work",
+      "seed": [
+        "/books/OL17384060M",
+        "/books/OL2194069M",
+        "/books/OL18372918M",
+        "/books/OL25409352M",
+        "/works/OL4781294W",
+        "/subjects/algorithms",
+        "/subjects/computer_algorithms",
+        "/subjects/computer_programming",
+        "/subjects/open_syllabus_project",
+        "/authors/OL1004780A",
+        "/authors/OL3328609A",
+        "/authors/OL2682480A"
+      ],
+      "title": "Introduction to Algorithms",
+      "title_suggest": "Introduction to Algorithms",
+      "title_sort": "Introduction to Algorithms",
+      "edition_count": 4,
+      "edition_key": [
+        "OL17384060M",
+        "OL2194069M",
+        "OL18372918M",
+        "OL25409352M"
+      ],
+      "publish_date": [
+        "1999",
+        "1990",
+        "2009"
+      ],
+      "publish_year": [
+        1999,
+        1990,
+        2009
+      ],
+      "first_publish_year": 1990,
+      "number_of_pages_median": 1038,
+      "lccn": [
+        "89013027",
+        "2009008593"
+      ],
+      "publish_place": [
+        "Cambridge, Massachusetts, USA",
+        "USA",
+        "Cambridge, Mass",
+        "New York",
+        "London, England"
+      ],
+      "oclc": [
+        "44674539"
+      ],
+      "contributor": [
+        "Leiserson, Charles Eric.",
+        "Rivest, Ronald L."
+      ],
+      "lcc": [
+        "QA-0076.60000000.C662 2009",
+        "QA-0076.60000000.C662 1990"
+      ],
+      "ddc": [
+        "005.1"
+      ],
+      "isbn": [
+        "0262533057",
+        "0070131430",
+        "0262031418",
+        "9780262533058",
+        "0262530910",
+        "9780262031417",
+        "9780262530910",
+        "9780070131439"
+      ],
+      "last_modified_i": 1673726157,
+      "ebook_count_i": 4,
+      "ebook_access": "printdisabled",
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": [
+        "automaticconceal03corm",
+        "introductiontoal00corm",
+        "introductiontoal00corm_741",
+        "introductiontoal00corm_805"
+      ],
+      "ia_collection": [
+        "americana",
+        "china",
+        "internetarchivebooks",
+        "librarygenesis",
+        "mitpress",
+        "printdisabled"
+      ],
+      "ia_collection_s": "americana;china;internetarchivebooks;librarygenesis;mitpress;printdisabled",
+      "printdisabled_s": "OL17384060M;OL2194069M;OL18372918M;OL25409352M",
+      "ratings_count_1": 0,
+      "ratings_count_2": 0,
+      "ratings_count_3": 0,
+      "ratings_count_4": 0,
+      "ratings_count_5": 1,
+      "ratings_average": 5.0,
+      "ratings_sortable": 2.4036636,
+      "ratings_count": 1,
+      "readinglog_count": 100,
+      "want_to_read_count": 93,
+      "currently_reading_count": 6,
+      "already_read_count": 1,
+      "cover_edition_key": "OL2194069M",
+      "cover_i": 2341462,
+      "publisher": [
+        "MIT Press",
+        "McGraw-Hill"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL1004780A",
+        "OL3328609A",
+        "OL2682480A"
+      ],
+      "author_name": [
+        "Thomas H. Cormen",
+        "Charles E. Leiserson",
+        "Ronald L. Rivest"
+      ],
+      "author_alternative_name": [
+        "Charles Eric Leiserson",
+        "Thomas Cormen",
+        "Charles E Leiserson",
+        "Ronald L Rivest"
+      ],
+      "subject": [
+        "Algorithms",
+        "Computer algorithms",
+        "Computer programming",
+        "open_syllabus_project"
+      ],
+      "id_goodreads": [
+        "1040416",
+        "946131",
+        "1836935"
+      ],
+      "id_google": [
+        "aefUBQAAQBAJ"
+      ],
+      "id_librarything": [
+        "13005"
+      ],
+      "ia_box_id": [
+        "IA117009"
+      ],
+      "publisher_facet": [
+        "MIT Press",
+        "McGraw-Hill"
+      ],
+      "subject_facet": [
+        "Algorithms",
+        "Computer algorithms",
+        "Computer programming",
+        "open_syllabus_project"
+      ],
+      "_version_": 1759793512511963140,
+      "lcc_sort": "QA-0076.60000000.C662 2009",
+      "author_facet": [
+        "OL1004780A Thomas H. Cormen",
+        "OL2682480A Ronald L. Rivest",
+        "OL3328609A Charles E. Leiserson"
+      ],
+      "subject_key": [
+        "algorithms",
+        "computer_algorithms",
+        "computer_programming",
+        "open_syllabus_project"
+      ],
+      "ddc_sort": "005.1"
+    },
+    {
+      "key": "/works/OL25163392W",
+      "type": "work",
+      "seed": [
+        "/books/OL39884013M",
+        "/books/OL33498836M",
+        "/works/OL25163392W",
+        "/subjects/stocks",
+        "/subjects/algorithms",
+        "/subjects/program_trading_(securities)",
+        "/subjects/investment_analysis",
+        "/authors/OL9497107A",
+        "/authors/OL9497108A"
+      ],
+      "title": "Introduction to Algorithmic Trading",
+      "title_suggest": "Introduction to Algorithmic Trading",
+      "title_sort": "Introduction to Algorithmic Trading",
+      "edition_count": 2,
+      "edition_key": [
+        "OL39884013M",
+        "OL33498836M"
+      ],
+      "publish_date": [
+        "2011",
+        "2015"
+      ],
+      "publish_year": [
+        2011,
+        2015
+      ],
+      "first_publish_year": 2011,
+      "number_of_pages_median": 272,
+      "isbn": [
+        "9781119206033",
+        "9781283239585",
+        "1283239582",
+        "1119206030"
+      ],
+      "last_modified_i": 1666019913,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "readinglog_count": 2,
+      "want_to_read_count": 2,
+      "currently_reading_count": 0,
+      "already_read_count": 0,
+      "publisher": [
+        "Wiley & Sons, Incorporated, John",
+        "Wiley & Sons, Limited, John"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL9497107A",
+        "OL9497108A"
+      ],
+      "author_name": [
+        "Edward Leshik",
+        "Jane Cralle"
+      ],
+      "subject": [
+        "Stocks",
+        "Algorithms",
+        "Program trading (securities)",
+        "Investment analysis"
+      ],
+      "publisher_facet": [
+        "Wiley & Sons, Incorporated, John",
+        "Wiley & Sons, Limited, John"
+      ],
+      "subject_facet": [
+        "Algorithms",
+        "Investment analysis",
+        "Program trading (securities)",
+        "Stocks"
+      ],
+      "_version_": 1759771524045209600,
+      "author_facet": [
+        "OL9497107A Edward Leshik",
+        "OL9497108A Jane Cralle"
+      ],
+      "subject_key": [
+        "algorithms",
+        "investment_analysis",
+        "program_trading_(securities)",
+        "stocks"
+      ]
+    },
+    {
+      "key": "/works/OL30174604W",
+      "type": "work",
+      "seed": [
+        "/books/OL41475132M",
+        "/works/OL30174604W",
+        "/authors/OL11094414A"
+      ],
+      "title": "Illustrative Introduction to Algorithms",
+      "title_suggest": "Illustrative Introduction to Algorithms",
+      "title_sort": "Illustrative Introduction to Algorithms",
+      "edition_count": 1,
+      "edition_key": [
+        "OL41475132M"
+      ],
+      "publish_date": [
+        "2019"
+      ],
+      "publish_year": [
+        2019
+      ],
+      "first_publish_year": 2019,
+      "isbn": [
+        "1686863268",
+        "9781686863264"
+      ],
+      "last_modified_i": 1669417744,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Independently Published"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL11094414A"
+      ],
+      "author_name": [
+        "Dino Cajic"
+      ],
+      "publisher_facet": [
+        "Independently Published"
+      ],
+      "_version_": 1759781471357239296,
+      "author_facet": [
+        "OL11094414A Dino Cajic"
+      ]
+    },
+    {
+      "key": "/works/OL27092336W",
+      "type": "work",
+      "seed": [
+        "/books/OL36773921M",
+        "/works/OL27092336W",
+        "/subjects/political_science",
+        "/authors/OL10158004A",
+        "/authors/OL10158005A"
+      ],
+      "title": "Introduction to Algorithmic Government",
+      "title_suggest": "Introduction to Algorithmic Government",
+      "title_sort": "Introduction to Algorithmic Government",
+      "edition_count": 1,
+      "edition_key": [
+        "OL36773921M"
+      ],
+      "publish_date": [
+        "2021"
+      ],
+      "publish_year": [
+        2021
+      ],
+      "first_publish_year": 2021,
+      "isbn": [
+        "9789811602818",
+        "9811602816"
+      ],
+      "last_modified_i": 1643312958,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Springer Singapore Pte. Limited"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL10158004A",
+        "OL10158005A"
+      ],
+      "author_name": [
+        "Rajan? Gupta",
+        "Saibal Kumar Pal"
+      ],
+      "subject": [
+        "Political science"
+      ],
+      "publisher_facet": [
+        "Springer Singapore Pte. Limited"
+      ],
+      "subject_facet": [
+        "Political science"
+      ],
+      "_version_": 1759775581766942720,
+      "author_facet": [
+        "OL10158004A Rajan? Gupta",
+        "OL10158005A Saibal Kumar Pal"
+      ],
+      "subject_key": [
+        "political_science"
+      ]
+    },
+    {
+      "key": "/works/OL16919070W",
+      "type": "work",
+      "seed": [
+        "/books/OL3946060M",
+        "/works/OL16919070W",
+        "/subjects/computer_algorithms",
+        "/subjects/computer_programming",
+        "/subjects/algorithms",
+        "/subjects/programming",
+        "/subjects/algorithmes",
+        "/subjects/programmation_(informatique)",
+        "/subjects/54.10_theoretical_informatics",
+        "/subjects/algorithmus",
+        "/subjects/informatik",
+        "/subjects/theoretische_informatik",
+        "/subjects/algorithmentheorie",
+        "/subjects/computer_programming",
+        "/subjects/computer_programs",
+        "/subjects/programming_languages",
+        "/subjects/algorithms",
+        "/subjects/file_maintenance_(computers)",
+        "/subjects/software_tools",
+        "/authors/OL1004780A"
+      ],
+      "title": "Introduction to algorithms",
+      "title_suggest": "Introduction to algorithms",
+      "title_sort": "Introduction to algorithms",
+      "edition_count": 1,
+      "edition_key": [
+        "OL3946060M"
+      ],
+      "publish_date": [
+        "2001"
+      ],
+      "publish_year": [
+        2001
+      ],
+      "first_publish_year": 2001,
+      "number_of_pages_median": 1180,
+      "lccn": [
+        "2001031277"
+      ],
+      "publish_place": [
+        "Cambridge, Mass"
+      ],
+      "oclc": [
+        "46792720"
+      ],
+      "contributor": [
+        "Cormen, Thomas H."
+      ],
+      "lcc": [
+        "QA-0076.60000000.I5858 2001",
+        "QA-0076.60000000.C662 2004"
+      ],
+      "ddc": [
+        "005.1"
+      ],
+      "isbn": [
+        "9780262032933",
+        "0262032937"
+      ],
+      "last_modified_i": 1678252078,
+      "ebook_count_i": 0,
+      "ebook_access": "unclassified",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "ia": [
+        "introductiontoal00corm_704"
+      ],
+      "ia_collection": [
+        "librarygenesis"
+      ],
+      "ia_collection_s": "librarygenesis",
+      "ratings_average": 4.25,
+      "ratings_sortable": 3.2180698,
+      "ratings_count": 8,
+      "ratings_count_1": 0,
+      "ratings_count_2": 0,
+      "ratings_count_3": 2,
+      "ratings_count_4": 2,
+      "ratings_count_5": 4,
+      "readinglog_count": 44,
+      "want_to_read_count": 33,
+      "currently_reading_count": 1,
+      "already_read_count": 10,
+      "cover_edition_key": "OL3946060M",
+      "cover_i": 149636,
+      "publisher": [
+        "MIT Press"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL1004780A"
+      ],
+      "author_name": [
+        "Thomas H. Cormen"
+      ],
+      "author_alternative_name": [
+        "Thomas Cormen"
+      ],
+      "subject": [
+        "Computer algorithms",
+        "Computer programming",
+        "Algorithms",
+        "Programming",
+        "Algorithmes",
+        "Programmation (Informatique)",
+        "54.10 theoretical informatics",
+        "Algorithmus",
+        "Informatik",
+        "Theoretische Informatik",
+        "Algorithmentheorie",
+        "COMPUTER PROGRAMMING",
+        "COMPUTER PROGRAMS",
+        "PROGRAMMING LANGUAGES",
+        "ALGORITHMS",
+        "FILE MAINTENANCE (COMPUTERS)",
+        "SOFTWARE TOOLS"
+      ],
+      "id_goodreads": [
+        "108986"
+      ],
+      "id_librarything": [
+        "13005"
+      ],
+      "publisher_facet": [
+        "MIT Press"
+      ],
+      "subject_facet": [
+        "54.10 theoretical informatics",
+        "ALGORITHMS",
+        "Algorithmentheorie",
+        "Algorithmes",
+        "Algorithms",
+        "Algorithmus",
+        "COMPUTER PROGRAMMING",
+        "COMPUTER PROGRAMS",
+        "Computer algorithms",
+        "Computer programming",
+        "FILE MAINTENANCE (COMPUTERS)",
+        "Informatik",
+        "PROGRAMMING LANGUAGES",
+        "Programmation (Informatique)",
+        "Programming",
+        "SOFTWARE TOOLS",
+        "Theoretische Informatik"
+      ],
+      "_version_": 1759910969463537665,
+      "lcc_sort": "QA-0076.60000000.I5858 2001",
+      "author_facet": [
+        "OL1004780A Thomas H. Cormen"
+      ],
+      "subject_key": [
+        "54.10_theoretical_informatics",
+        "algorithmentheorie",
+        "algorithmes",
+        "algorithms",
+        "algorithmus",
+        "computer_algorithms",
+        "computer_programming",
+        "computer_programs",
+        "file_maintenance_(computers)",
+        "informatik",
+        "programmation_(informatique)",
+        "programming",
+        "programming_languages",
+        "software_tools",
+        "theoretische_informatik"
+      ],
+      "ddc_sort": "005.1"
+    },
+    {
+      "key": "/works/OL27774101W",
+      "type": "work",
+      "seed": [
+        "/books/OL37923533M",
+        "/books/OL39352934M",
+        "/works/OL27774101W",
+        "/authors/OL10364424A"
+      ],
+      "title": "Introduction to Algorithmic Marketing",
+      "title_suggest": "Introduction to Algorithmic Marketing",
+      "title_sort": "Introduction to Algorithmic Marketing",
+      "edition_count": 2,
+      "edition_key": [
+        "OL37923533M",
+        "OL39352934M"
+      ],
+      "publish_date": [
+        "Dec 02, 2017",
+        "2017"
+      ],
+      "publish_year": [
+        2017
+      ],
+      "first_publish_year": 2017,
+      "number_of_pages_median": 506,
+      "isbn": [
+        "9780692989043",
+        "0692142606",
+        "9780692142608",
+        "0692989048"
+      ],
+      "last_modified_i": 1660812627,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Ilya Katsov",
+        "Ilia Katcov"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL10364424A"
+      ],
+      "author_name": [
+        "Ilya Katsov"
+      ],
+      "publisher_facet": [
+        "Ilia Katcov",
+        "Ilya Katsov"
+      ],
+      "_version_": 1759776521622388736,
+      "author_facet": [
+        "OL10364424A Ilya Katsov"
+      ]
+    },
+    {
+      "key": "/works/OL9069366M",
+      "type": "work",
+      "seed": [
+        "/books/OL9069366M",
+        "/works/OL9069366M"
+      ],
+      "title": "Introduction to Algorithms (International Edition)",
+      "title_suggest": "Introduction to Algorithms (International Edition)",
+      "title_sort": "Introduction to Algorithms (International Edition)",
+      "edition_count": 1,
+      "edition_key": [
+        "OL9069366M"
+      ],
+      "publish_date": [
+        "1000"
+      ],
+      "publish_year": [
+        1000
+      ],
+      "first_publish_year": 1000,
+      "isbn": [
+        "9788120321410",
+        "8120321413"
+      ],
+      "last_modified_i": 1678282153,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Prentice Hall India"
+      ],
+      "id_goodreads": [
+        "105131"
+      ],
+      "id_librarything": [
+        "13005"
+      ],
+      "publisher_facet": [
+        "Prentice Hall India"
+      ],
+      "_version_": 1759806388885782528
+    },
+    {
+      "key": "/works/OL25490742W",
+      "type": "work",
+      "seed": [
+        "/books/OL34192801M",
+        "/works/OL25490742W",
+        "/subjects/computer_programming",
+        "/subjects/computer_algorithms",
+        "/subjects/algorithms",
+        "/subjects/programmation_(informatique)",
+        "/subjects/algorithmes",
+        "/authors/OL1004780A",
+        "/authors/OL3328609A",
+        "/authors/OL2682480A",
+        "/authors/OL9633062A"
+      ],
+      "title": "Introduction to Algorithms, Fourth Edition",
+      "title_suggest": "Introduction to Algorithms, Fourth Edition",
+      "title_sort": "Introduction to Algorithms, Fourth Edition",
+      "edition_count": 1,
+      "edition_key": [
+        "OL34192801M"
+      ],
+      "publish_date": [
+        "2022"
+      ],
+      "publish_year": [
+        2022
+      ],
+      "first_publish_year": 2022,
+      "number_of_pages_median": 1332,
+      "lccn": [
+        "2021037260"
+      ],
+      "oclc": [
+        "1264174621"
+      ],
+      "lcc": [
+        "QA-0076.60000000.C662 2022"
+      ],
+      "isbn": [
+        "026204630X",
+        "9780262046305"
+      ],
+      "last_modified_i": 1670739978,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "readinglog_count": 7,
+      "want_to_read_count": 6,
+      "currently_reading_count": 1,
+      "already_read_count": 0,
+      "publisher": [
+        "MIT Press"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL1004780A",
+        "OL3328609A",
+        "OL2682480A",
+        "OL9633062A"
+      ],
+      "author_name": [
+        "Thomas H. Cormen",
+        "Charles E. Leiserson",
+        "Ronald L. Rivest",
+        "Clifford Stein"
+      ],
+      "author_alternative_name": [
+        "Charles E Leiserson",
+        "Charles Eric Leiserson",
+        "Thomas Cormen",
+        "Ronald L Rivest"
+      ],
+      "subject": [
+        "Computer programming",
+        "Computer algorithms",
+        "Algorithms",
+        "Programmation (Informatique)",
+        "Algorithmes"
+      ],
+      "publisher_facet": [
+        "MIT Press"
+      ],
+      "subject_facet": [
+        "Algorithmes",
+        "Algorithms",
+        "Computer algorithms",
+        "Computer programming",
+        "Programmation (Informatique)"
+      ],
+      "_version_": 1759772078193508352,
+      "lcc_sort": "QA-0076.60000000.C662 2022",
+      "author_facet": [
+        "OL1004780A Thomas H. Cormen",
+        "OL2682480A Ronald L. Rivest",
+        "OL3328609A Charles E. Leiserson",
+        "OL9633062A Clifford Stein"
+      ],
+      "subject_key": [
+        "algorithmes",
+        "algorithms",
+        "computer_algorithms",
+        "computer_programming",
+        "programmation_(informatique)"
+      ]
+    },
+    {
+      "key": "/works/OL8497302W",
+      "type": "work",
+      "seed": [
+        "/books/OL10307698M",
+        "/works/OL8497302W",
+        "/authors/OL2839534A"
+      ],
+      "title": "Introduction to Algorithms in C",
+      "title_suggest": "Introduction to Algorithms in C",
+      "title_sort": "Introduction to Algorithms in C",
+      "edition_count": 1,
+      "edition_key": [
+        "OL10307698M"
+      ],
+      "publish_date": [
+        "July 1996"
+      ],
+      "publish_year": [
+        1996
+      ],
+      "first_publish_year": 1996,
+      "number_of_pages_median": 496,
+      "oclc": [
+        "231895566"
+      ],
+      "isbn": [
+        "9780471305958",
+        "0471305952"
+      ],
+      "last_modified_i": 1666032430,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "John Wiley & Sons Inc"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL2839534A"
+      ],
+      "author_name": [
+        "Thomas W. Parsons"
+      ],
+      "publisher_facet": [
+        "John Wiley & Sons Inc"
+      ],
+      "_version_": 1759801582577254400,
+      "author_facet": [
+        "OL2839534A Thomas W. Parsons"
+      ]
+    },
+    {
+      "key": "/works/OL3460900W",
+      "type": "work",
+      "seed": [
+        "/books/OL1081684M",
+        "/works/OL3460900W",
+        "/subjects/computer_algorithms",
+        "/subjects/pascal_(computer_program_language)",
+        "/subjects/algorithmes",
+        "/subjects/analise_combinatoria",
+        "/subjects/algoritmos_e_estruturas_de_dados",
+        "/subjects/pascal_(langage_de_programmation)",
+        "/subjects/pascal_(computer_program_language)",
+        "/authors/OL576559A"
+      ],
+      "title": "Introduction to algorithms in Pascal",
+      "title_suggest": "Introduction to algorithms in Pascal",
+      "title_sort": "Introduction to algorithms in Pascal",
+      "edition_count": 1,
+      "edition_key": [
+        "OL1081684M"
+      ],
+      "publish_date": [
+        "1995"
+      ],
+      "publish_year": [
+        1995
+      ],
+      "first_publish_year": 1995,
+      "number_of_pages_median": 447,
+      "lccn": [
+        "94005246"
+      ],
+      "publish_place": [
+        "New York"
+      ],
+      "lcc": [
+        "QA-0076.73000000.P35P37 1995",
+        "QA-0076.73000000.P35 P37 1995"
+      ],
+      "ddc": [
+        "005.133"
+      ],
+      "isbn": [
+        "0471305944",
+        "9780471305941"
+      ],
+      "last_modified_i": 1666096251,
+      "ebook_count_i": 1,
+      "ebook_access": "borrowable",
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": [
+        "introductiontoal0000pars"
+      ],
+      "ia_collection": [
+        "china",
+        "inlibrary",
+        "internetarchivebooks",
+        "kalamazoocollege-ol",
+        "printdisabled",
+        "universityofcoloradoboulder-ol"
+      ],
+      "ia_collection_s": "china;inlibrary;internetarchivebooks;kalamazoocollege-ol;printdisabled;universityofcoloradoboulder-ol",
+      "lending_edition_s": "OL1081684M",
+      "lending_identifier_s": "introductiontoal0000pars",
+      "printdisabled_s": "OL1081684M",
+      "cover_edition_key": "OL1081684M",
+      "cover_i": 8189390,
+      "publisher": [
+        "Wiley"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL576559A"
+      ],
+      "author_name": [
+        "Parsons, Thomas W."
+      ],
+      "subject": [
+        "Computer algorithms",
+        "Pascal (Computer program language)",
+        "Algorithmes",
+        "Analise combinatoria",
+        "Algoritmos e estruturas de dados",
+        "PASCAL (Langage de programmation)",
+        "Pascal (computer program language)"
+      ],
+      "id_goodreads": [
+        "105142"
+      ],
+      "id_librarything": [
+        "1108934"
+      ],
+      "ia_box_id": [
+        "IA1247814"
+      ],
+      "publisher_facet": [
+        "Wiley"
+      ],
+      "subject_facet": [
+        "Algorithmes",
+        "Algoritmos e estruturas de dados",
+        "Analise combinatoria",
+        "Computer algorithms",
+        "PASCAL (Langage de programmation)",
+        "Pascal (Computer program language)",
+        "Pascal (computer program language)"
+      ],
+      "_version_": 1759790254540193793,
+      "lcc_sort": "QA-0076.73000000.P35 P37 1995",
+      "author_facet": [
+        "OL576559A Parsons, Thomas W."
+      ],
+      "subject_key": [
+        "algorithmes",
+        "algoritmos_e_estruturas_de_dados",
+        "analise_combinatoria",
+        "computer_algorithms",
+        "pascal_(computer_program_language)",
+        "pascal_(langage_de_programmation)"
+      ],
+      "ddc_sort": "005.133"
+    },
+    {
+      "key": "/works/OL16003260W",
+      "type": "work",
+      "seed": [
+        "/books/OL24907442M",
+        "/works/OL16003260W",
+        "/subjects/investment_analysis",
+        "/subjects/mathematical_models",
+        "/subjects/stocks",
+        "/subjects/algorithms",
+        "/subjects/program_trading_(securities)",
+        "/subjects/program_trading_(securities)",
+        "/authors/OL6961286A"
+      ],
+      "title": "An introduction to algorithmic trading",
+      "title_suggest": "An introduction to algorithmic trading",
+      "title_sort": "An introduction to algorithmic trading",
+      "edition_count": 1,
+      "edition_key": [
+        "OL24907442M"
+      ],
+      "publish_date": [
+        "2011"
+      ],
+      "publish_year": [
+        2011
+      ],
+      "first_publish_year": 2011,
+      "number_of_pages_median": 264,
+      "lccn": [
+        "2011290087"
+      ],
+      "publish_place": [
+        "Chichester, West Sussex, UK"
+      ],
+      "oclc": [
+        "639188943"
+      ],
+      "contributor": [
+        "Cralle, Jane"
+      ],
+      "lcc": [
+        "HG-4661.00000000.L47 2011"
+      ],
+      "isbn": [
+        "1119975107",
+        "9780470689547",
+        "1119975093",
+        "9781119975106",
+        "9780470979358",
+        "0470689544",
+        "9781119975090",
+        "0470979356"
+      ],
+      "last_modified_i": 1670498723,
+      "ebook_count_i": 1,
+      "ebook_access": "printdisabled",
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": [
+        "introductiontoal00lesh"
+      ],
+      "ia_collection": [
+        "librarygenesis",
+        "printdisabled"
+      ],
+      "ia_collection_s": "librarygenesis;printdisabled",
+      "printdisabled_s": "OL24907442M",
+      "cover_edition_key": "OL24907442M",
+      "cover_i": 9854293,
+      "publisher": [
+        "Wiley"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL6961286A"
+      ],
+      "author_name": [
+        "Edward A. Leshik"
+      ],
+      "subject": [
+        "Investment analysis",
+        "Mathematical models",
+        "Stocks",
+        "Algorithms",
+        "Program trading (Securities)",
+        "Program trading (securities)"
+      ],
+      "publisher_facet": [
+        "Wiley"
+      ],
+      "subject_facet": [
+        "Algorithms",
+        "Investment analysis",
+        "Mathematical models",
+        "Program trading (Securities)",
+        "Program trading (securities)",
+        "Stocks"
+      ],
+      "_version_": 1759752156375678980,
+      "lcc_sort": "HG-4661.00000000.L47 2011",
+      "author_facet": [
+        "OL6961286A Edward A. Leshik"
+      ],
+      "subject_key": [
+        "algorithms",
+        "investment_analysis",
+        "mathematical_models",
+        "program_trading_(securities)",
+        "stocks"
+      ]
+    },
+    {
+      "key": "/works/OL19911756W",
+      "type": "work",
+      "seed": [
+        "/books/OL27096373M",
+        "/books/OL40295345M",
+        "/works/OL19911756W",
+        "/subjects/algorytmy",
+        "/subjects/podr\u0119czniki",
+        "/authors/OL1004780A"
+      ],
+      "title": "Wprowadzenie do algorytm\u00f3w",
+      "title_suggest": "Wprowadzenie do algorytm\u00f3w",
+      "title_sort": "Wprowadzenie do algorytm\u00f3w",
+      "edition_count": 2,
+      "edition_key": [
+        "OL27096373M",
+        "OL40295345M"
+      ],
+      "publish_date": [
+        "2001",
+        "2007"
+      ],
+      "publish_year": [
+        2001,
+        2007
+      ],
+      "first_publish_year": 2001,
+      "number_of_pages_median": 1156,
+      "publish_place": [
+        "Warszawa"
+      ],
+      "oclc": [
+        "749241843",
+        "749480891"
+      ],
+      "contributor": [
+        "Rivest, Ronald L.",
+        "Leiserson, Charles E.",
+        "Diks, Krzysztof. T\u0142"
+      ],
+      "isbn": [
+        "8320433282",
+        "9788320426656",
+        "9788320433289",
+        "8320426650"
+      ],
+      "last_modified_i": 1670166437,
+      "ebook_count_i": 2,
+      "ebook_access": "borrowable",
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": [
+        "wprowadzeniedoal0000unse",
+        "wprowadzeniedoal00thom"
+      ],
+      "ia_collection": [
+        "inlibrary",
+        "internetarchivebooks",
+        "librarygenesis",
+        "printdisabled"
+      ],
+      "ia_collection_s": "inlibrary;internetarchivebooks;librarygenesis;printdisabled",
+      "lending_edition_s": "OL40295345M",
+      "lending_identifier_s": "wprowadzeniedoal0000unse",
+      "printdisabled_s": "OL40295345M;OL27096373M",
+      "cover_edition_key": "OL27096373M",
+      "cover_i": 8735904,
+      "publisher": [
+        "Wydawnictwa Naukowo-Techniczne",
+        "Wydawnictwo Naukowo-Techniczne"
+      ],
+      "language": [
+        "pol"
+      ],
+      "author_key": [
+        "OL1004780A"
+      ],
+      "author_name": [
+        "Thomas H. Cormen"
+      ],
+      "author_alternative_name": [
+        "Thomas Cormen"
+      ],
+      "subject": [
+        "Algorytmy",
+        "Podr\u0119czniki"
+      ],
+      "ia_box_id": [
+        "IA40760122"
+      ],
+      "publisher_facet": [
+        "Wydawnictwa Naukowo-Techniczne",
+        "Wydawnictwo Naukowo-Techniczne"
+      ],
+      "subject_facet": [
+        "Algorytmy",
+        "Podr\u0119czniki"
+      ],
+      "_version_": 1759761594061946882,
+      "author_facet": [
+        "OL1004780A Thomas H. Cormen"
+      ],
+      "subject_key": [
+        "algorytmy",
+        "podr\u0119czniki"
+      ]
+    },
+    {
+      "key": "/works/OL31327254W",
+      "type": "work",
+      "seed": [
+        "/books/OL42976639M",
+        "/works/OL31327254W"
+      ],
+      "title": "Introduction to Algorithms Text in Russian",
+      "title_suggest": "Introduction to Algorithms Text in Russian",
+      "title_sort": "Introduction to Algorithms Text in Russian",
+      "edition_count": 1,
+      "edition_key": [
+        "OL42976639M"
+      ],
+      "publish_date": [
+        "????"
+      ],
+      "isbn": [
+        "5845908574",
+        "9785845908575"
+      ],
+      "last_modified_i": 1670234093,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "_version_": 1759783892035829760
+    },
+    {
+      "key": "/works/OL30146073W",
+      "type": "work",
+      "seed": [
+        "/books/OL41435937M",
+        "/works/OL30146073W",
+        "/authors/OL8360836A",
+        "/authors/OL11088109A"
+      ],
+      "title": "Introduction to Algorithms",
+      "title_suggest": "Introduction to Algorithms",
+      "title_sort": "Introduction to Algorithms",
+      "edition_count": 1,
+      "edition_key": [
+        "OL41435937M"
+      ],
+      "publish_date": [
+        "2019"
+      ],
+      "publish_year": [
+        2019
+      ],
+      "first_publish_year": 2019,
+      "isbn": [
+        "1696390192",
+        "9781696390194"
+      ],
+      "last_modified_i": 1669395700,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Independently Published"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL8360836A",
+        "OL11088109A"
+      ],
+      "author_name": [
+        "Moaml Mohmmed",
+        "Gerald Lim Morrison"
+      ],
+      "publisher_facet": [
+        "Independently Published"
+      ],
+      "_version_": 1759781431974821888,
+      "author_facet": [
+        "OL11088109A Gerald Lim Morrison",
+        "OL8360836A Moaml Mohmmed"
+      ]
+    },
+    {
+      "key": "/works/OL6593086W",
+      "type": "work",
+      "seed": [
+        "/books/OL10300208M",
+        "/works/OL6593086W",
+        "/authors/OL1770031A"
+      ],
+      "title": "Introduction to Algorithms in C Sm Parsons",
+      "title_suggest": "Introduction to Algorithms in C Sm Parsons",
+      "title_sort": "Introduction to Algorithms in C Sm Parsons",
+      "edition_count": 1,
+      "edition_key": [
+        "OL10300208M"
+      ],
+      "publish_date": [
+        "May 2000"
+      ],
+      "publish_year": [
+        2000
+      ],
+      "first_publish_year": 2000,
+      "isbn": [
+        "9780471107033",
+        "0471107034"
+      ],
+      "last_modified_i": 1260837958,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "John Wiley & Sons Inc"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL1770031A"
+      ],
+      "author_name": [
+        "Parsons."
+      ],
+      "publisher_facet": [
+        "John Wiley & Sons Inc"
+      ],
+      "_version_": 1759797360016228352,
+      "author_facet": [
+        "OL1770031A Parsons."
+      ]
+    },
+    {
+      "key": "/works/OL20603105W",
+      "type": "work",
+      "seed": [
+        "/books/OL27853582M",
+        "/works/OL20603105W",
+        "/authors/OL7811308A",
+        "/authors/OL7811309A"
+      ],
+      "title": "Suan fa dao lun",
+      "title_suggest": "Suan fa dao lun",
+      "title_sort": "Suan fa dao lun",
+      "edition_count": 1,
+      "edition_key": [
+        "OL27853582M"
+      ],
+      "publish_date": [
+        "2006"
+      ],
+      "publish_year": [
+        2006
+      ],
+      "first_publish_year": 2006,
+      "publish_place": [
+        "Bei jing"
+      ],
+      "oclc": [
+        "305807311"
+      ],
+      "isbn": [
+        "9787111187776",
+        "7111187776"
+      ],
+      "last_modified_i": 1577066315,
+      "ebook_count_i": 1,
+      "ebook_access": "borrowable",
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": [
+        "suanfadaolun0002unse"
+      ],
+      "ia_collection": [
+        "china",
+        "inlibrary",
+        "internetarchivebooks",
+        "popularchinesebooks",
+        "printdisabled"
+      ],
+      "ia_collection_s": "china;inlibrary;internetarchivebooks;popularchinesebooks;printdisabled",
+      "lending_edition_s": "OL27853582M",
+      "lending_identifier_s": "suanfadaolun0002unse",
+      "printdisabled_s": "OL27853582M",
+      "cover_edition_key": "OL27853582M",
+      "cover_i": 9242364,
+      "publisher": [
+        "Ji xie gong ye chu ban she"
+      ],
+      "language": [
+        "chi"
+      ],
+      "author_key": [
+        "OL7811308A",
+        "OL7811309A"
+      ],
+      "author_name": [
+        "Ke man",
+        "Pan jin gui"
+      ],
+      "ia_box_id": [
+        "IA1736622"
+      ],
+      "publisher_facet": [
+        "Ji xie gong ye chu ban she"
+      ],
+      "_version_": 1759762737344282625,
+      "author_facet": [
+        "OL7811308A Ke man",
+        "OL7811309A Pan jin gui"
+      ]
+    },
+    {
+      "key": "/works/OL20754440W",
+      "type": "work",
+      "seed": [
+        "/books/OL28082895M",
+        "/books/OL28082910M",
+        "/books/OL28082911M",
+        "/works/OL20754440W",
+        "/subjects/finance",
+        "/authors/OL7902765A",
+        "/authors/OL7902766A"
+      ],
+      "title": "Introduction to Algorithmic Finance, Algorithmic Trading and Blockchain",
+      "title_suggest": "Introduction to Algorithmic Finance, Algorithmic Trading and Blockchain",
+      "title_sort": "Introduction to Algorithmic Finance, Algorithmic Trading and Blockchain",
+      "edition_count": 3,
+      "edition_key": [
+        "OL28082895M",
+        "OL28082910M",
+        "OL28082911M"
+      ],
+      "publish_date": [
+        "2020"
+      ],
+      "publish_year": [
+        2020
+      ],
+      "first_publish_year": 2020,
+      "number_of_pages_median": 244,
+      "isbn": [
+        "9781789738940",
+        "1789738938",
+        "1789738946",
+        "1789738954",
+        "9781789738957",
+        "9781789738933"
+      ],
+      "last_modified_i": 1646013597,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "readinglog_count": 1,
+      "want_to_read_count": 1,
+      "currently_reading_count": 0,
+      "already_read_count": 0,
+      "publisher": [
+        "Emerald Publishing Limited"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL7902765A",
+        "OL7902766A"
+      ],
+      "author_name": [
+        "Satya Chakravarty",
+        "Palash Sarkar"
+      ],
+      "subject": [
+        "Finance"
+      ],
+      "publisher_facet": [
+        "Emerald Publishing Limited"
+      ],
+      "subject_facet": [
+        "Finance"
+      ],
+      "_version_": 1759762946158755840,
+      "author_facet": [
+        "OL7902765A Satya Chakravarty",
+        "OL7902766A Palash Sarkar"
+      ],
+      "subject_key": [
+        "finance"
+      ]
+    },
+    {
+      "key": "/works/OL13556300W",
+      "type": "work",
+      "seed": [
+        "/books/OL22782111M",
+        "/books/OL22217796M",
+        "/works/OL13556300W",
+        "/subjects/computer_algorithms",
+        "/subjects/pascal_(computer_program_language)",
+        "/subjects/programming_languages_(electronic_computers)",
+        "/authors/OL6420063A"
+      ],
+      "title": "Introduction to algorithmsin Pascal",
+      "title_suggest": "Introduction to algorithmsin Pascal",
+      "title_sort": "Introduction to algorithmsin Pascal",
+      "edition_count": 2,
+      "edition_key": [
+        "OL22782111M",
+        "OL22217796M"
+      ],
+      "publish_date": [
+        "1995"
+      ],
+      "publish_year": [
+        1995
+      ],
+      "first_publish_year": 1995,
+      "number_of_pages_median": 447,
+      "publish_place": [
+        "New York",
+        "Chichester"
+      ],
+      "ddc": [
+        "005.133"
+      ],
+      "isbn": [
+        "0471116009",
+        "9780471305941",
+        "0471305944",
+        "9780471116004"
+      ],
+      "last_modified_i": 1282209313,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Wiley"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL6420063A"
+      ],
+      "author_name": [
+        "Thomas W. Parsons"
+      ],
+      "subject": [
+        "Computer algorithms",
+        "Pascal (Computer program language)",
+        "Programming languages (Electronic computers)"
+      ],
+      "id_goodreads": [
+        "105142"
+      ],
+      "id_librarything": [
+        "1108934"
+      ],
+      "publisher_facet": [
+        "Wiley"
+      ],
+      "subject_facet": [
+        "Computer algorithms",
+        "Pascal (Computer program language)",
+        "Programming languages (Electronic computers)"
+      ],
+      "_version_": 1759748607961989121,
+      "author_facet": [
+        "OL6420063A Thomas W. Parsons"
+      ],
+      "subject_key": [
+        "computer_algorithms",
+        "pascal_(computer_program_language)",
+        "programming_languages_(electronic_computers)"
+      ],
+      "ddc_sort": "005.133"
+    },
+    {
+      "key": "/works/OL13311376W",
+      "type": "work",
+      "seed": [
+        "/books/OL21135504M",
+        "/works/OL13311376W",
+        "/subjects/electronic_digital_computers",
+        "/subjects/algorithms",
+        "/subjects/programming",
+        "/subjects/electronic_digital_computers_programming",
+        "/subjects/structured_programming",
+        "/subjects/computer_programming",
+        "/subjects/algorithmus",
+        "/subjects/strukturierte_programmierung",
+        "/authors/OL6209688A"
+      ],
+      "title": "An introduction to algorithm design and structured programming",
+      "title_suggest": "An introduction to algorithm design and structured programming",
+      "title_sort": "An introduction to algorithm design and structured programming",
+      "edition_count": 1,
+      "edition_key": [
+        "OL21135504M"
+      ],
+      "publish_date": [
+        "1988"
+      ],
+      "publish_year": [
+        1988
+      ],
+      "first_publish_year": 1988,
+      "number_of_pages_median": 300,
+      "lccn": [
+        "87007173"
+      ],
+      "publish_place": [
+        "London"
+      ],
+      "lcc": [
+        "QA-0076.60000000",
+        "QA-0076.60000000.R42 1988"
+      ],
+      "ddc": [
+        "005.12028"
+      ],
+      "isbn": [
+        "0134777204",
+        "9780134777207"
+      ],
+      "last_modified_i": 1644476597,
+      "ebook_count_i": 1,
+      "ebook_access": "borrowable",
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": [
+        "introductiontoal0000reed"
+      ],
+      "ia_collection": [
+        "inlibrary",
+        "internetarchivebooks",
+        "printdisabled",
+        "rochester-ol",
+        "universityofarizona-ol",
+        "universityofcoloradoboulder-ol"
+      ],
+      "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled;rochester-ol;universityofarizona-ol;universityofcoloradoboulder-ol",
+      "lending_edition_s": "OL21135504M",
+      "lending_identifier_s": "introductiontoal0000reed",
+      "printdisabled_s": "OL21135504M",
+      "cover_edition_key": "OL21135504M",
+      "cover_i": 12625067,
+      "publisher": [
+        "Prentice-Hall International"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL6209688A"
+      ],
+      "author_name": [
+        "Thomas A. Reed"
+      ],
+      "subject": [
+        "Electronic digital computers",
+        "Algorithms",
+        "Programming",
+        "Electronic digital computers, programming",
+        "Structured programming",
+        "Computer programming",
+        "Algorithmus",
+        "Strukturierte Programmierung"
+      ],
+      "id_goodreads": [
+        "3575522"
+      ],
+      "id_librarything": [
+        "7611748"
+      ],
+      "ia_box_id": [
+        "IA40351817"
+      ],
+      "publisher_facet": [
+        "Prentice-Hall International"
+      ],
+      "subject_facet": [
+        "Algorithms",
+        "Algorithmus",
+        "Computer programming",
+        "Electronic digital computers",
+        "Electronic digital computers, programming",
+        "Programming",
+        "Structured programming",
+        "Strukturierte Programmierung"
+      ],
+      "_version_": 1759748099049259009,
+      "lcc_sort": "QA-0076.60000000.R42 1988",
+      "author_facet": [
+        "OL6209688A Thomas A. Reed"
+      ],
+      "subject_key": [
+        "algorithms",
+        "algorithmus",
+        "computer_programming",
+        "electronic_digital_computers",
+        "electronic_digital_computers_programming",
+        "programming",
+        "structured_programming",
+        "strukturierte_programmierung"
+      ],
+      "ddc_sort": "005.12028"
+    },
+    {
+      "key": "/works/OL4961778W",
+      "type": "work",
+      "seed": [
+        "/books/OL2378704M",
+        "/works/OL4961778W",
+        "/subjects/algorithms",
+        "/subjects/computer_programming",
+        "/subjects/structured_programming",
+        "/subjects/electronic_digital_computers_programming",
+        "/authors/OL1070869A"
+      ],
+      "title": "An introduction to algorithm design and structured programming",
+      "title_suggest": "An introduction to algorithm design and structured programming",
+      "title_sort": "An introduction to algorithm design and structured programming",
+      "edition_count": 1,
+      "edition_key": [
+        "OL2378704M"
+      ],
+      "publish_date": [
+        "1988"
+      ],
+      "publish_year": [
+        1988
+      ],
+      "first_publish_year": 1988,
+      "number_of_pages_median": 277,
+      "lccn": [
+        "87007173"
+      ],
+      "publish_place": [
+        "New York"
+      ],
+      "lcc": [
+        "QA-0076.60000000.R42 1988"
+      ],
+      "ddc": [
+        "005.1"
+      ],
+      "isbn": [
+        "0134777204",
+        "9780134777207",
+        "0134777794",
+        "9780134777795"
+      ],
+      "last_modified_i": 1670453672,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "cover_edition_key": "OL2378704M",
+      "cover_i": 4116762,
+      "publisher": [
+        "Prentice Hall"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL1070869A"
+      ],
+      "author_name": [
+        "Thomas A. Reed"
+      ],
+      "subject": [
+        "Algorithms",
+        "Computer programming",
+        "Structured programming",
+        "Electronic digital computers, programming"
+      ],
+      "id_goodreads": [
+        "145085",
+        "3575522"
+      ],
+      "id_librarything": [
+        "7611748"
+      ],
+      "publisher_facet": [
+        "Prentice Hall"
+      ],
+      "subject_facet": [
+        "Algorithms",
+        "Computer programming",
+        "Electronic digital computers, programming",
+        "Structured programming"
+      ],
+      "_version_": 1759793874225594368,
+      "lcc_sort": "QA-0076.60000000.R42 1988",
+      "author_facet": [
+        "OL1070869A Thomas A. Reed"
+      ],
+      "subject_key": [
+        "algorithms",
+        "computer_programming",
+        "electronic_digital_computers_programming",
+        "structured_programming"
+      ],
+      "ddc_sort": "005.1"
+    },
+    {
+      "key": "/works/OL22431133W",
+      "type": "work",
+      "seed": [
+        "/books/OL34747553M",
+        "/books/OL30521537M",
+        "/works/OL22431133W",
+        "/subjects/machine_learning",
+        "/subjects/data_mining",
+        "/authors/OL3090949A"
+      ],
+      "title": "Introduction to Algorithms for Data Mining and Machine Learning",
+      "title_suggest": "Introduction to Algorithms for Data Mining and Machine Learning",
+      "title_sort": "Introduction to Algorithms for Data Mining and Machine Learning",
+      "edition_count": 2,
+      "edition_key": [
+        "OL34747553M",
+        "OL30521537M"
+      ],
+      "publish_date": [
+        "2019",
+        "Jul 03, 2019"
+      ],
+      "publish_year": [
+        2019
+      ],
+      "first_publish_year": 2019,
+      "number_of_pages_median": 188,
+      "isbn": [
+        "0128172177",
+        "9780128172179",
+        "0128172169",
+        "9780128172162"
+      ],
+      "last_modified_i": 1633628621,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "cover_edition_key": "OL30521537M",
+      "cover_i": 10459098,
+      "publisher": [
+        "Elsevier Science & Technology Books",
+        "Academic Press"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL3090949A"
+      ],
+      "author_name": [
+        "Xin-She Yang"
+      ],
+      "subject": [
+        "Machine learning",
+        "Data mining"
+      ],
+      "publisher_facet": [
+        "Academic Press",
+        "Elsevier Science & Technology Books"
+      ],
+      "subject_facet": [
+        "Data mining",
+        "Machine learning"
+      ],
+      "_version_": 1759766037387018240,
+      "author_facet": [
+        "OL3090949A Xin-She Yang"
+      ],
+      "subject_key": [
+        "data_mining",
+        "machine_learning"
+      ]
+    },
+    {
+      "key": "/works/OL6033356W",
+      "type": "work",
+      "seed": [
+        "/books/OL21848636M",
+        "/books/OL5995725M",
+        "/works/OL6033356W",
+        "/subjects/computer_algorithms",
+        "/subjects/computer_programming",
+        "/subjects/mad_(computer_program_language)",
+        "/authors/OL1516586A"
+      ],
+      "title": "An introduction to algorithmic methods using the MAD language",
+      "title_suggest": "An introduction to algorithmic methods using the MAD language",
+      "title_sort": "An introduction to algorithmic methods using the MAD language",
+      "edition_count": 2,
+      "edition_key": [
+        "OL21848636M",
+        "OL5995725M"
+      ],
+      "publish_date": [
+        "1966"
+      ],
+      "publish_year": [
+        1966
+      ],
+      "first_publish_year": 1966,
+      "number_of_pages_median": 433,
+      "lccn": [
+        "66027676"
+      ],
+      "publish_place": [
+        "New York",
+        "NewYork, London"
+      ],
+      "contributor": [
+        "Schweppe, Earl J.",
+        "Schweppe, Earl J. 1927- joint author."
+      ],
+      "lcc": [
+        "QA-0076.50000000.M23"
+      ],
+      "ddc": [
+        "651.8"
+      ],
+      "last_modified_i": 1601804771,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "readinglog_count": 1,
+      "want_to_read_count": 1,
+      "currently_reading_count": 0,
+      "already_read_count": 0,
+      "publisher": [
+        "Macmillan"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL1516586A"
+      ],
+      "author_name": [
+        "Alan B. Marcovitz"
+      ],
+      "subject": [
+        "Computer algorithms",
+        "Computer programming",
+        "MAD (Computer program language)"
+      ],
+      "publisher_facet": [
+        "Macmillan"
+      ],
+      "subject_facet": [
+        "Computer algorithms",
+        "Computer programming",
+        "MAD (Computer program language)"
+      ],
+      "_version_": 1759796218250133504,
+      "lcc_sort": "QA-0076.50000000.M23",
+      "author_facet": [
+        "OL1516586A Alan B. Marcovitz"
+      ],
+      "subject_key": [
+        "computer_algorithms",
+        "computer_programming",
+        "mad_(computer_program_language)"
+      ],
+      "ddc_sort": "651.8"
+    },
+    {
+      "key": "/works/OL20984885W",
+      "type": "work",
+      "seed": [
+        "/books/OL10238143M",
+        "/works/OL20984885W",
+        "/subjects/computer_algorithms",
+        "/authors/OL3154392A",
+        "/authors/OL3401488A",
+        "/authors/OL3401489A"
+      ],
+      "title": "Animated Algorithms",
+      "title_suggest": "Animated Algorithms",
+      "title_sort": "Animated Algorithms",
+      "edition_count": 1,
+      "edition_key": [
+        "OL10238143M"
+      ],
+      "publish_date": [
+        "September 1, 1993"
+      ],
+      "publish_year": [
+        1993
+      ],
+      "first_publish_year": 1993,
+      "number_of_pages_median": 250,
+      "isbn": [
+        "9780262570961",
+        "0262570963"
+      ],
+      "last_modified_i": 1602089728,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "cover_edition_key": "OL10238143M",
+      "cover_i": 2342476,
+      "publisher": [
+        "The MIT Press"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL3154392A",
+        "OL3401488A",
+        "OL3401489A"
+      ],
+      "author_name": [
+        "Peter Gloor",
+        "Scott Dynes",
+        "Irene Lee"
+      ],
+      "subject": [
+        "Computer algorithms"
+      ],
+      "id_goodreads": [
+        "145084"
+      ],
+      "id_librarything": [
+        "4656179"
+      ],
+      "publisher_facet": [
+        "The MIT Press"
+      ],
+      "subject_facet": [
+        "Computer algorithms"
+      ],
+      "_version_": 1759763381112274944,
+      "author_facet": [
+        "OL3154392A Peter Gloor",
+        "OL3401488A Scott Dynes",
+        "OL3401489A Irene Lee"
+      ],
+      "subject_key": [
+        "computer_algorithms"
+      ]
+    },
+    {
+      "key": "/works/OL29753901W",
+      "type": "work",
+      "seed": [
+        "/books/OL40925703M",
+        "/works/OL29753901W",
+        "/authors/OL9333949A",
+        "/authors/OL9333948A"
+      ],
+      "title": "Introduction to Algorithms and Data Structures in Swift 4",
+      "title_suggest": "Introduction to Algorithms and Data Structures in Swift 4",
+      "title_sort": "Introduction to Algorithms and Data Structures in Swift 4",
+      "edition_count": 1,
+      "edition_key": [
+        "OL40925703M"
+      ],
+      "publish_date": [
+        "2018"
+      ],
+      "publish_year": [
+        2018
+      ],
+      "first_publish_year": 2018,
+      "isbn": [
+        "1973291746",
+        "9781973291749"
+      ],
+      "last_modified_i": 1669092466,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Independently Published"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL9333949A",
+        "OL9333948A"
+      ],
+      "author_name": [
+        "Monika Nyisztor",
+        "Karoly Nyisztor"
+      ],
+      "publisher_facet": [
+        "Independently Published"
+      ],
+      "_version_": 1759780838973636609,
+      "author_facet": [
+        "OL9333948A Karoly Nyisztor",
+        "OL9333949A Monika Nyisztor"
+      ]
+    },
+    {
+      "key": "/works/OL13536217W",
+      "type": "work",
+      "seed": [
+        "/books/OL22121210M",
+        "/works/OL13536217W",
+        "/subjects/composition_(music)",
+        "/subjects/computer_music",
+        "/subjects/computer_composition_(music)",
+        "/subjects/congresses",
+        "/subjects/databases",
+        "/authors/OL6402478A"
+      ],
+      "title": "Notes from the Metalevel",
+      "title_suggest": "Notes from the Metalevel",
+      "title_sort": "Notes from the Metalevel",
+      "edition_count": 1,
+      "edition_key": [
+        "OL22121210M"
+      ],
+      "publish_date": [
+        "2004"
+      ],
+      "publish_year": [
+        2004
+      ],
+      "first_publish_year": 2004,
+      "number_of_pages_median": 338,
+      "publish_place": [
+        "London"
+      ],
+      "oclc": [
+        "882231455"
+      ],
+      "lcc": [
+        "MT-0056.00000000.C65 1981 .T38 2006eb"
+      ],
+      "ddc": [
+        "781.34"
+      ],
+      "isbn": [
+        "9789026519574",
+        "9026519575"
+      ],
+      "last_modified_i": 1671078628,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Taylor & Francis"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL6402478A"
+      ],
+      "author_name": [
+        "Heinrich Taube"
+      ],
+      "subject": [
+        "Composition (music)",
+        "Computer music",
+        "Computer composition (Music)",
+        "Congresses",
+        "Databases"
+      ],
+      "publisher_facet": [
+        "Taylor & Francis"
+      ],
+      "subject_facet": [
+        "Composition (music)",
+        "Computer composition (Music)",
+        "Computer music",
+        "Congresses",
+        "Databases"
+      ],
+      "_version_": 1759748552223883264,
+      "lcc_sort": "MT-0056.00000000.C65 1981 .T38 2006eb",
+      "author_facet": [
+        "OL6402478A Heinrich Taube"
+      ],
+      "subject_key": [
+        "composition_(music)",
+        "computer_composition_(music)",
+        "computer_music",
+        "congresses",
+        "databases"
+      ],
+      "ddc_sort": "781.34"
+    },
+    {
+      "key": "/works/OL25623632W",
+      "type": "work",
+      "seed": [
+        "/books/OL34385443M",
+        "/books/OL34525884M",
+        "/books/OL35830835M",
+        "/works/OL25623632W",
+        "/subjects/economics_data_processing",
+        "/subjects/game_theory",
+        "/subjects/social_choice",
+        "/subjects/income_distribution",
+        "/authors/OL3178405A",
+        "/authors/OL9682201A"
+      ],
+      "title": "Economics and Computation",
+      "title_suggest": "Economics and Computation",
+      "title_sort": "Economics and Computation",
+      "edition_count": 3,
+      "edition_key": [
+        "OL34385443M",
+        "OL34525884M",
+        "OL35830835M"
+      ],
+      "publish_date": [
+        "2016",
+        "2015"
+      ],
+      "publish_year": [
+        2016,
+        2015
+      ],
+      "first_publish_year": 2015,
+      "number_of_pages_median": 612,
+      "isbn": [
+        "9783662479032",
+        "9783662510445",
+        "3662479044",
+        "3662510448",
+        "9783662479049",
+        "3662479036"
+      ],
+      "last_modified_i": 1640477156,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Springer London, Limited",
+        "Springer",
+        "Springer Berlin / Heidelberg"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL3178405A",
+        "OL9682201A"
+      ],
+      "author_name": [
+        "J\u00f6rg Rothe",
+        "Irene Rothe"
+      ],
+      "subject": [
+        "Economics, data processing",
+        "Game theory",
+        "Social choice",
+        "Income distribution"
+      ],
+      "publisher_facet": [
+        "Springer",
+        "Springer Berlin / Heidelberg",
+        "Springer London, Limited"
+      ],
+      "subject_facet": [
+        "Economics, data processing",
+        "Game theory",
+        "Income distribution",
+        "Social choice"
+      ],
+      "_version_": 1759772317267787777,
+      "author_facet": [
+        "OL3178405A J\u00f6rg Rothe",
+        "OL9682201A Irene Rothe"
+      ],
+      "subject_key": [
+        "economics_data_processing",
+        "game_theory",
+        "income_distribution",
+        "social_choice"
+      ]
+    },
+    {
+      "key": "/works/OL3464971W",
+      "type": "work",
+      "seed": [
+        "/books/OL12313703M",
+        "/works/OL3464971W",
+        "/authors/OL577461A"
+      ],
+      "title": "The Tao of Algorithms",
+      "title_suggest": "The Tao of Algorithms",
+      "title_sort": "The Tao of Algorithms",
+      "edition_count": 1,
+      "edition_key": [
+        "OL12313703M"
+      ],
+      "publish_date": [
+        "March 15, 2006"
+      ],
+      "publish_year": [
+        2006
+      ],
+      "first_publish_year": 2006,
+      "isbn": [
+        "1584884193",
+        "9781584884194"
+      ],
+      "last_modified_i": 1272134414,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "CRC Press"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL577461A"
+      ],
+      "author_name": [
+        "Ian Parberry"
+      ],
+      "id_goodreads": [
+        "288199"
+      ],
+      "publisher_facet": [
+        "CRC Press"
+      ],
+      "_version_": 1759790212541579266,
+      "author_facet": [
+        "OL577461A Ian Parberry"
+      ]
+    },
+    {
+      "key": "/works/OL27398956W",
+      "type": "work",
+      "seed": [
+        "/books/OL37297921M",
+        "/books/OL37314980M",
+        "/works/OL27398956W",
+        "/authors/OL10261133A",
+        "/authors/OL7325748A",
+        "/authors/OL6450922A"
+      ],
+      "title": "Numerical Integration of Space Fractional Partial Differential Equations, Volume 1",
+      "title_suggest": "Numerical Integration of Space Fractional Partial Differential Equations, Volume 1",
+      "title_sort": "Numerical Integration of Space Fractional Partial Differential Equations, Volume 1",
+      "edition_count": 2,
+      "edition_key": [
+        "OL37297921M",
+        "OL37314980M"
+      ],
+      "publish_date": [
+        "2017"
+      ],
+      "publish_year": [
+        2017
+      ],
+      "first_publish_year": 2017,
+      "isbn": [
+        "9781681732077",
+        "1681732653",
+        "1681732076",
+        "9781681732657"
+      ],
+      "last_modified_i": 1646026682,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Morgan & Claypool Publishers"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL10261133A",
+        "OL7325748A",
+        "OL6450922A"
+      ],
+      "author_name": [
+        "Younes Salehi",
+        "William E. Schiesser",
+        "Steven G. Krantz"
+      ],
+      "publisher_facet": [
+        "Morgan & Claypool Publishers"
+      ],
+      "_version_": 1759775907964256256,
+      "author_facet": [
+        "OL10261133A Younes Salehi",
+        "OL6450922A Steven G. Krantz",
+        "OL7325748A William E. Schiesser"
+      ]
+    },
+    {
+      "key": "/works/OL28025741W",
+      "type": "work",
+      "seed": [
+        "/books/OL38383934M",
+        "/books/OL38384477M",
+        "/books/OL38342492M",
+        "/books/OL38342514M",
+        "/works/OL28025741W",
+        "/authors/OL10261133A",
+        "/authors/OL7325748A"
+      ],
+      "title": "Numerical Integration of Space Fractional Partial Differential Equations",
+      "title_suggest": "Numerical Integration of Space Fractional Partial Differential Equations",
+      "title_sort": "Numerical Integration of Space Fractional Partial Differential Equations",
+      "edition_count": 4,
+      "edition_key": [
+        "OL38383934M",
+        "OL38384477M",
+        "OL38342492M",
+        "OL38342514M"
+      ],
+      "publish_date": [
+        "2017"
+      ],
+      "publish_year": [
+        2017
+      ],
+      "first_publish_year": 2017,
+      "isbn": [
+        "9783031012846",
+        "9781681732107",
+        "9783031012839",
+        "3031012844",
+        "3031012836",
+        "1681732084",
+        "1681732106",
+        "9781681732084"
+      ],
+      "last_modified_i": 1655575807,
+      "ebook_count_i": 0,
+      "ebook_access": "no_ebook",
+      "has_fulltext": false,
+      "public_scan_b": false,
+      "publisher": [
+        "Morgan & Claypool Publishers",
+        "Springer International Publishing AG"
+      ],
+      "language": [
+        "eng"
+      ],
+      "author_key": [
+        "OL10261133A",
+        "OL7325748A"
+      ],
+      "author_name": [
+        "Younes Salehi",
+        "William E. Schiesser"
+      ],
+      "publisher_facet": [
+        "Morgan & Claypool Publishers",
+        "Springer International Publishing AG"
+      ],
+      "_version_": 1759777287065042944,
+      "author_facet": [
+        "OL10261133A Younes Salehi",
+        "OL7325748A William E. Schiesser"
+      ]
+    }
+  ],
+  "num_found": 43,
+  "q": "\"introduction to algorithms\"",
+  "offset": null
+}
