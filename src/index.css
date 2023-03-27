@@ -1,12 +1,35 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  --color-foreground: rgb(39, 39, 39);
+  --color-background: hsl(0, 0%, 99%);
+  --color-body-background: rgb(255, 255, 255);
+  --color-interactive: hsl(0, 100%, 40%);
+  --color-interactive-focus: hsl(245, 90%, 40%);
+  --color-interactive-focus-secondary: hsl(0, 100%, 96%);
+  --color-border: hsl(0, 0%, 0%);
+  --color-invalid: hsl(356, 100%, 71%);
+
+  --color-links: var(--color-interactive);
+  --color-links-hover: var(--color-interactive-focus);
+  --color-links-active: var(--color-interactive-focus);
+
+  --max-siteWidth: 980px;
+  --min-bodyLineLength: 10rem;
+  --max-bodyLineLength: 40rem;
+
+  --font-body: Georgia, serif;
+  --font-display: var(--font-body);
+  --bodyLineHeight: 1.5;
+
+
+  font-family: var(--font-body);
+  line-height: var(--bodyLineHeight);
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* color-scheme: light dark; */
+  color: var(--color-foreground);
+  background-color: var(--color-background);
 
+  /* From exemplar site */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -14,37 +37,36 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* **** start reset styles **** */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* address when the body background not filling the space the way you might expect it to */
+html, body {
+  height: 100%;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* The block display type there prevents those annoying line-height gaps that always kill me. And you almost never want any of these media blocks to be wider than the parent. */
+img, picture, video, canvas, svg, iframe, object {
+  display: block;
+  max-width: 100%;
 }
+
+/* bad news when a long word (like a URL) forces an element wide and borks a layout. */
+p, h1, h2, h3, h4, h5, h6, li, dl, dt, blockquote {
+  overflow-wrap: break-word;
+}
+
+/* ensures that any blending modes applied to the element or its descendants only affect that isolated group, rather than blending with elements outside the group. */
+#root {
+  isolation: isolate;
+}
+
+
+/* **** end reset styles **** */
