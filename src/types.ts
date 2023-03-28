@@ -32,9 +32,9 @@ export interface Doc {
   publisher: string[];
   language: string[];
   author_key: string[];
-  author_name: string[];
+  author_name?: string[];
   author_alternative_name?: string[];
-  subject: string[];
+  subject?: string[];
   publisher_facet: string[];
   subject_facet: string[];
   _version_: number;
@@ -60,3 +60,5 @@ export interface Doc {
   ia_collection_s?: string;
   printdisabled_s?: string;
 }
+
+export type SortType = "keyword" | "readlog" | "ratingcount" | "relevance";

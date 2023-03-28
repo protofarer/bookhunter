@@ -2,15 +2,16 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Constants from './constants';
 import './App.css';
-import { SearchResponse, Doc } from './openlibrary.types';
+import { SearchResponse, Doc, SortType} from './types';
 import Results from './components/Results';
-import { fetchJsonFile } from './util';
+import { fetchJsonFile, sortDocsBySortType } from './util';
 
 const App = () => {
   const [searchText, setSearchText] = useState('');
   const [results, setResults] = useState<SearchResponse | null>(null);
   const [pageCount, setPageCount] = useState<number>(0);
   const [ttr, setTtr] = useState<number>(0);
+  const [sortType, setSortType] = useState<SortType>('relevance');
 
   const [loading, setLoading] = useState(false);
 
@@ -22,6 +23,7 @@ const App = () => {
     return data;
   };
 
+  // time it, fetch it, sort it, set it
   useEffect(() => {
     (async function () {
       try {
@@ -31,8 +33,10 @@ const App = () => {
         );
         setTtr(Date.now() - ttrStart);
         console.log(`fetched add results`, )
+        const sortedDocs = sortDocsBySortType("Introduction to Algorithms", data.docs)
+        // setResults(data);
         
-        setResults(data);
+        setResults({ ...data, docs: sortedDocs });
         setPageCount(
           Math.min(
             Math.ceil(data.docs.length / Constants.RESULTS_PER_PAGE), 

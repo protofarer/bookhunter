@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SearchResponse, Doc } from '../openlibrary.types';
+import { SearchResponse, Doc } from '../types';
 import Constants from '../constants';
 
 export default function Results({ 
@@ -107,8 +107,13 @@ function ResultsItem({ doc, key }: { doc: any; key: number; }) {
     <li key={key} className="resultsItem">
       <ul>
         <h2>{doc.title}</h2>
-        <li>OL API type: {doc.type}</li>
-        <li>author: {doc.author_name}</li>
+        <li><em>SortType: {doc.sortType}</em></li>
+        <li><em>rel score: {doc.score.relevance}</em></li>
+        <li><em>read score: {doc.score.readlog}</em></li>
+        <li><em>rate score: {doc.score.ratingcount}</em></li>
+        <li>
+          author(s): {doc.author_name.slice(0,2).join(", ")}{doc.author_name.length > 2 && ", ..."}
+        </li>
         <li>published on: {doc.publish_date[0]}</li>
         <li>publisher: {doc.publisher?.[0]}</li>
         <li>1st isbn: {doc.isbn?.[0]}</li>

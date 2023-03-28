@@ -1,3 +1,4 @@
+import { Doc, SortType } from "./types";
 export async function fetchJsonFile(fileUrl: string, limit?: number) {
   try {
     const response = await fetch(fileUrl);
@@ -16,21 +17,29 @@ export async function fetchJsonFile(fileUrl: string, limit?: number) {
   }
 }
 
-function calculateRelevanceScore(query, book) {
+function calculateKeywordScore(query: string, book: Doc) {
+  console.log(`book`, book)
+  
   const titleMatches = countMatches(query, book.title);
-  const authorMatches = countMatches(query, book.author);
-  const descriptionMatches = countMatches(query, book.description);
+
+  const authorMatches = book.author_name?.reduce((acc, author) => {
+    return acc + countMatches(query, author);
+  }, 0) ?? 0;
+
+  const subjectMatches = book.subject?.reduce((acc, subject) => {
+    return acc + countMatches(query, subject);
+  }, 0) ?? 0;
 
   const score =
     titleMatches * 3 +
     authorMatches * 2 +
-    descriptionMatches;
+    subjectMatches;
 
   return score;
 }
 
-function countMatches(query, text) {
-  if (!text) return 0;
+function countMatches(query: string, text: string) {
+  if (!query || !text) return 0;
   const queryWords = query.toLowerCase().split(' ');
   const textWords = text.toLowerCase().split(' ');
 
@@ -39,16 +48,32 @@ function countMatches(query, text) {
   }, 0);
 }
 
-export function sortResultsByRelevance(query, results) {
-  return results.sort((a, b) => {
-    const aScore = calculateRelevanceScore(query, a);
-    const bScore = calculateRelevanceScore(query, b);
+export function sortDocsBySortType(
+  query: string, 
+  docs: Doc[], 
+  sortType: SortType = 'relevance'
+) {
+  const docsWithScores = docs.map((doc) => {
+    const keyword = calculateKeywordScore(query, doc);
+    const readlog = doc.readinglog_count ?? 0;
+    const ratingcount = doc.ratings_count ?? 0;
+    const relevance = keyword + readlog + ratingcount;
 
-    return bScore - aScore;
+    return { 
+      ...doc, 
+      score: {
+        keyword,
+        readlog,
+        ratingcount,
+        relevance,
+      },
+      sortType,
+    };
   });
-}
 
-// Example usage
-// const query = 'science fiction';
-// const results = []; // Replace with search results from the Open Library API
-// const sortedResults = sortResultsByRelevance(query, results);
+  return docsWithScores.sort((a, b) => {
+    // const aScore = calculateRelevanceScore(query, a);
+    // const bScore = calculateRelevanceScore(query, b);
+    return b.score[sortType] - a.score[sortType];
+  });
+};
