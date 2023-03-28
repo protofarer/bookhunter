@@ -1,3 +1,21 @@
+export async function fetchJsonFile(fileUrl: string, limit?: number) {
+  try {
+    const response = await fetch(fileUrl);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const jsonObject = await response.json();
+
+    return { 
+      ...jsonObject, 
+      docs: limit ? jsonObject.docs.slice(0, limit) : jsonObject.docs 
+    };
+  } catch (error) {
+    console.error('Error fetching JSON file:', error);
+    return null;
+  }
+}
+
 function calculateRelevanceScore(query, book) {
   const titleMatches = countMatches(query, book.title);
   const authorMatches = countMatches(query, book.author);

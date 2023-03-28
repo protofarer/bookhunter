@@ -3,13 +3,14 @@ import axios from 'axios';
 import Constants from './constants';
 import './App.css';
 import { SearchResponse, Doc } from './openlibrary.types';
+import Results from './components/Results';
+import { fetchJsonFile } from './util';
 
-const App: React.FC = () => {
+const App = () => {
   const [searchText, setSearchText] = useState('');
-  const [results, setResults] = useState<SearchResponse | null>(null);
+  const [initResults, setInitResults] = useState<SearchResponse | null>(null);
   const [additionalResults, setAdditionalResults] = useState<SearchResponse | null>(null);
   const [pageCount, setPageCount] = useState<number>(0);
-  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const [loading, setLoading] = useState(false);
 
@@ -25,8 +26,10 @@ const App: React.FC = () => {
   useEffect(() => {
     (async function () {
       try {
-        const results = await fetchData(5);
-        setResults(results);
+        const data = await fetchData(5);
+        console.log(`fetched init results`, )
+        
+        setInitResults(data);
         setPageCount(1);
       } catch (err) {
         console.error('Error fetching first page results:', err);
@@ -37,17 +40,18 @@ const App: React.FC = () => {
   useEffect(() => {
     (async function () {
       try {
-        const additionalResults = await fetchData(
+        const data = await fetchData(
           Constants.RESULTS_PER_PAGE * Constants.RESULTS_MAX_PAGES
         );
-        setAdditionalResults(additionalResults);
+        console.log(`fetched add results`, )
+        
+        setAdditionalResults(data);
         setPageCount(
           Math.max(
-            Math.ceil(Constants.RESULTS_PER_PAGE * Constants.RESULTS_MAX_PAGES / additionalResults.docs.length), 
+            Math.ceil(Constants.RESULTS_PER_PAGE * Constants.RESULTS_MAX_PAGES / data.docs.length), 
             Constants.RESULTS_MAX_PAGES
           )
         );
-        
       } catch (err) {
         console.error('Error fetching additional results:', err);
       }
@@ -65,8 +69,8 @@ const App: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await axios.get(`https://openlibrary.org/search.json?q=${searchText}`);
-      setResults(response.data);
+      const response = await axios.get(`https://openlibrary.org/search.json?q=${searchText}&limit=5`);
+      setInitResults(response.data);
     } catch (error) {
       console.error('Error fetching search results:', error);
     } finally {
@@ -91,96 +95,19 @@ const App: React.FC = () => {
       {loading ? (
         <Spinner />
       ) : (
-        results && (
-          <>
-            <div className="results">
-              <p>Found {results.numFound} results</p>
-              <ul>
-                {
-                  results.docs.map((doc: any, i: number) => (
-                    <ResultsItem doc={doc} key={i}/>
-                  ))
-                }
-              </ul>
-            </div>
-            <ResultsNav 
-              pageCount={pageCount} 
-              currentPage={currentPage} 
-              onClick={(idx: number) => { 
-                setCurrentPage(idx); 
-                console.log(`setpageto`, idx)
-              }} 
-            />
-          </>
+          <Results
+            pageCount={pageCount}
+            initResults={initResults}
+            additionalResults={additionalResults}
+          />
         )
-      )}
+      }
     </div>
   );
 };
 
 export default App
 
-const ResultsNav = ({ pageCount, currentPage, onClick }: { pageCount: number, currentPage: number, onClick: Function}) => {
-  return (
-    <div className="resultsNav">
-      { pageCount > 1 && 
-        <>
-          <button onClick={() => onClick(Math.min(currentPage - 1, 1))}>Prev</button>
-          {Array.from({ length: pageCount }, (_, idx) => (
-            <button key={idx} onClick={() => onClick(idx + 1)}> {idx + 1} </button>
-          ))}
-          <button onClick={() => onClick(Math.min(currentPage + 1, pageCount))}>Next</button>
-        </>
-      }
-    </div>
-  );
-}
-
-interface IResultsPage {
-  results: Doc[] | null;
-}
-
-const ResultsPage = ({ results }: IResultsPage) => {
-}
-
-interface IResultsItem {
-  doc: any;
-  key: number;
-}
-const ResultsItem = ({ doc, key }: IResultsItem) => {
-  return (
-    <li key={key}>
-      <ul>
-        <h2>{doc.title}</h2>
-        <li>OL API type: {doc.type}</li>
-        <li>author: {doc.author_name}</li>
-        <li>published on: {doc.publish_date[0]}</li>
-        <li>publisher: {doc.publisher?.[0]}</li>
-        <li>1st isbn: {doc.isbn?.[0]}</li>
-      </ul>
-    </li>
-
-  )
-}
-
-const Spinner: React.FC = () => {
+const Spinner = () => {
   return <div className="spinner"></div>
-}
-
-async function fetchJsonFile(fileUrl: string, limit?: number) {
-  try {
-    const response = await fetch(fileUrl);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const jsonObject = await response.json();
-
-    return { 
-      ...jsonObject, 
-      docs: limit ? jsonObject.docs.slice(0, limit) : jsonObject.docs 
-    };
-  } catch (error) {
-    console.error('Error fetching JSON file:', error);
-    return null;
-  }
 }
