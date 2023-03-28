@@ -54,3 +54,31 @@ button {
     transform: rotate(360deg);
   }
 }
+
+.searchForm {
+  border: 3px solid orange;
+}
+
+.results {
+  border: 1px dotted blue;
+}
+
+.results-info {
+  font-style: italic;
+}
+
+.results-list {
+  border: 1px solid red;
+}
+
+.resultsNav {
+  border: 3px solid green;
+}
+
+.resultsNav-activeButton {
+  border: 3px solid green;
+}
+
+.topbar {
+  border: 1px solid purple;
+}

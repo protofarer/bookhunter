@@ -8,9 +8,9 @@ import { fetchJsonFile } from './util';
 
 const App = () => {
   const [searchText, setSearchText] = useState('');
-  const [initResults, setInitResults] = useState<SearchResponse | null>(null);
-  const [additionalResults, setAdditionalResults] = useState<SearchResponse | null>(null);
+  const [results, setResults] = useState<SearchResponse | null>(null);
   const [pageCount, setPageCount] = useState<number>(0);
+  const [ttr, setTtr] = useState<number>(0);
 
   const [loading, setLoading] = useState(false);
 
@@ -22,33 +22,20 @@ const App = () => {
     return data;
   };
 
-  // fake api call, first page results
   useEffect(() => {
     (async function () {
       try {
-        const data = await fetchData(5);
-        console.log(`fetched init results`, )
-        
-        setInitResults(data);
-        setPageCount(1);
-      } catch (err) {
-        console.error('Error fetching first page results:', err);
-      }
-    })();
-  }, []);  
-
-  useEffect(() => {
-    (async function () {
-      try {
+        const ttrStart = Date.now();
         const data = await fetchData(
           Constants.RESULTS_PER_PAGE * Constants.RESULTS_MAX_PAGES
         );
+        setTtr(Date.now() - ttrStart);
         console.log(`fetched add results`, )
         
-        setAdditionalResults(data);
+        setResults(data);
         setPageCount(
-          Math.max(
-            Math.ceil(Constants.RESULTS_PER_PAGE * Constants.RESULTS_MAX_PAGES / data.docs.length), 
+          Math.min(
+            Math.ceil(data.docs.length / Constants.RESULTS_PER_PAGE), 
             Constants.RESULTS_MAX_PAGES
           )
         );
@@ -70,7 +57,7 @@ const App = () => {
 
     try {
       const response = await axios.get(`https://openlibrary.org/search.json?q=${searchText}&limit=5`);
-      setInitResults(response.data);
+      setResults(response.data);
     } catch (error) {
       console.error('Error fetching search results:', error);
     } finally {
@@ -80,7 +67,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <form onSubmit={handleSearchSubmit}>
+      <div className="topbar">[random] [user pref + log]</div>
+      <form 
+        className="searchForm"
+        onSubmit={handleSearchSubmit}>
         <input
           type="text"
           placeholder="Search for books"
@@ -92,15 +82,14 @@ const App = () => {
         </button>
       </form>
 
-      {loading ? (
-        <Spinner />
-      ) : (
-          <Results
+      {
+        loading 
+        ? <Spinner />
+        : <Results
             pageCount={pageCount}
-            initResults={initResults}
-            additionalResults={additionalResults}
+            results={results}
+            ttr={ttr}
           />
-        )
       }
     </div>
   );
