@@ -111,7 +111,7 @@ function ResultsItem({ doc }: { doc: any; }) {
         <li>
           author(s): {doc.author_name?.slice(0,2).join(", ")}{doc.author_name?.length > 2 && ", ..."}
         </li>
-        <li>published on: {doc.publish_date[0]}</li>
+        <li>published on: {doc.publish_date?.[0]}</li>
         <li>publisher: {doc.publisher?.[0]}</li>
         <li>1st isbn: {doc.isbn?.[0]}</li>
       </ul>

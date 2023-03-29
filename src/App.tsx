@@ -6,7 +6,7 @@ import { SortedResults, SearchResults, Doc, SortType} from './types';
 import Results from './components/Results';
 import { fetchJsonFile, sortDocsBySortType } from './util';
 import SearchBar from './components/SearchBar';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 const App = () => {
   const [searchText, setSearchText] = useState('');
@@ -14,6 +14,7 @@ const App = () => {
   const [pageCount, setPageCount] = useState<number>(0);
   const [ttr, setTtr] = useState<number>(0);
   const [sortType, setSortType] = useState<SortType>('relevance');
+  const queryClient = useQueryClient();
 
   const fetchData = async (limit?: number) => {
     return await fetchJsonFile(
@@ -48,11 +49,20 @@ const App = () => {
   );
 
   const fetchData2 = async () => {
+    console.log(`fetchdata2 invoked`, )
+    
     const ttrStart = performance.now();
-    const data = await fetchData(Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE)
+    // const data = await fetchData(Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE)
+    
+    const response = await fetch(`https://openlibrary.org/search.json?q=${searchText}&limit=${Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE}`);
+    if (!response.ok) throw new Error('Network response not ok');
     setTtr(performance.now() - ttrStart);
-    const docsAndSortInfo = sortDocsBySortType(
-      "Introduction to Algorithms", 
+
+    const data = await response.json();
+    console.log(`data`, data)
+    
+    const scoredSortedDocs = sortDocsBySortType(
+      searchText, 
       data.docs, 
       sortType
     );
@@ -62,14 +72,30 @@ const App = () => {
         Constants.RESULTS_MAX_PAGES
       )
     );
-    return { ...data, ...docsAndSortInfo } as SortedResults;
+    const sortedResults = { ...data, docs: scoredSortedDocs } as SortedResults;
+    return sortedResults;
   }
 
-  const { data: results2 } = useQuery(
-    ['results'], 
+  const { 
+    data: results2, 
+    isLoading: isLoading2, 
+    isFetching, 
+    isError: isError2,
+    refetch,
+  } = useQuery(
+    ['results2'], 
     fetchData2,
-    { enabled: false }
+    { 
+      enabled: false,
+      refetchOnWindowFocus: false,
+    }
   );
+
+  // TODO separate score/sort from query
+  // const sortedResults = (() => {
+
+  // })();
+  
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
@@ -78,11 +104,13 @@ const App = () => {
   const handleSearchSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!searchText) return;
-    fetchData2();
+
+    console.log(`search clicked`, )
+    
+    refetch();
   };
   
-  if (isLoading) return <Spinner />;
-  if (isError) return <div>error</div>;
+  if (isError2 || isError2) return <div>error</div>;
 
   return (
     <div className="App">
@@ -92,12 +120,17 @@ const App = () => {
         onChange={handleSearchInputChange}
         searchText={searchText}
         setSortType={setSortType}
+        sortType={sortType}
       />
-      <Results
-        pageCount={pageCount}
-        results={results2 ?? results}
-        ttr={ttr}
-      />
+      {isFetching && isLoading2 ? (
+        <Spinner />
+      ) : ( 
+        <Results
+          pageCount={pageCount}
+          results={results2 || results}
+          ttr={ttr}
+        />
+      )}
     </div>
   );
 };

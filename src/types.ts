@@ -14,7 +14,7 @@ export type Doc = {
   title_sort: string;
   edition_count: number;
   edition_key: string[];
-  publish_date: string[];
+  publish_date?: string[];
   publish_year: number[];
   first_publish_year: number;
   number_of_pages_median: number;

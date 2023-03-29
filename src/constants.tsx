@@ -5,7 +5,7 @@ interface IConstants{
 
 const o:IConstants = {
   RESULTS_PER_PAGE: 5,
-  RESULTS_MAX_PAGES: 10,
+  RESULTS_MAX_PAGES: 3,
 }
 
 export default o;
