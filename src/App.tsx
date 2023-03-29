@@ -4,7 +4,7 @@ import Constants from './constants';
 import './App.css';
 import { SortedResults, SearchResults, Doc, SortType} from './types';
 import Results from './components/Results';
-import { fetchJsonFile, sortDocsBySortType } from './util';
+import { fetchJsonFile, sortDocsBySortType, SUBJECTS } from './util';
 import SearchBar from './components/SearchBar';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 
@@ -114,7 +114,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="topbar">[random] [user pref + log]</div>
+      <div className="topbar">
+        [Random book on {SUBJECTS[Math.floor(Math.random()*SUBJECTS.length)]}] [user pref + log]
+      </div>
       <SearchBar 
         onSubmit={handleSearchSubmit} 
         onChange={handleSearchInputChange}
