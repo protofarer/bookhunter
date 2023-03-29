@@ -80,6 +80,9 @@ const App = () => {
     if (!searchText) return;
     fetchData2();
   };
+  
+  if (isLoading) return <Spinner />;
+  if (isError) return <div>error</div>;
 
   return (
     <div className="App">
@@ -89,15 +92,11 @@ const App = () => {
         onChange={handleSearchInputChange}
         searchText={searchText}
       />
-      {
-        isLoading 
-        ? <Spinner />
-        : <Results
-            pageCount={pageCount}
-            results={results2 as SortedResults | undefined ?? results as SortedResults | undefined}
-            ttr={ttr}
-          />
-      }
+      <Results
+        pageCount={pageCount}
+        results={results2 ?? results}
+        ttr={ttr}
+      />
     </div>
   );
 };

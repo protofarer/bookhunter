@@ -19,26 +19,21 @@ export default function Results({
   );
 
   return (
-    <>
-      {docs && (
-        <div className="results">
-          <span className="results-info">
-            {results?.numFound} results | page {currentPage}/{pageCount} | {(ttr / 1000).toFixed(2)} seconds
-          </span>
-          <ResultsList
-            docs={docs}
-          />
-          <ResultsNav 
-            pageCount={pageCount} 
-            currentPage={currentPage} 
-            onClick={(pg: number) => { 
-              setCurrentPage(pg); 
-              console.log(`set currentpage:`, pg)
-            }} 
-          />
-        </div>
-      )}
-    </>
+    <div className="results">
+      <div className="results-info">
+        {results?.numFound} results | page {currentPage}/{pageCount} | {(ttr / 1000).toFixed(2)} seconds
+      </div>
+      {docs && 
+        <ResultsList docs={docs} />
+      }
+      <ResultsNav 
+        pageCount={pageCount} 
+        currentPage={currentPage} 
+        onClick={(pg: number) => { 
+          setCurrentPage(pg); 
+        }} 
+      />
+    </div>
   );
 }
 
@@ -49,7 +44,9 @@ function ResultsList ({ docs }: { docs: Doc[] | null; }) {
         <div className="results-list">
           <ul>
             {docs.map((doc, idx) => (
-              <ResultsItem doc={doc} key={idx} />
+              <li key={idx}>
+                <ResultsItem doc={doc} />
+              </li>
             ))}
           </ul>
         </div>
@@ -102,23 +99,21 @@ function ResultsNav ({
   );
 }
 
-function ResultsItem({ doc, key }: { doc: any; key: number; }) {
+function ResultsItem({ doc }: { doc: any; }) {
   return (
-    <li key={key} className="resultsItem">
-      <ul>
+      <ul className="resultsItem" >
         <h2>{doc.title}</h2>
         <li><em>SortType: {doc.sortType}</em></li>
         <li><em>rel score: {doc.score.relevance}</em></li>
+        <li><em>keyword score: {doc.score.keyword}</em></li>
         <li><em>read score: {doc.score.readlog}</em></li>
         <li><em>rate score: {doc.score.ratingcount}</em></li>
         <li>
-          author(s): {doc.author_name.slice(0,2).join(", ")}{doc.author_name.length > 2 && ", ..."}
+          author(s): {doc.author_name?.slice(0,2).join(", ")}{doc.author_name?.length > 2 && ", ..."}
         </li>
         <li>published on: {doc.publish_date[0]}</li>
         <li>publisher: {doc.publisher?.[0]}</li>
         <li>1st isbn: {doc.isbn?.[0]}</li>
       </ul>
-    </li>
-
   )
 }
