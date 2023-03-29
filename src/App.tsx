@@ -91,6 +91,7 @@ const App = () => {
         onSubmit={handleSearchSubmit} 
         onChange={handleSearchInputChange}
         searchText={searchText}
+        setSortType={setSortType}
       />
       <Results
         pageCount={pageCount}

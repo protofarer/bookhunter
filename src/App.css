@@ -57,6 +57,29 @@ button {
 
 .searchForm {
   border: 3px solid orange;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+#searchInput {
+  flex: 1;
+}
+
+.searchForm-bottombar {
+  display: flex;
+  gap: 0.2em;
+}
+
+.searchForm-bottombar span {
+  margin-right: 0.5em;
+}
+
+.searchForm-bottombar label {
+  margin-right: 0.3em;
+}
+
+.searchForm-bottombar input {
+  margin: 0;
 }
 
 .results {
