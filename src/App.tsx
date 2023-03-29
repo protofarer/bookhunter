@@ -26,7 +26,7 @@ const App = () => {
     const ttrStart = performance.now();
     const data = await fetchData(Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE)
     setTtr(performance.now() - ttrStart);
-    const docsAndSortInfo = sortDocsBySortType(
+    const scoredSortedDocs = sortDocsBySortType(
       "Introduction to Algorithms", 
       data.docs, 
       sortType
@@ -37,7 +37,8 @@ const App = () => {
         Constants.RESULTS_MAX_PAGES
       )
     );
-    return { ...data, ...docsAndSortInfo } as SortedResults;
+    const out = { ...data, docs: scoredSortedDocs } as SortedResults;
+    return out;
   };
 
   const { data: results, isLoading, isError } = useQuery(
