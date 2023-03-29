@@ -1,4 +1,4 @@
-GET https://openlibrary.org/search.json?q="introduction to algorithms"
+GET https://openlibrary.org/search.json?q=introduction to algorithms&limit=2&offset=1
 
 POST https://example.com/comments HTTP/1.1
 content-type: application/json

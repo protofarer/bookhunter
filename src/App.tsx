@@ -2,52 +2,73 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Constants from './constants';
 import './App.css';
-import { SearchResponse, Doc, SortType} from './types';
+import { SortedResults, SearchResults, Doc, SortType} from './types';
 import Results from './components/Results';
 import { fetchJsonFile, sortDocsBySortType } from './util';
+import SearchBar from './components/SearchBar';
+import { useQuery } from '@tanstack/react-query';
 
 const App = () => {
   const [searchText, setSearchText] = useState('');
-  const [results, setResults] = useState<SearchResponse | null>(null);
+  // const [results, setResults] = useState<SearchResponse | null>(null);
   const [pageCount, setPageCount] = useState<number>(0);
   const [ttr, setTtr] = useState<number>(0);
   const [sortType, setSortType] = useState<SortType>('relevance');
 
-  const [loading, setLoading] = useState(false);
-
   const fetchData = async (limit?: number) => {
-    const data = await fetchJsonFile(
+    return await fetchJsonFile(
       'http://localhost:5173/src/results.json', 
       limit ?? 5
     );
-    return data;
   };
 
-  // time it, fetch it, sort it, set it
-  useEffect(() => {
-    (async function () {
-      try {
-        const ttrStart = Date.now();
-        const data = await fetchData(
-          Constants.RESULTS_PER_PAGE * Constants.RESULTS_MAX_PAGES
-        );
-        setTtr(Date.now() - ttrStart);
-        console.log(`fetched add results`, )
-        const sortedDocs = sortDocsBySortType("Introduction to Algorithms", data.docs)
-        // setResults(data);
-        
-        setResults({ ...data, docs: sortedDocs });
-        setPageCount(
-          Math.min(
-            Math.ceil(data.docs.length / Constants.RESULTS_PER_PAGE), 
-            Constants.RESULTS_MAX_PAGES
-          )
-        );
-      } catch (err) {
-        console.error('Error fetching additional results:', err);
-      }
-    })();
-  }, []);  
+  const fetchData1 = async () => {
+    const ttrStart = performance.now();
+    const data = await fetchData(Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE)
+    setTtr(performance.now() - ttrStart);
+    const docsAndSortInfo = sortDocsBySortType(
+      "Introduction to Algorithms", 
+      data.docs, 
+      sortType
+    );
+    setPageCount(
+      Math.min(
+        Math.ceil(data.docs.length / Constants.RESULTS_PER_PAGE), 
+        Constants.RESULTS_MAX_PAGES
+      )
+    );
+    return { ...data, ...docsAndSortInfo } as SortedResults;
+  };
+
+  const { data: results, isLoading, isError } = useQuery(
+    ["results"], 
+    fetchData1,
+    { refetchOnWindowFocus: false,}
+  );
+
+  const fetchData2 = async () => {
+    const ttrStart = performance.now();
+    const data = await fetchData(Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE)
+    setTtr(performance.now() - ttrStart);
+    const docsAndSortInfo = sortDocsBySortType(
+      "Introduction to Algorithms", 
+      data.docs, 
+      sortType
+    );
+    setPageCount(
+      Math.min(
+        Math.ceil(data.docs.length / Constants.RESULTS_PER_PAGE), 
+        Constants.RESULTS_MAX_PAGES
+      )
+    );
+    return { ...data, ...docsAndSortInfo } as SortedResults;
+  }
+
+  const { data: results2 } = useQuery(
+    ['results'], 
+    fetchData2,
+    { enabled: false }
+  );
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
@@ -56,42 +77,23 @@ const App = () => {
   const handleSearchSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!searchText) return;
-
-    setLoading(true);
-
-    try {
-      const response = await axios.get(`https://openlibrary.org/search.json?q=${searchText}&limit=5`);
-      setResults(response.data);
-    } catch (error) {
-      console.error('Error fetching search results:', error);
-    } finally {
-      setLoading(false);
-    }
+    fetchData2();
   };
 
   return (
     <div className="App">
       <div className="topbar">[random] [user pref + log]</div>
-      <form 
-        className="searchForm"
-        onSubmit={handleSearchSubmit}>
-        <input
-          type="text"
-          placeholder="Search for books"
-          value={searchText}
-          onChange={handleSearchInputChange}
-        />
-        <button type="submit">
-          🔍
-        </button>
-      </form>
-
+      <SearchBar 
+        onSubmit={handleSearchSubmit} 
+        onChange={handleSearchInputChange}
+        searchText={searchText}
+      />
       {
-        loading 
+        isLoading 
         ? <Spinner />
         : <Results
             pageCount={pageCount}
-            results={results}
+            results={results2 as SortedResults | undefined ?? results as SortedResults | undefined}
             ttr={ttr}
           />
       }

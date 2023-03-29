@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SearchResponse, Doc } from '../types';
+import { Doc, SortedResults } from '../types';
 import Constants from '../constants';
 
 export default function Results({ 
@@ -8,7 +8,7 @@ export default function Results({
     ttr,
   }:{ 
     pageCount: number; 
-    results: SearchResponse | null; 
+    results: SortedResults | undefined; 
     ttr: number;
   }) {
 

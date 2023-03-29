@@ -1,11 +1,11 @@
-export interface SearchResponse {
+type SearchInfo = {
   numFound: number;
   start: number;
   numFoundExact: boolean;
-  docs: Doc[];
-}
+};
+export type SearchResults = { docs: Doc[] } & SearchInfo;
 
-export interface Doc {
+export type Doc = {
   key: string;
   type: string;
   seed: string[];
@@ -59,6 +59,25 @@ export interface Doc {
   ia_collection?: string[];
   ia_collection_s?: string;
   printdisabled_s?: string;
-}
+};
 
-export type SortType = "keyword" | "readlog" | "ratingcount" | "relevance";
+export type SortType =
+  | "keyword"
+  | "readlog"
+  | "ratingcount"
+  | "relevance"
+  | "none";
+
+type SortInfo = {
+  score: {
+    keyword: string;
+    readlog: number;
+    ratingcount: number;
+    relevance: number;
+  };
+  sortType: SortType;
+};
+
+type ScoredDoc = Doc & SortInfo;
+
+export type SortedResults = SearchInfo & { docs: ScoredDoc[] };

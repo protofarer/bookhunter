@@ -18,8 +18,6 @@ export async function fetchJsonFile(fileUrl: string, limit?: number) {
 }
 
 function calculateKeywordScore(query: string, book: Doc) {
-  console.log(`book`, book)
-  
   const titleMatches = countMatches(query, book.title);
 
   const authorMatches = book.author_name?.reduce((acc, author) => {
@@ -71,9 +69,13 @@ export function sortDocsBySortType(
     };
   });
 
-  return docsWithScores.sort((a, b) => {
-    // const aScore = calculateRelevanceScore(query, a);
-    // const bScore = calculateRelevanceScore(query, b);
-    return b.score[sortType] - a.score[sortType];
-  });
+  return sortType === "none" ? (
+    docsWithScores
+  ) : (
+    docsWithScores.sort((a, b) => {
+      // const aScore = calculateRelevanceScore(query, a);
+      // const bScore = calculateRelevanceScore(query, b);
+      return b.score[sortType] - a.score[sortType];
+    })
+  );
 };
