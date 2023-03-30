@@ -7,6 +7,7 @@ import Results from './components/Results';
 import { fetchJsonFile, sortDocsBySortType, SUBJECTS } from './util';
 import SearchBar from './components/SearchBar';
 import { useQuery } from '@tanstack/react-query';
+import Spinner from './components/Spinner';
 
 const App = () => {
   const [submittedSearchText, setSubmittedSearchText] = useState('');
@@ -103,7 +104,3 @@ const App = () => {
 };
 
 export default App
-
-const Spinner = () => {
-  return <div className="spinner"></div>
-}
