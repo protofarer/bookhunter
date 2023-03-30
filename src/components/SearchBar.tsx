@@ -1,22 +1,44 @@
+import { useEffect, useRef } from "react";
 import { SortType } from "../types";
 
 export default function SearchBar({
-  onSubmit, onChange, searchText, setSortType, sortType,
+  onSubmit, onChange, searchText, setSortType, sortType
 } : {
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit: (e?: React.FormEvent<HTMLFormElement>) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   searchText: string;
   setSortType: (sortType: SortType) => void;
   sortType: SortType;
 }) {
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, []);
+
   const onRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSortType(e.target.value as SortType);
+      searchInputRef?.current?.focus();
   };
 
-  const RadioRelevance = RadioSortSelectorFactory("relevance", onRadioChange);
-  const RadioRating = RadioSortSelectorFactory("ratingcount", onRadioChange);
-  const RadioKeyword = RadioSortSelectorFactory("keyword", onRadioChange);
-  const RadioReading = RadioSortSelectorFactory("readlog", onRadioChange);
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    console.log(`keypress input radio`, )
+    
+    if (e.key === 'Enter') {
+      console.log(`detect enter, form submit`, )
+      e.preventDefault();
+      searchInputRef?.current?.focus();
+      onSubmit();
+    }
+  }
+
+  const RadioRelevance = RadioSortSelectorFactory("relevance", onRadioChange, handleKeyDown);
+  const RadioRating = RadioSortSelectorFactory("ratingcount", onRadioChange, handleKeyDown);
+  const RadioKeyword = RadioSortSelectorFactory("keyword", onRadioChange, handleKeyDown);
+  const RadioReading = RadioSortSelectorFactory("readlog", onRadioChange, handleKeyDown);
+
 
   return (
     <form 
@@ -30,6 +52,7 @@ export default function SearchBar({
           placeholder="Search for books"
           value={searchText}
           onChange={onChange}
+          ref={searchInputRef}
         />
         <button type="submit">
           🔍
@@ -50,6 +73,7 @@ export default function SearchBar({
 function RadioSortSelectorFactory(
   sortType: SortType, 
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void, 
+  onKeyDown: React.KeyboardEventHandler<HTMLInputElement>
 ) {
   return function SortSelector({ currentSortType }: { currentSortType: SortType }) {
     return (
@@ -60,6 +84,7 @@ function RadioSortSelectorFactory(
           name="sortType" 
           value={sortType}
           onChange={onChange} 
+          onKeyDown={onKeyDown}
         />
         <label htmlFor={sortType}>{sortType.charAt(0).toUpperCase() + sortType.slice(1)}</label>
       </span>

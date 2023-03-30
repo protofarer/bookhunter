@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import Constants from './constants';
 import './App.css';
@@ -10,11 +10,10 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 const App = () => {
   const [searchText, setSearchText] = useState('');
-  // const [results, setResults] = useState<SearchResponse | null>(null);
   const [pageCount, setPageCount] = useState<number>(0);
   const [ttr, setTtr] = useState<number>(0);
   const [sortType, setSortType] = useState<SortType>('relevance');
-  const queryClient = useQueryClient();
+  const [subject, setSubject] = useState<string>('');
 
   const fetchData = async (limit?: number) => {
     return await fetchJsonFile(
@@ -54,11 +53,9 @@ const App = () => {
     const ttrStart = performance.now();
     // const data = await fetchData(Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE)
     
-    const response = await fetch(`https://openlibrary.org/search.json?q=${searchText}&limit=${Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE}`);
-    if (!response.ok) throw new Error('Network response not ok');
+    const { data } = await axios(`https://openlibrary.org/search.json?q=${searchText}&limit=${Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE}`);
     setTtr(performance.now() - ttrStart);
 
-    const data = await response.json();
     console.log(`data`, data)
     
     const scoredSortedDocs = sortDocsBySortType(
@@ -101,21 +98,23 @@ const App = () => {
     setSearchText(e.target.value);
   };
 
-  const handleSearchSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSearchSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
+    e?.preventDefault();
     if (!searchText) return;
-
-    console.log(`search clicked`, )
-    
     refetch();
   };
+
+  useEffect(() => {
+    const subject = SUBJECTS[Math.floor(Math.random()*SUBJECTS.length)];
+    setSubject(subject);
+  }, []);
   
   if (isError2 || isError2) return <div>error</div>;
 
   return (
     <div className="App">
       <div className="topbar">
-        [Random book on {SUBJECTS[Math.floor(Math.random()*SUBJECTS.length)]}] [user pref + log]
+        [Random book on {subject}] [user pref + log]
       </div>
       <SearchBar 
         onSubmit={handleSearchSubmit} 
