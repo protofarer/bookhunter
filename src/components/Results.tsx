@@ -9,7 +9,7 @@ export default function Results({
     ttr,
   }:{ 
     pageCount: number; 
-    results: SortedResults | undefined; 
+    results: SortedResults; 
     ttr: number;
   }) {
 
@@ -22,7 +22,15 @@ export default function Results({
   return (
     <div className="results">
       <div className="results-info">
-        {results?.numFound} results | page {currentPage}/{pageCount} | {(ttr / 1000).toFixed(2)} seconds
+        {results?.docs.length > 0 ? (
+          <>
+            {results?.numFound} result{results?.numFound > 1 && "s"} | page {currentPage}/{pageCount} | {(ttr / 1000).toFixed(2)} seconds
+          </>
+        ) : (
+          <>
+            No books matched your query.
+          </>
+        )}
       </div>
       {docs && 
         <ResultsList docs={docs} />

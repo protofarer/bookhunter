@@ -9,7 +9,7 @@ import SearchBar from './components/SearchBar';
 import { useQuery } from '@tanstack/react-query';
 import Spinner from './components/Spinner';
 
-const App = () => {
+export default function App() {
   const [submittedSearchText, setSubmittedSearchText] = useState('');
   const [sortType, setSortType] = useState<SortType>('relevance');
 
@@ -102,5 +102,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App

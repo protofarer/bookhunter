@@ -58,7 +58,7 @@ export default function SearchBar({
         </button>
       </div>
       <div className="searchForm-bottombar">
-        <span>Search By: </span>
+        <span>Sort By: </span>
         <RadioRelevance currentSortType={sortType} />
         <RadioRating currentSortType={sortType} />
         <RadioKeyword currentSortType={sortType} />
