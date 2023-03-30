@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import Constants from './constants';
 import './App.css';
@@ -28,24 +28,11 @@ const App = () => {
     const ttrStart = performance.now();
     const { data } = await axios(`https://openlibrary.org/search.json?q=${searchText}&limit=${Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE}`);
     setTtr(performance.now() - ttrStart);
-    
-    const scoredSortedDocs = sortDocsBySortType(
-      searchText, 
-      data.docs, 
-      sortType
-    );
-    setPageCount(
-      Math.min(
-        Math.ceil(data.docs.length / Constants.RESULTS_PER_PAGE), 
-        Constants.RESULTS_MAX_PAGES
-      )
-    );
-    const sortedResults = { ...data, docs: scoredSortedDocs } as SortedResults;
-    return sortedResults;
+    return data;
   }
 
   const { 
-    data: results2, 
+    data: rawResults, 
     isLoading, 
     isFetching, 
     isError,
@@ -58,11 +45,29 @@ const App = () => {
     }
   );
 
-  // TODO separate score/sort from query
-  // const sortedResults = (() => {
+  const sortedResults = useMemo(
+    processRawResults,
+    [searchText, rawResults, sortType]
+  )
 
-  // })();
-  
+  function processRawResults() {
+    if (rawResults) {
+      const scoredSortedDocs = sortDocsBySortType(
+        searchText, 
+        rawResults.docs, 
+        sortType
+      );
+      setPageCount(
+        Math.min(
+          Math.ceil(rawResults.docs.length / Constants.RESULTS_PER_PAGE), 
+          Constants.RESULTS_MAX_PAGES
+        )
+      );
+      const sortedResults = { ...rawResults, docs: scoredSortedDocs } as SortedResults;
+      return sortedResults;
+    }
+  }
+
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
@@ -80,7 +85,7 @@ const App = () => {
     const subject = SUBJECTS[Math.floor(Math.random()*SUBJECTS.length)];
     setSubject(subject);
   }, []);
-  
+
   return (
     <div className="App">
       <div className="homebar">
@@ -101,7 +106,7 @@ const App = () => {
           ) : ( 
             <Results
               pageCount={pageCount}
-              results={results2}
+              results={sortedResults}
               ttr={ttr}
             />
           )
