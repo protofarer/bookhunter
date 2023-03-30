@@ -3,9 +3,9 @@ interface IConstants{
   RESULTS_MAX_PAGES: number;
 }
 
-const o:IConstants = {
+const Constants: IConstants = {
   RESULTS_PER_PAGE: 5,
   RESULTS_MAX_PAGES: 3,
 }
 
-export default o;
+export default Constants;

@@ -83,8 +83,8 @@ const App = () => {
   
   return (
     <div className="App">
-      <div className="topbar">
-        [Random book on {subject}] [user pref + log]
+      <div className="homebar">
+        <span>YABF </span><span>[Random book on {subject}]</span> <span>[user pref + log]</span>
       </div>
       <SearchBar 
         onSubmit={handleSearchSubmit} 

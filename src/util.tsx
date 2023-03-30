@@ -177,3 +177,13 @@ const SUBJECTS = [
 ];
 
 export { SUBJECTS };
+
+type IMakeCoverURL = {
+  key: "isbn" | "lccn" | "oclc" | "olid" | "id";
+  value: string;
+  size: "S" | "M" | "L";
+}
+
+export function makeCoverURL(props: IMakeCoverURL) {
+  return `https://covers.openlibrary.org/b/${props.key}/${props.value}-${props.size}.jpg`;
+}

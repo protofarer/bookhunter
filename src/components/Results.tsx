@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Doc, SortedResults } from '../types';
 import Constants from '../constants';
+import { makeCoverURL } from '../util';
 
 export default function Results({ 
     pageCount, 
@@ -114,6 +115,7 @@ function ResultsItem({ doc }: { doc: any; }) {
         <li>published on: {doc.publish_date?.[0]}</li>
         <li>publisher: {doc.publisher?.[0]}</li>
         <li>1st isbn: {doc.isbn?.[0]}</li>
+        <li><img src={makeCoverURL({ key: 'isbn', value: doc.isbn?.[0], size: 'S' })} alt="book cover picture"></img></li>
       </ul>
   )
 }

@@ -63,6 +63,7 @@ button {
 
 #searchInput {
   flex: 1;
+  min-width: 25em;
 }
 
 .searchForm-bottombar {
@@ -102,6 +103,10 @@ button {
   border: 3px solid green;
 }
 
-.topbar {
+.homebar {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 0 1em 0 1em;
   border: 1px solid purple;
 }
