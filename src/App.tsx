@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import Constants from './constants';
 import './App.css';
@@ -11,15 +11,7 @@ import { useQuery } from '@tanstack/react-query';
 const App = () => {
   const [searchText, setSearchText] = useState('');
   const [submittedSearchText, setSubmittedSearchText] = useState('');
-
   const [sortType, setSortType] = useState<SortType>('relevance');
-  // const prevSortTypeRef = useRef(sortType);
-
-  const queryKey = useMemo(
-    () => ['results', submittedSearchText, sortType], 
-    [submittedSearchText, sortType]
-  );
-
 
   const [pageCount, setPageCount] = useState<number>(0);
   const [ttr, setTtr] = useState<number>(0);
@@ -58,7 +50,7 @@ const App = () => {
     isFetching, 
     isError,
   } = useQuery(
-    queryKey, 
+    ["results", submittedSearchText], 
     fetchData2,
     { 
       enabled: !!submittedSearchText,
