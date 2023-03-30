@@ -46,11 +46,11 @@ const App = () => {
   );
 
   const sortedResults = useMemo(
-    processRawResults,
+    () => processRawResults(rawResults, searchText, sortType),
     [searchText, rawResults, sortType]
   )
 
-  function processRawResults() {
+  function processRawResults(rawResults: SearchResults, searchText: string, sortType: SortType) {
     if (rawResults) {
       const scoredSortedDocs = sortDocsBySortType(
         searchText, 
@@ -63,7 +63,7 @@ const App = () => {
           Constants.RESULTS_MAX_PAGES
         )
       );
-      const sortedResults = { ...rawResults, docs: scoredSortedDocs } as SortedResults;
+      const sortedResults = { ...rawResults, docs: scoredSortedDocs };
       return sortedResults;
     }
   }

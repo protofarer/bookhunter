@@ -1,9 +1,10 @@
-type SearchInfo = {
+type SearchResultsInfo = {
   numFound: number;
   start: number;
   numFoundExact: boolean;
 };
-export type SearchResults = { docs: Doc[] } & SearchInfo;
+
+export type SearchResults = { docs: Doc[] } & SearchResultsInfo;
 
 export type Doc = {
   key: string;
@@ -70,7 +71,7 @@ export type SortType =
 
 type SortInfo = {
   score: {
-    keyword: string;
+    keyword: number;
     readlog: number;
     ratingcount: number;
     relevance: number;
@@ -80,4 +81,4 @@ type SortInfo = {
 
 type ScoredDoc = Doc & SortInfo;
 
-export type SortedResults = SearchInfo & { docs: ScoredDoc[] };
+export type SortedResults = SearchResultsInfo & { docs: ScoredDoc[] };
