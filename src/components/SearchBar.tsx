@@ -18,6 +18,7 @@ export default function SearchBar({
   const handleSearchSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
     e?.preventDefault();
     if (!searchInputRef.current?.value) return;
+    searchInputRef.current.select();
     setSubmittedSearchText(searchInputRef.current.value);
   };
 
