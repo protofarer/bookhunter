@@ -2,19 +2,32 @@ import { useEffect, useRef } from "react";
 import { SortType } from "../types";
 
 export default function SearchBar({
-  searchText, onSubmit, onChange, setSortType, sortType
+  searchText, setSortType, sortType, setSearchText, setSubmittedSearchText
 } : {
   searchText: string;
-  onSubmit: (e?: React.FormEvent<HTMLFormElement>) => void;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   setSortType: (sortType: SortType) => void;
   sortType: SortType;
+  setSearchText: (searchText: string) => void;
+  setSubmittedSearchText: (submittedSearchText: string) => void;
 }) {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     searchInputRef.current?.focus();
   }, []);
+
+  // ? CSDR - extraneous since no action is taken on change, only when form submitted
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(e.target.value);
+  };
+
+  // ! tmp - this will not resort the data because queryFn has the sort logic
+  const handleSearchSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
+    e?.preventDefault();
+    if (!searchText) return;
+    setSubmittedSearchText(searchText);
+
+  };
 
   const onRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSortType(e.target.value as SortType);
@@ -25,7 +38,7 @@ export default function SearchBar({
     if (e.key === 'Enter') {
       e.preventDefault();
       searchInputRef.current?.focus();
-      onSubmit();
+      handleSearchSubmit();
     }
   }
 
@@ -38,7 +51,7 @@ export default function SearchBar({
   return (
     <form 
       className="searchForm"
-      onSubmit={onSubmit}
+      onSubmit={handleSearchSubmit}
     >
       <div className="searchForm-topbar">
         <input
@@ -46,7 +59,7 @@ export default function SearchBar({
           type="text"
           placeholder="Search for books"
           value={searchText}
-          onChange={onChange}
+          onChange={handleSearchInputChange}
           ref={searchInputRef}
         />
         <button type="submit">

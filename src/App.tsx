@@ -69,17 +69,6 @@ const App = () => {
   }
 
 
-  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(e.target.value);
-  };
-
-  // ! tmp - this will not resort the data because queryFn has the sort logic
-  const handleSearchSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
-    e?.preventDefault();
-    if (!searchText) return;
-
-    setSubmittedSearchText(searchText);
-  };
 
   useEffect(() => {
     const subject = SUBJECTS[Math.floor(Math.random()*SUBJECTS.length)];
@@ -92,11 +81,11 @@ const App = () => {
         <span>YABF </span><span>[Random book on {subject}]</span> <span>[user pref + log]</span>
       </div>
       <SearchBar 
-        onSubmit={handleSearchSubmit} 
-        onChange={handleSearchInputChange}
+        setSearchText={setSearchText}
         searchText={searchText}
         setSortType={setSortType}
         sortType={sortType}
+        setSubmittedSearchText={setSubmittedSearchText}
       />
       {isError ? (
         <div>error</div>
