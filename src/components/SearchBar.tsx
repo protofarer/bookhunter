@@ -2,43 +2,38 @@ import { useEffect, useRef } from "react";
 import { SortType } from "../types";
 
 export default function SearchBar({
-  onSubmit, onChange, searchText, setSortType, sortType
+  searchText, onSubmit, onChange, setSortType, sortType
 } : {
+  searchText: string;
   onSubmit: (e?: React.FormEvent<HTMLFormElement>) => void;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  searchText: string;
   setSortType: (sortType: SortType) => void;
   sortType: SortType;
 }) {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
+    searchInputRef.current?.focus();
   }, []);
 
   const onRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSortType(e.target.value as SortType);
-      searchInputRef?.current?.focus();
+    searchInputRef.current?.focus();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log(`keypress input radio`, )
-    
     if (e.key === 'Enter') {
-      console.log(`detect enter, form submit`, )
       e.preventDefault();
-      searchInputRef?.current?.focus();
+      searchInputRef.current?.focus();
       onSubmit();
     }
   }
 
+  // ? CSDR use array of sortTypes and map over it to produce the radio buttons
   const RadioRelevance = RadioSortSelectorFactory("relevance", onRadioChange, handleKeyDown);
   const RadioRating = RadioSortSelectorFactory("ratingcount", onRadioChange, handleKeyDown);
   const RadioKeyword = RadioSortSelectorFactory("keyword", onRadioChange, handleKeyDown);
   const RadioReading = RadioSortSelectorFactory("readlog", onRadioChange, handleKeyDown);
-
 
   return (
     <form 
