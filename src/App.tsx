@@ -9,7 +9,6 @@ import SearchBar from './components/SearchBar';
 import { useQuery } from '@tanstack/react-query';
 
 const App = () => {
-  const [searchText, setSearchText] = useState('');
   const [submittedSearchText, setSubmittedSearchText] = useState('');
   const [sortType, setSortType] = useState<SortType>('relevance');
 
@@ -26,7 +25,7 @@ const App = () => {
 
   const fetchData2 = async () => {
     const ttrStart = performance.now();
-    const { data } = await axios(`https://openlibrary.org/search.json?q=${searchText}&limit=${Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE}`);
+    const { data } = await axios(`https://openlibrary.org/search.json?q=${submittedSearchText}&limit=${Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE}`);
     setTtr(performance.now() - ttrStart);
     return data;
   }
@@ -46,14 +45,14 @@ const App = () => {
   );
 
   const sortedResults = useMemo(
-    () => processRawResults(rawResults, searchText, sortType),
-    [searchText, rawResults, sortType]
+    () => processRawResults(rawResults, submittedSearchText, sortType),
+    [submittedSearchText, rawResults, sortType]
   )
 
-  function processRawResults(rawResults: SearchResults, searchText: string, sortType: SortType) {
+  function processRawResults(rawResults: SearchResults, submittedSearchText: string, sortType: SortType) {
     if (rawResults) {
       const scoredSortedDocs = sortDocsBySortType(
-        searchText, 
+        submittedSearchText, 
         rawResults.docs, 
         sortType
       );
@@ -81,8 +80,6 @@ const App = () => {
         <span>YABF </span><span>[Random book on {subject}]</span> <span>[user pref + log]</span>
       </div>
       <SearchBar 
-        setSearchText={setSearchText}
-        searchText={searchText}
         setSortType={setSortType}
         sortType={sortType}
         setSubmittedSearchText={setSubmittedSearchText}
