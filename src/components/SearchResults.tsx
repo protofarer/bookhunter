@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import Spinner from './Spinner';
 import axios from 'axios';
 
-export default function Results({
+export default function SearchResults({
   submittedSearchText,
   sortType,
 }: {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { SUBJECTS } from '../util';
-import '../App.css';
+import '../index.css';
 import SearchBar from '../components/SearchBar';
 import { Outlet } from 'react-router-dom';
 
