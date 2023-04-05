@@ -20,7 +20,6 @@
   --font-display: var(--font-body);
   --bodyLineHeight: 1.5;
 
-
   font-family: var(--font-body);
   line-height: var(--bodyLineHeight);
   font-weight: 400;
@@ -38,8 +37,13 @@
 }
 
 /* **** start reset styles **** */
-*, *::before, *::after {
+html {
   box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 * {
@@ -48,18 +52,35 @@
 }
 
 /* address when the body background not filling the space the way you might expect it to */
-html, body {
+html,
+body {
   height: 100%;
 }
 
 /* The block display type there prevents those annoying line-height gaps that always kill me. And you almost never want any of these media blocks to be wider than the parent. */
-img, picture, video, canvas, svg, iframe, object {
+img,
+picture,
+video,
+canvas,
+svg,
+iframe,
+object {
   display: block;
   max-width: 100%;
 }
 
 /* bad news when a long word (like a URL) forces an element wide and borks a layout. */
-p, h1, h2, h3, h4, h5, h6, li, dl, dt, blockquote {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+dl,
+dt,
+blockquote {
   overflow-wrap: break-word;
 }
 
@@ -67,6 +88,5 @@ p, h1, h2, h3, h4, h5, h6, li, dl, dt, blockquote {
 #root {
   isolation: isolate;
 }
-
 
 /* **** end reset styles **** */
