@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { SUBJECTS } from '../util';
 import '../index.css';
-import SearchBar from '../components/SearchBar';
 import { Outlet } from 'react-router-dom';
 
 export default function Root() {
@@ -13,14 +12,14 @@ export default function Root() {
   }, []);
 
   return (
-    <div className="App">
-      <div className="homebar">
-        <span>YABF </span>
+    <>
+      <div id="menubar">
         <span>[Random book on {subject}]</span> <span>[user pref + log]</span>
       </div>
-      <SearchBar />
-      <Outlet />
-      <div id="footer"></div>
-    </div>
+      <div id="main">
+        <Outlet />
+      </div>
+      <div id="footer">- c 2023 KB -</div>
+    </>
   );
 }

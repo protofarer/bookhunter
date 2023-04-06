@@ -5,8 +5,9 @@ import { makeCoverURL, sortDocsBySortType } from '../util';
 import { useQuery } from '@tanstack/react-query';
 import Spinner from './Spinner';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
-export default function SearchResults({
+export default function SearchResultsContainer({
   submittedSearchText,
   sortType,
 }: {
@@ -15,6 +16,8 @@ export default function SearchResults({
 }) {
   const [pageCount, setPageCount] = useState<number>(0);
   const [ttr, setTtr] = useState<number>(0);
+  const params = useParams();
+  console.log(`params`, params);
 
   // const fetchData = async (limit?: number) => {
   //   return await fetchJsonFile(

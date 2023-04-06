@@ -8,7 +8,8 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/root';
 import ErrorPage from './components/ErrorPage';
-import SearchResults from './components/SearchResults';
+import SearchResultsContainer from './components/SearchResultsContainer';
+import Index from './components/Index';
 
 const queryClient = new QueryClient();
 
@@ -17,10 +18,13 @@ const router = createBrowserRouter([
     path: '/',
     element: <Root />,
     errorElement: <ErrorPage />,
+    children: [{ index: true, element: <Index /> }],
   },
   {
     path: 'search/',
-    element: <SearchResults submittedSearchText={''} sortType={'keyword'} />,
+    element: (
+      <SearchResultsContainer submittedSearchText={''} sortType={'keyword'} />
+    ),
   },
 ]);
 

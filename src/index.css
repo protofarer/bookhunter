@@ -92,19 +92,16 @@ blockquote {
 /* **** end reset styles **** */
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: 800px;
+  margin: 0;
+  padding: 0.3rem;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 95vh;
+  border: 3px dashed purple;
 }
 
 /* App.css */
-.App {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
 form {
   display: flex;
   align-items: center;
@@ -207,7 +204,7 @@ button {
   border: 3px solid green;
 }
 
-.homebar {
+#menubar {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -249,4 +246,16 @@ button:active {
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+.soleCenter {
+  border: 4px dotted green;
+  margin-top: 20vh;
+}
+
+#main {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+  border: 4px dotted blue;
 }

@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { SortType } from '../types';
+import { useMatch, useSubmit } from 'react-router-dom';
 
 export default function SearchBar() {
   const [submittedSearchText, setSubmittedSearchText] = useState('');
   const [sortType, setSortType] = useState<SortType>('relevance');
+  const submit = useSubmit();
+  // const isPageHome = useMatch('/');
+  // console.log(`ispagehome`, isPageHome);
 
   const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -16,7 +20,12 @@ export default function SearchBar() {
     if (!searchInputRef.current?.value) return;
     searchInputRef.current.select();
     setSubmittedSearchText(searchInputRef.current.value);
+
     // TODO navigate to results route
+    submit(null, {
+      action: '/search',
+      method: 'post',
+    });
   };
 
   const onRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,8 +68,9 @@ export default function SearchBar() {
       <div className="searchForm-topbar">
         <input
           id="searchInput"
+          name="searchInput"
           type="text"
-          placeholder="Search for books"
+          placeholder="Find yet another book"
           ref={searchInputRef}
         />
         <button type="submit">🔍</button>
