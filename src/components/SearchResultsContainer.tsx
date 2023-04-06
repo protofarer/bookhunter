@@ -1,23 +1,97 @@
-import { useMemo, useState } from 'react';
-import { ScoredDoc, SearchResults, SortedResults, SortType } from '../types';
+import { useState } from 'react';
+import type {
+  ScoredDoc,
+  SearchResults,
+  SortedResults,
+  SortType,
+  LoaderData,
+} from '../types';
 import Constants from '../constants';
 import { makeCoverURL, sortDocsBySortType } from '../util';
 import { useQuery } from '@tanstack/react-query';
 import Spinner from './Spinner';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { LoaderFunction, redirect, useLoaderData } from 'react-router-dom';
+import SearchBar from './SearchBar';
+import { queryClient } from '../App';
 
-export default function SearchResultsContainer({
-  submittedSearchText,
-  sortType,
-}: {
-  submittedSearchText: string;
-  sortType: SortType;
-}) {
-  const [pageCount, setPageCount] = useState<number>(0);
-  const [ttr, setTtr] = useState<number>(0);
-  const params = useParams();
-  console.log(`params`, params);
+import type { Params } from 'react-router-dom';
+
+const fetchData2 = async (submittedSearchText: string) => {
+  const ttrStart = performance.now();
+  const { data }: { data: SearchResults } = await axios(
+    `https://openlibrary.org/search.json?q=${submittedSearchText}&limit=${
+      Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE
+    }`
+  );
+
+  const ttr = performance.now() - ttrStart;
+  return { data, ttr };
+};
+
+function processRawResults(
+  rawResults: SearchResults | undefined,
+  submittedSearchText: string,
+  sortType: SortType
+): SortedResults | undefined {
+  if (rawResults) {
+    const scoredSortedDocs = sortDocsBySortType(
+      submittedSearchText,
+      rawResults.docs,
+      sortType
+    );
+    const sortedResults = { ...rawResults, docs: scoredSortedDocs };
+    return sortedResults;
+  }
+}
+
+export const loader = (async ({ params }: { params: Params }) => {
+  // TODO error handle
+  if (!params.searchInput || !params.sortType) {
+    throw redirect('/');
+  }
+
+  if (
+    typeof params.searchInput !== 'string' ||
+    typeof params.sortType !== 'string'
+  ) {
+    throw Error('params somehow not strings??');
+    // throw redirect('/');
+  }
+
+  // TODO type narrow searchInput
+  const { data: rawResults, ttr }: { data: SearchResults; ttr: string } =
+    await queryClient.fetchQuery(
+      ['results', params.searchInput, params.sortType],
+      () => fetchData2(params.searchInput)
+    );
+
+  const pageCount = Math.min(
+    Math.ceil(rawResults.docs.length / Constants.RESULTS_PER_PAGE),
+    Constants.RESULTS_MAX_PAGES
+  );
+
+  // const sortedResults = useMemo(
+  //   () => processRawResults(rawResults, submittedSearchText, sortType),
+  //   [submittedSearchText, rawResults, sortType]
+  // );
+
+  // ? CSDR tiny-invariant to type narrow params
+
+  const sortedResults = processRawResults(
+    rawResults,
+    params.searchInput,
+    params.sortType as SortType
+  );
+
+  return { sortedResults, ttr, pageCount };
+}) satisfies LoaderFunction;
+
+export default function SearchResultsContainer() {
+  // const [pageCount, setPageCount] = useState<number>(0);
+  const { sortedResults, ttr, pageCount } = useLoaderData() as LoaderData<
+    typeof loader
+  >;
 
   // const fetchData = async (limit?: number) => {
   //   return await fetchJsonFile(
@@ -25,17 +99,6 @@ export default function SearchResultsContainer({
   //     limit ?? 5
   //   );
   // };
-
-  const fetchData2 = async () => {
-    const ttrStart = performance.now();
-    const { data }: { data: SearchResults } = await axios(
-      `https://openlibrary.org/search.json?q=${submittedSearchText}&limit=${
-        Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE
-      }`
-    );
-    setTtr(performance.now() - ttrStart);
-    return data;
-  };
 
   const {
     data: rawResults,
@@ -46,33 +109,6 @@ export default function SearchResultsContainer({
     enabled: !!submittedSearchText,
     refetchOnWindowFocus: false,
   });
-
-  const sortedResults = useMemo(
-    () => processRawResults(rawResults, submittedSearchText, sortType),
-    [submittedSearchText, rawResults, sortType]
-  );
-
-  function processRawResults(
-    rawResults: SearchResults | undefined,
-    submittedSearchText: string,
-    sortType: SortType
-  ): SortedResults | undefined {
-    if (rawResults) {
-      const scoredSortedDocs = sortDocsBySortType(
-        submittedSearchText,
-        rawResults.docs,
-        sortType
-      );
-      setPageCount(
-        Math.min(
-          Math.ceil(rawResults.docs.length / Constants.RESULTS_PER_PAGE),
-          Constants.RESULTS_MAX_PAGES
-        )
-      );
-      const sortedResults = { ...rawResults, docs: scoredSortedDocs };
-      return sortedResults;
-    }
-  }
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const docs = sortedResults?.docs.slice(
@@ -88,22 +124,25 @@ export default function SearchResultsContainer({
       ) : isFetching && isLoading ? (
         <Spinner />
       ) : sortedResults ? (
-        <div className="results">
-          <div className="results-info">
-            <>
-              {sortedResults?.numFound} result
-              {sortedResults?.numFound > 1 && 's'} | page {currentPage}/
-              {pageCount} | {(ttr / 1000).toFixed(2)} seconds
-            </>
+        <div className="searchResultsPage">
+          <SearchBar />
+          <div className="results">
+            <div className="results-info">
+              <>
+                {sortedResults?.numFound} result
+                {sortedResults?.numFound > 1 && 's'} | page {currentPage}/
+                {pageCount} | {(ttr / 1000).toFixed(2)} seconds
+              </>
+            </div>
+            {docs && <ResultsList docs={docs} />}
+            <ResultsNav
+              pageCount={pageCount}
+              currentPage={currentPage}
+              onClick={(pg: number) => {
+                setCurrentPage(pg);
+              }}
+            />
           </div>
-          {docs && <ResultsList docs={docs} />}
-          <ResultsNav
-            pageCount={pageCount}
-            currentPage={currentPage}
-            onClick={(pg: number) => {
-              setCurrentPage(pg);
-            }}
-          />
         </div>
       ) : (
         submittedSearchText.length > 0 && <div>no results matched query </div>

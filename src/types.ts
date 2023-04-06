@@ -1,3 +1,5 @@
+import { LoaderFunction } from 'react-router-dom';
+
 type SearchResultsInfo = {
   numFound: number;
   start: number;
@@ -82,3 +84,9 @@ type SortInfo = {
 export type ScoredDoc = Doc & SortInfo;
 
 export type SortedResults = SearchResultsInfo & { docs: ScoredDoc[] };
+
+export type LoaderData<TLoaderFn extends LoaderFunction> = Awaited<
+  ReturnType<TLoaderFn>
+> extends Response | infer D
+  ? D
+  : never;

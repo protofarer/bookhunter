@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { SortType } from '../types';
-import { useMatch, useSubmit } from 'react-router-dom';
+import { useSubmit } from 'react-router-dom';
 
 export default function SearchBar() {
   const [submittedSearchText, setSubmittedSearchText] = useState('');
   const [sortType, setSortType] = useState<SortType>('relevance');
   const submit = useSubmit();
-  // const isPageHome = useMatch('/');
-  // console.log(`ispagehome`, isPageHome);
 
   const searchInputRef = useRef<HTMLInputElement>(null);
 

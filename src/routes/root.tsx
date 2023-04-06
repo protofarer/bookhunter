@@ -1,21 +1,13 @@
-import { useEffect, useState } from 'react';
-import { SUBJECTS } from '../util';
 import '../index.css';
 import { Outlet } from 'react-router-dom';
+import MenuBar from '../components/MenuBar';
 
 export default function Root() {
-  const [subject, setSubject] = useState<string>('');
-
-  useEffect(() => {
-    const subject = SUBJECTS[Math.floor(Math.random() * SUBJECTS.length)];
-    setSubject(subject);
-  }, []);
-
   return (
     <>
-      <div id="menubar">
-        <span>[Random book on {subject}]</span> <span>[user pref + log]</span>
-      </div>
+      <header>
+        <MenuBar />
+      </header>
       <div id="main">
         <Outlet />
       </div>
