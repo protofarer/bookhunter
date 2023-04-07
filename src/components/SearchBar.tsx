@@ -1,30 +1,32 @@
 import { useEffect, useRef, useState } from 'react';
 import { SortType } from '../types';
-import { useSubmit } from 'react-router-dom';
+import { Form, useActionData, useSubmit } from 'react-router-dom';
 
-export default function SearchBar() {
+export default function SearchBar({
+  initSearchInput = '',
+}: {
+  initSearchInput: string;
+}) {
   const [submittedSearchText, setSubmittedSearchText] = useState('');
   const [sortType, setSortType] = useState<SortType>('relevance');
-  const submit = useSubmit();
+
+  // const submit = useSubmit();
 
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    searchInputRef.current?.focus();
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+      searchInputRef.current.value = initSearchInput;
+    }
   }, []);
 
-  const handleSearchSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
-    e?.preventDefault();
-    if (!searchInputRef.current?.value) return;
-    searchInputRef.current.select();
-    setSubmittedSearchText(searchInputRef.current.value);
-
-    // TODO navigate to results route
-    submit(null, {
-      action: '/search',
-      method: 'post',
-    });
-  };
+  // const handleSearchSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
+  //   e?.preventDefault();
+  //   if (!searchInputRef.current?.value) return;
+  //   searchInputRef.current.select();
+  //   setSubmittedSearchText(searchInputRef.current.value);
+  // };
 
   const onRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSortType(e.target.value as SortType);
@@ -35,7 +37,8 @@ export default function SearchBar() {
     if (e.key === 'Enter') {
       e.preventDefault();
       searchInputRef.current?.focus();
-      handleSearchSubmit();
+      // searchInputRef.current.
+      // handleSearchSubmit();
     }
   };
 
@@ -62,14 +65,24 @@ export default function SearchBar() {
   );
 
   return (
-    <form className="searchForm" onSubmit={handleSearchSubmit}>
+    <Form
+      role="search"
+      className="searchForm"
+      // onSubmit={handleSearchSubmit}
+      method="post"
+      action="/"
+    >
       <div className="searchForm-topbar">
         <input
           id="searchInput"
-          name="searchInput"
-          type="text"
+          name="q"
+          type="search"
           placeholder="Find yet another book"
           ref={searchInputRef}
+          required
+          minLength={2}
+          maxLength={150}
+          aria-label="Search for a book"
         />
         <button type="submit">🔍</button>
       </div>
@@ -80,7 +93,7 @@ export default function SearchBar() {
         <RadioKeyword currentSortType={sortType} />
         <RadioReading currentSortType={sortType} />
       </div>
-    </form>
+    </Form>
   );
 }
 

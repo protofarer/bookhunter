@@ -11,7 +11,12 @@ import { makeCoverURL, sortDocsBySortType } from '../util';
 import { useQuery } from '@tanstack/react-query';
 import Spinner from './Spinner';
 import axios from 'axios';
-import { LoaderFunction, redirect, useLoaderData } from 'react-router-dom';
+import {
+  LoaderFunction,
+  LoaderFunctionArgs,
+  redirect,
+  useLoaderData,
+} from 'react-router-dom';
 import SearchBar from './SearchBar';
 import { queryClient } from '../App';
 
@@ -45,25 +50,24 @@ function processRawResults(
   }
 }
 
-export const loader = (async ({ params }: { params: Params }) => {
-  // TODO error handle
-  if (!params.searchInput || !params.sortType) {
-    throw redirect('/');
-  }
+export const loader = async ({ request, params }: LoaderFunctionArgs) => {
+  const url = new URL(request.url);
+  const q = url.searchParams.get('q');
+  const sortType = url.searchParams.get('sortType');
 
-  if (
-    typeof params.searchInput !== 'string' ||
-    typeof params.sortType !== 'string'
-  ) {
-    throw Error('params somehow not strings??');
-    // throw redirect('/');
+  console.log(`q`, q, `sorttype`, sortType);
+
+  // TODO error handle
+  if (!q || !sortType) {
+    // throw Error('Bad search parameters, redirecting to search');
+    throw redirect('/');
   }
 
   // TODO type narrow searchInput
   const { data: rawResults, ttr }: { data: SearchResults; ttr: string } =
     await queryClient.fetchQuery(
       ['results', params.searchInput, params.sortType],
-      () => fetchData2(params.searchInput)
+      () => fetchData2(q)
     );
 
   const pageCount = Math.min(
@@ -78,14 +82,11 @@ export const loader = (async ({ params }: { params: Params }) => {
 
   // ? CSDR tiny-invariant to type narrow params
 
-  const sortedResults = processRawResults(
-    rawResults,
-    params.searchInput,
-    params.sortType as SortType
-  );
+  const sortedResults = processRawResults(rawResults, q, sortType as SortType);
 
   return { sortedResults, ttr, pageCount };
-}) satisfies LoaderFunction;
+};
+//  satisfies LoaderFunction;
 
 export default function SearchResultsContainer() {
   // const [pageCount, setPageCount] = useState<number>(0);
