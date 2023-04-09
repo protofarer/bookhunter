@@ -16,6 +16,7 @@ import {
   LoaderFunctionArgs,
   redirect,
   useLoaderData,
+  useNavigation,
 } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import { queryClient } from '../App';
@@ -55,8 +56,6 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   const q = url.searchParams.get('q');
   const sortType = url.searchParams.get('sortType');
 
-  console.log(`q`, q, `sorttype`, sortType);
-
   // TODO error handle
   if (!q || !sortType) {
     // throw Error('Bad search parameters, redirecting to search');
@@ -64,6 +63,12 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   }
 
   // TODO type narrow searchInput
+  // ? CSDR tiny-invariant to type narrow params
+
+  // ! does await conflict with useNavigation.. IOW component won't load, thus
+  // no navigation.state will be useless, since loader won't return until async
+  // function resolves, rather than not waiting and allowing
+  // react-router/component to handle a loading state
   const { data: rawResults, ttr }: { data: SearchResults; ttr: string } =
     await queryClient.fetchQuery(
       ['results', params.searchInput, params.sortType],
@@ -80,8 +85,6 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   //   [submittedSearchText, rawResults, sortType]
   // );
 
-  // ? CSDR tiny-invariant to type narrow params
-
   const sortedResults = processRawResults(rawResults, q, sortType as SortType);
 
   return { sortedResults, ttr, pageCount };
@@ -93,6 +96,7 @@ export default function SearchResultsContainer() {
   const { sortedResults, ttr, pageCount } = useLoaderData() as LoaderData<
     typeof loader
   >;
+  // const navigation = useNavigation();
 
   // const fetchData = async (limit?: number) => {
   //   return await fetchJsonFile(
@@ -101,15 +105,15 @@ export default function SearchResultsContainer() {
   //   );
   // };
 
-  const {
-    data: rawResults,
-    isLoading,
-    isFetching,
-    isError,
-  } = useQuery(['results', submittedSearchText], fetchData2, {
-    enabled: !!submittedSearchText,
-    refetchOnWindowFocus: false,
-  });
+  // const {
+  //   data: rawResults,
+  //   isLoading,
+  //   isFetching,
+  //   isError,
+  // } = useQuery(['results', submittedSearchText], fetchData2, {
+  //   enabled: !!submittedSearchText,
+  //   refetchOnWindowFocus: false,
+  // });
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const docs = sortedResults?.docs.slice(

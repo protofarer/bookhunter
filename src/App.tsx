@@ -6,6 +6,7 @@ import * as Index from './routes/index';
 import SearchResultsContainer from './components/SearchResultsContainer';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import * as SearchResults from './components/SearchResultsContainer';
+import Spinner from './components/Spinner';
 
 const queryClient = new QueryClient();
 export { queryClient };
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} fallbackElement={<Spinner />} />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
