@@ -1,4 +1,6 @@
-import { Doc, SearchResults, SortType } from './types';
+import axios from 'axios';
+import { Doc, SearchResults, SortType, SortedResults } from './types';
+import Constants from './constants';
 export async function fetchJsonFile(fileUrl: string, limit?: number) {
   try {
     const response = await fetch(fileUrl);
@@ -183,4 +185,30 @@ type IMakeCoverURL = {
 
 export function makeCoverURL(props: IMakeCoverURL) {
   return `https://covers.openlibrary.org/b/${props.key}/${props.value}-${props.size}.jpg`;
+}
+
+export async function fetchData2(submittedSearchText: string) {
+  const ttrStart = performance.now();
+  const { data }: { data: SearchResults } = await axios(
+    `https://openlibrary.org/search.json?q=${submittedSearchText}&limit=${
+      Constants.RESULTS_MAX_PAGES * Constants.RESULTS_PER_PAGE
+    }`
+  );
+
+  const ttr = performance.now() - ttrStart;
+  return { data, ttr };
+}
+
+export function processRawResults(
+  rawResults: SearchResults,
+  submittedSearchText: string,
+  sortType: SortType
+): SortedResults {
+  const scoredSortedDocs = sortDocsBySortType(
+    submittedSearchText,
+    rawResults.docs,
+    sortType
+  );
+  const sortedResults = { ...rawResults, docs: scoredSortedDocs };
+  return sortedResults;
 }
