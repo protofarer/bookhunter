@@ -259,3 +259,8 @@ button:active {
   flex: 1;
   border: 4px dotted blue;
 }
+
+.results-list-filter {
+  display: flex;
+  flex-flow: row nowrap;
+}

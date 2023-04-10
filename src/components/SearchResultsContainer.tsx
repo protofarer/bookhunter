@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { LoaderFunctionArgs, redirect, useLoaderData } from 'react-router-dom';
 import Constants from '../constants';
-import { fetchData2, processRawResults } from '../util';
+import { FilterEntries, fetchData2, processRawResults } from '../util';
 import { queryClient } from '../App';
 import SearchBar from './SearchBar';
 import ResultsList from './ResultsList';
@@ -12,6 +12,7 @@ import type {
   LoaderData,
   SortedResults,
 } from '../types';
+import Filter from './Filter';
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
@@ -38,6 +39,9 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 export default function SearchResultsContainer() {
   const [sortType, setSortType] = useState<SortType>('relevance');
+  const [filtersEntries, setFiltersEntries] = useState<FilterEntries | null>(
+    null
+  );
   const { q, rawResults, ttr, pageCount } = useLoaderData() as LoaderData<
     typeof loader
   >;
@@ -46,8 +50,13 @@ export default function SearchResultsContainer() {
   );
 
   useEffect(() => {
-    const sortedResults = processRawResults(rawResults, q, sortType);
+    const { sortedResults, filtersEntries } = processRawResults(
+      rawResults,
+      q,
+      sortType
+    );
     setSortedResults(sortedResults);
+    setFiltersEntries(filtersEntries);
   }, [rawResults, sortType]);
 
   // const navigation = useNavigation();
@@ -94,7 +103,29 @@ export default function SearchResultsContainer() {
                 {pageCount} | {(parseInt(ttr) / 1000).toFixed(2)} seconds
               </>
             </div>
-            {docs && <ResultsList docs={docs} />}
+            <div className="results-list-filter">
+              {docs && <ResultsList docs={docs} />}
+              <div className="results-filterContainer">
+                {filtersEntries &&
+                  Constants.filterKeys
+                    .filter((x) => filtersEntries?.[x])
+                    .map((key) => (
+                      <Filter
+                        key={key}
+                        filterKey={key}
+                        filterValues={filtersEntries[key]}
+                      />
+                    ))}
+                {filtersEntries?.first_publish_year ? (
+                  <Filter
+                    filterKey="first_publish_year"
+                    filterValues={filtersEntries.first_publish_year}
+                  />
+                ) : (
+                  <span>no filters</span>
+                )}
+              </div>
+            </div>
             <ResultsNav
               pageCount={pageCount}
               currentPage={currentPage}

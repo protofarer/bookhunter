@@ -203,12 +203,37 @@ export function processRawResults(
   rawResults: SearchResults,
   submittedSearchText: string,
   sortType: SortType
-): SortedResults {
+) {
   const scoredSortedDocs = sortDocsBySortType(
     submittedSearchText,
     rawResults.docs,
     sortType
   );
   const sortedResults = { ...rawResults, docs: scoredSortedDocs };
-  return sortedResults;
+  const filtersEntries = findFilterProps(sortedResults.docs);
+  return { sortedResults, filtersEntries };
+}
+
+export interface FilterEntries {
+  [key: string]: Set<string | number | boolean>;
+}
+
+export function findFilterProps(docs: Doc[]): FilterEntries {
+  const filters: FilterEntries = {};
+  docs.forEach((doc) => {
+    Object.entries(doc).forEach(([k, v]) => {
+      console.log(`k:${k} typeof v: ${typeof v}`);
+      console.log(`v`, v);
+      if (!filters[k]) {
+        filters[k] = new Set();
+      }
+      if (Array.isArray(v)) {
+        v.forEach((x) => filters[k].add(x));
+      } else {
+        filters[k].add(v);
+      }
+    });
+  });
+  // console.log(filters);
+  return filters;
 }
