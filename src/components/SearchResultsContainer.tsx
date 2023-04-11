@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { LoaderFunctionArgs, redirect, useLoaderData } from 'react-router-dom';
 import Constants from '../constants';
 import {
-  FilterEntries,
   FilterSettings,
   fetchData2,
+  initFilterSettings,
   processRawResults,
 } from '../util';
 import { queryClient } from '../App';
@@ -17,7 +17,7 @@ import type {
   LoaderData,
   SortedResults,
 } from '../types';
-import FiltersContainer from './FiltersContainer';
+import FilterContainer from './FilterContainer';
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
@@ -50,28 +50,20 @@ export default function SearchResultsContainer() {
   const [sortedResults, setSortedResults] = useState<SortedResults | null>(
     null
   );
-  const [filtersEntries, setFiltersEntries] = useState<FilterEntries | null>(
-    null
-  );
 
-  const initialFilterSettings: FilterSettings =
-    Constants.FILTER_KEYS.reduce<FilterSettings>((acc, filterKey) => {
-      acc[filterKey] = {};
-      return acc;
-    }, {} as FilterSettings);
   const [filterSettings, setFilterSettings] = useState<FilterSettings>(
-    initialFilterSettings
+    initFilterSettings(rawResults.docs)
   );
 
   useEffect(() => {
-    const { sortedResults, filtersEntries } = processRawResults(
+    const { sortedResults } = processRawResults(
       rawResults,
       q,
-      sortType
+      sortType,
+      filterSettings
     );
     setSortedResults(sortedResults);
-    setFiltersEntries(filtersEntries);
-  }, [rawResults, sortType]);
+  }, [rawResults, sortType, filterSettings]);
 
   // const navigation = useNavigation();
 
@@ -102,12 +94,12 @@ export default function SearchResultsContainer() {
     property: string,
     isChecked: boolean
   ) {
-    console.log(
-      `new filtersetting: key | property | isChecked`,
-      key,
-      property,
-      isChecked
-    );
+    // console.log(
+    //   `new filtersetting: key | property | isChecked`,
+    //   key,
+    //   property,
+    //   isChecked
+    // );
     setFilterSettings({
       ...filterSettings,
       [key]: { ...filterSettings[key], [property]: isChecked },
@@ -136,9 +128,9 @@ export default function SearchResultsContainer() {
             </div>
             <div className="results-list-filter">
               {docs && <ResultsList docs={docs} />}
-              {filtersEntries && (
-                <FiltersContainer
-                  filtersEntries={filtersEntries}
+              {filterSettings && (
+                <FilterContainer
+                  filterSettings={filterSettings}
                   updateFilterSetting={updateFilterSetting}
                 />
               )}

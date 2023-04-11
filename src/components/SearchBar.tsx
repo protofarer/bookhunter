@@ -16,12 +16,12 @@ export default function SearchBar({
   }, []);
 
   // ? use for adv search
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      searchInputRef.current?.focus();
-    }
-  };
+  // const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  //   if (e.key === 'Enter') {
+  //     e.preventDefault();
+  //     searchInputRef.current?.focus();
+  //   }
+  // };
 
   return (
     <Form role="search" className="searchForm" method="post" action="/">

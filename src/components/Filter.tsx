@@ -4,13 +4,14 @@ export default function Filter({
   updateFilterSetting,
 }: {
   filterKey: string;
-  filterValues: Set<string | number | boolean>;
+  filterValues: { [key: string]: boolean };
   updateFilterSetting: (
     key: string,
-    values: Set<string | number | boolean>
+    property: string,
+    isChecked: boolean
   ) => void;
 }) {
-  const values = new Array(...filterValues);
+  const values = Object.keys(filterValues);
 
   function onFilterChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value, checked } = e.target;
@@ -23,17 +24,16 @@ export default function Filter({
       <legend>{filterKey}</legend>
       <fieldset>
         {values.map((val, idx) => {
-          const sval = typeof val === 'string' ? val : val.toString();
           return (
             <div key={idx}>
               <input
                 type="checkbox"
                 name={filterKey}
-                id={`${filterKey}-${sval}`}
-                value={sval}
+                id={`${filterKey}-${val}`}
+                value={val}
                 onChange={onFilterChange}
               />
-              <label htmlFor={`${filterKey}-${sval}`}>{sval}</label>
+              <label htmlFor={`${filterKey}-${val}`}>{val}</label>
             </div>
           );
         })}

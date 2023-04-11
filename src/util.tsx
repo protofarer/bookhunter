@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Doc, SearchResults, SortType, SortedResults } from './types';
+import { Doc, SearchResults, SortType } from './types';
 import Constants from './constants';
 export async function fetchJsonFile(fileUrl: string, limit?: number) {
   try {
@@ -202,16 +202,39 @@ export async function fetchData2(submittedSearchText: string) {
 export function processRawResults(
   rawResults: SearchResults,
   submittedSearchText: string,
-  sortType: SortType
+  sortType: SortType,
+  filterSettings: FilterSettings
 ) {
+  type AllowedDocKeys = keyof Doc;
+  const filteredDocs = rawResults.docs.filter((doc: Doc) => {
+    // TODO MAKE THIS WORK
+    return Object.entries(filterSettings).every(
+      ([filterKey, filterOptionsObject]) => {
+        if (filterKey in doc) {
+          Object.entries(filterOptionsObject).forEach(
+            ([propVal, isFiltered]) => {
+              if (isFiltered !== true) return true;
+
+              // TODO doc values may be arrays!
+              if (Array.isArray(doc[filterKey as AllowedDocKeys])) {
+                return doc[filterKey].includes(propVal);
+              } else if (doc[filterKey as AllowedDocKeys] === propVal)
+                return true;
+            }
+          );
+        }
+      }
+    );
+  });
+  console.log(`filteredDocs`, filteredDocs);
+
   const scoredSortedDocs = sortDocsBySortType(
     submittedSearchText,
     rawResults.docs,
     sortType
   );
   const sortedResults = { ...rawResults, docs: scoredSortedDocs };
-  const filtersEntries = findFilterProps(sortedResults.docs);
-  return { sortedResults, filtersEntries };
+  return { sortedResults };
 }
 
 export interface FilterEntries {
@@ -224,7 +247,8 @@ export type FilterSettings = {
   [K in FilterKeys]: Record<string, boolean>;
 };
 
-export function findFilterProps(docs: Doc[]): FilterEntries {
+// Creates a filter object with all the possible values for each filter
+export function concatDocProps(docs: Doc[]): FilterEntries {
   const filters: FilterEntries = {};
   docs.forEach((doc) => {
     Object.entries(doc).forEach(([k, v]) => {
@@ -241,5 +265,25 @@ export function findFilterProps(docs: Doc[]): FilterEntries {
     });
   });
   // console.log(filters);
+  return filters;
+}
+
+export function initFilterSettings(docs: Doc[]) {
+  // this function will create a filter object only for document properties present in Constants.FILTER_KEYS
+  const filters: FilterSettings = {};
+  docs.forEach((doc) => {
+    Object.entries(doc).forEach(([k, v]) => {
+      if (Constants.FILTER_KEYS.includes(k)) {
+        if (!filters[k]) {
+          filters[k] = {};
+        }
+        if (Array.isArray(v)) {
+          v.forEach((x) => (filters[k][x.toString()] = false));
+        } else {
+          filters[k][v.toString()] = false;
+        }
+      }
+    });
+  });
   return filters;
 }
