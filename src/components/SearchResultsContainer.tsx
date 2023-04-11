@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import { LoaderFunctionArgs, redirect, useLoaderData } from 'react-router-dom';
 import Constants from '../constants';
-import { FilterEntries, fetchData2, processRawResults } from '../util';
+import {
+  FilterEntries,
+  FilterSettings,
+  fetchData2,
+  processRawResults,
+} from '../util';
 import { queryClient } from '../App';
 import SearchBar from './SearchBar';
 import ResultsList from './ResultsList';
@@ -12,7 +17,7 @@ import type {
   LoaderData,
   SortedResults,
 } from '../types';
-import Filter from './Filter';
+import FiltersContainer from './FiltersContainer';
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
@@ -39,14 +44,23 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 export default function SearchResultsContainer() {
   const [sortType, setSortType] = useState<SortType>('relevance');
-  const [filtersEntries, setFiltersEntries] = useState<FilterEntries | null>(
-    null
-  );
   const { q, rawResults, ttr, pageCount } = useLoaderData() as LoaderData<
     typeof loader
   >;
   const [sortedResults, setSortedResults] = useState<SortedResults | null>(
     null
+  );
+  const [filtersEntries, setFiltersEntries] = useState<FilterEntries | null>(
+    null
+  );
+
+  const initialFilterSettings: FilterSettings =
+    Constants.FILTER_KEYS.reduce<FilterSettings>((acc, filterKey) => {
+      acc[filterKey] = {};
+      return acc;
+    }, {} as FilterSettings);
+  const [filterSettings, setFilterSettings] = useState<FilterSettings>(
+    initialFilterSettings
   );
 
   useEffect(() => {
@@ -83,6 +97,23 @@ export default function SearchResultsContainer() {
   const RadioKeyword = RadioSortSelectorFactory('keyword', onRadioChange);
   const RadioReading = RadioSortSelectorFactory('readlog', onRadioChange);
 
+  function updateFilterSetting(
+    key: string,
+    property: string,
+    isChecked: boolean
+  ) {
+    console.log(
+      `new filtersetting: key | property | isChecked`,
+      key,
+      property,
+      isChecked
+    );
+    setFilterSettings({
+      ...filterSettings,
+      [key]: { ...filterSettings[key], [property]: isChecked },
+    });
+  }
+
   return (
     <>
       {sortedResults ? (
@@ -105,26 +136,12 @@ export default function SearchResultsContainer() {
             </div>
             <div className="results-list-filter">
               {docs && <ResultsList docs={docs} />}
-              <div className="results-filterContainer">
-                {filtersEntries &&
-                  Constants.filterKeys
-                    .filter((x) => filtersEntries?.[x])
-                    .map((key) => (
-                      <Filter
-                        key={key}
-                        filterKey={key}
-                        filterValues={filtersEntries[key]}
-                      />
-                    ))}
-                {filtersEntries?.first_publish_year ? (
-                  <Filter
-                    filterKey="first_publish_year"
-                    filterValues={filtersEntries.first_publish_year}
-                  />
-                ) : (
-                  <span>no filters</span>
-                )}
-              </div>
+              {filtersEntries && (
+                <FiltersContainer
+                  filtersEntries={filtersEntries}
+                  updateFilterSetting={updateFilterSetting}
+                />
+              )}
             </div>
             <ResultsNav
               pageCount={pageCount}

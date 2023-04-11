@@ -218,12 +218,18 @@ export interface FilterEntries {
   [key: string]: Set<string | number | boolean>;
 }
 
+type FilterKeys = (typeof Constants.FILTER_KEYS)[number];
+
+export type FilterSettings = {
+  [K in FilterKeys]: Record<string, boolean>;
+};
+
 export function findFilterProps(docs: Doc[]): FilterEntries {
   const filters: FilterEntries = {};
   docs.forEach((doc) => {
     Object.entries(doc).forEach(([k, v]) => {
-      console.log(`k:${k} typeof v: ${typeof v}`);
-      console.log(`v`, v);
+      // console.log(`k:${k} typeof v: ${typeof v}`);
+      // console.log(`v`, v);
       if (!filters[k]) {
         filters[k] = new Set();
       }

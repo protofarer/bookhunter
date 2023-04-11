@@ -19,6 +19,5 @@ export default function Root() {
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
   const q = formData.get('q') as string;
-  const sortType = formData.get('sortType') as string;
-  return redirect(`/search?q=${q}&sortType=${sortType}`);
+  return redirect(`/search?q=${q}`);
 }

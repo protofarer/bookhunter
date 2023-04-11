@@ -6,7 +6,7 @@
 const Constants = {
   RESULTS_PER_PAGE: 5,
   RESULTS_MAX_PAGES: 3,
-  filterKeys: [
+  FILTER_KEYS: [
     'ebook_access',
     'first_publish_year',
     'language',
