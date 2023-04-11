@@ -206,23 +206,26 @@ export function processRawResults(
   filterSettings: FilterSettings
 ) {
   type AllowedDocKeys = keyof Doc;
+  function isArray<T>(value: any): value is T[] {
+    return Array.isArray(value);
+  }
+
   const filteredDocs = rawResults.docs.filter((doc: Doc) => {
     // TODO MAKE THIS WORK
     return Object.entries(filterSettings).every(
       ([filterKey, filterOptionsObject]) => {
         if (filterKey in doc) {
-          Object.entries(filterOptionsObject).forEach(
-            ([propVal, isFiltered]) => {
-              if (isFiltered !== true) return true;
+          const docValue = doc[filterKey as AllowedDocKeys];
 
-              // TODO doc values may be arrays!
-              if (Array.isArray(doc[filterKey as AllowedDocKeys])) {
-                return doc[filterKey].includes(propVal);
-              } else if (doc[filterKey as AllowedDocKeys] === propVal)
-                return true;
+          Object.entries(filterOptionsObject).every(([propVal, isFiltered]) => {
+            if (isFiltered !== true) return true;
+            if (isArray<typeof propVal>(docValue)) {
+              return docValue.includes(propVal);
             }
-          );
+            return doc[filterKey as AllowedDocKeys] === propVal;
+          });
         }
+        return true;
       }
     );
   });

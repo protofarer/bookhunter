@@ -14,6 +14,7 @@ const Constants = {
     'ratings_average',
     'subject',
   ],
+  FILTER_KEY_VALUE_WHEN_ABSENT_FROM_DOC: 'unknown',
 };
 
 export default Constants;
