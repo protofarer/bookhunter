@@ -63,7 +63,8 @@ export default function SearchResultsContainer() {
       filterSettings
     );
     setSortedResults(sortedResults);
-  }, [rawResults, sortType, filterSettings]);
+    setFilterSettings(initFilterSettings(rawResults.docs));
+  }, [rawResults, sortType]);
 
   // const navigation = useNavigation();
 
@@ -94,15 +95,11 @@ export default function SearchResultsContainer() {
     property: string,
     isChecked: boolean
   ) {
-    // console.log(
-    //   `new filtersetting: key | property | isChecked`,
-    //   key,
-    //   property,
-    //   isChecked
-    // );
     setFilterSettings({
       ...filterSettings,
-      [key]: { ...filterSettings[key], [property]: isChecked },
+      [key]: filterSettings[key].map((boolPair) =>
+        boolPair[0] === property ? [boolPair[0], isChecked] : boolPair
+      ),
     });
   }
 

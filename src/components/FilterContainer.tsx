@@ -19,12 +19,12 @@ export default function FilterContainer({
         <Filter
           key={key}
           filterKey={key}
-          filterValues={filterSettings[key]}
+          filterValuesArray={filterSettings[key]}
           updateFilterSetting={updateFilterSetting}
         />
       ))}
 
-      {filterSettings?.first_publish_year ? (
+      {/* {filterSettings?.first_publish_year ? (
         <Filter
           filterKey="first_publish_year"
           filterValues={filterSettings.first_publish_year}
@@ -32,7 +32,7 @@ export default function FilterContainer({
         />
       ) : (
         <span>no filters</span>
-      )}
+      )} */}
     </div>
   );
 }

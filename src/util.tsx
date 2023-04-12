@@ -205,31 +205,7 @@ export function processRawResults(
   sortType: SortType,
   filterSettings: FilterSettings
 ) {
-  type AllowedDocKeys = keyof Doc;
-  function isArray<T>(value: any): value is T[] {
-    return Array.isArray(value);
-  }
-
-  const filteredDocs = rawResults.docs.filter((doc: Doc) => {
-    // TODO MAKE THIS WORK
-    return Object.entries(filterSettings).every(
-      ([filterKey, filterOptionsObject]) => {
-        if (filterKey in doc) {
-          const docValue = doc[filterKey as AllowedDocKeys];
-
-          Object.entries(filterOptionsObject).every(([propVal, isFiltered]) => {
-            if (isFiltered !== true) return true;
-            if (isArray<typeof propVal>(docValue)) {
-              return docValue.includes(propVal);
-            }
-            return doc[filterKey as AllowedDocKeys] === propVal;
-          });
-        }
-        return true;
-      }
-    );
-  });
-  console.log(`filteredDocs`, filteredDocs);
+  filterDocs(rawResults.docs, filterSettings);
 
   const scoredSortedDocs = sortDocsBySortType(
     submittedSearchText,
@@ -240,6 +216,73 @@ export function processRawResults(
   return { sortedResults };
 }
 
+function isStringArray(value: unknown): value is string[] {
+  return (
+    Array.isArray(value) && value.every((item) => typeof item === 'string')
+  );
+}
+
+function isNumberArray(value: unknown): value is number[] {
+  return (
+    Array.isArray(value) && value.every((item) => typeof item === 'number')
+  );
+}
+
+type AllowedDocKeys = keyof Doc;
+
+function filterDoc(doc: Doc, activeFilters: FilterSettings) {
+  return Object.entries(activeFilters).every(
+    ([filterKey, filterOptionsArray]) => {
+      if (filterKey in doc) {
+        // ! why is docvalue possibly undefined if did filterkey in doc
+        const docValue = doc[filterKey as AllowedDocKeys];
+
+        return filterOptionsArray.every(([fval, isFiltered]) => {
+          // filter is off
+          if (isFiltered !== true) return true;
+
+          // doc value is string array of values
+          if (isStringArray(docValue)) {
+            return docValue.includes(fval.toString());
+          }
+
+          // doc value is number array of values
+          if (isNumberArray(docValue)) {
+            return docValue.includes(Number(fval));
+          }
+
+          // doc value is single value
+          const docvaltype = typeof docValue;
+          switch (docvaltype) {
+            case 'string':
+              return doc[filterKey as AllowedDocKeys] === fval;
+            case 'number':
+              return doc[filterKey as AllowedDocKeys] === Number(fval);
+            case 'boolean':
+              return (
+                doc[filterKey as AllowedDocKeys] ===
+                (fval === 'true' ? true : false)
+              );
+          }
+          return doc[filterKey as AllowedDocKeys] === fval;
+        });
+      }
+      return true;
+    }
+  );
+}
+
+function filterDocs(docs: Doc[], filterSettings: FilterSettings) {
+  const activeFilters = { ...filterSettings };
+  Object.entries(filterSettings).forEach(([key, valuesArray]) => {
+    const activeValues = valuesArray.filter((boolPair) => boolPair[1] === true);
+    activeFilters[key] = activeValues;
+  });
+
+  const filteredDocs = docs.filter((doc: Doc) => filterDoc(doc, activeFilters));
+  console.log(`filteredDocs`, filteredDocs);
+}
+
 export interface FilterEntries {
   [key: string]: Set<string | number | boolean>;
 }
@@ -247,10 +290,10 @@ export interface FilterEntries {
 type FilterKeys = (typeof Constants.FILTER_KEYS)[number];
 
 export type FilterSettings = {
-  [K in FilterKeys]: Record<string, boolean>;
+  [K in FilterKeys]: Array<[string, boolean]>;
 };
 
-// Creates a filter object with all the possible values for each filter
+// Creates a filter object containing values across all docs for all doc keys
 export function concatDocProps(docs: Doc[]): FilterEntries {
   const filters: FilterEntries = {};
   docs.forEach((doc) => {
@@ -271,22 +314,39 @@ export function concatDocProps(docs: Doc[]): FilterEntries {
   return filters;
 }
 
+// Create a filter object containing values across all docs only for specified filter keys
 export function initFilterSettings(docs: Doc[]) {
-  // this function will create a filter object only for document properties present in Constants.FILTER_KEYS
-  const filters: FilterSettings = {};
+  const filterSettings: FilterSettings = {};
   docs.forEach((doc) => {
-    Object.entries(doc).forEach(([k, v]) => {
-      if (Constants.FILTER_KEYS.includes(k)) {
-        if (!filters[k]) {
-          filters[k] = {};
+    Object.entries(doc).forEach(([key, value]) => {
+      if (Constants.FILTER_KEYS.includes(key)) {
+        // instantiate empty array as needed
+        if (!filterSettings[key]) {
+          filterSettings[key] = [];
         }
-        if (Array.isArray(v)) {
-          v.forEach((x) => (filters[k][x.toString()] = false));
+
+        // if doc's value for given key is an array, flatten it, only include new items from array
+        if (Array.isArray(value)) {
+          value.forEach((val) => {
+            if (
+              filterSettings[key].filter((v) => v[0] === val.toString())
+                .length === 0
+            ) {
+              filterSettings[key].push([val.toString(), false]);
+            }
+          });
+
+          // all other values, which can only be of a non-collection type: number, bool, string; only include new values
         } else {
-          filters[k][v.toString()] = false;
+          if (
+            filterSettings[key].filter((val) => val[0] === value.toString())
+              .length === 0
+          ) {
+            filterSettings[key].push([value.toString(), false]);
+          }
         }
       }
     });
   });
-  return filters;
+  return filterSettings;
 }

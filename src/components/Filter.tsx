@@ -1,18 +1,16 @@
 export default function Filter({
   filterKey,
-  filterValues,
+  filterValuesArray,
   updateFilterSetting,
 }: {
   filterKey: string;
-  filterValues: { [key: string]: boolean };
+  filterValuesArray: Array<[string, boolean]>;
   updateFilterSetting: (
     key: string,
     property: string,
     isChecked: boolean
   ) => void;
 }) {
-  const values = Object.keys(filterValues);
-
   function onFilterChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value, checked } = e.target;
     console.log(`detect check click, name, val, checked`, name, value, checked);
@@ -23,7 +21,7 @@ export default function Filter({
     <div className="results-filter">
       <legend>{filterKey}</legend>
       <fieldset>
-        {values.map((val, idx) => {
+        {filterValuesArray.map(([val, isChecked], idx) => {
           return (
             <div key={idx}>
               <input
