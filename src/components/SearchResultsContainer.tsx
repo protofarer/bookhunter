@@ -4,8 +4,10 @@ import Constants from '../constants';
 import {
   FilterSettings,
   fetchData2,
+  filterDocs,
   initFilterSettings,
   processRawResults,
+  scoreDocs,
 } from '../util';
 import { queryClient } from '../App';
 import SearchBar from './SearchBar';
@@ -50,7 +52,6 @@ export default function SearchResultsContainer() {
   const [sortedResults, setSortedResults] = useState<SortedResults | null>(
     null
   );
-
   const [filterSettings, setFilterSettings] = useState<FilterSettings>(
     initFilterSettings(rawResults.docs)
   );
@@ -66,7 +67,16 @@ export default function SearchResultsContainer() {
     setFilterSettings(initFilterSettings(rawResults.docs));
   }, [rawResults, sortType]);
 
-  // const navigation = useNavigation();
+  useEffect(() => {
+    const { sortedResults } = processRawResults(
+      rawResults,
+      q,
+      sortType,
+      filterSettings
+    );
+    const filteredDocs = filterDocs(sortedResults.docs, filterSettings);
+    setSortedResults({ ...sortedResults, docs: scoreDocs(q, filteredDocs) });
+  }, [filterSettings]);
 
   // const fetchData = async (limit?: number) => {
   //   return await fetchJsonFile(
@@ -95,6 +105,8 @@ export default function SearchResultsContainer() {
     property: string,
     isChecked: boolean
   ) {
+    console.log(`filtersettings changed`);
+
     setFilterSettings({
       ...filterSettings,
       [key]: filterSettings[key].map((boolPair) =>

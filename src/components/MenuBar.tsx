@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { SUBJECTS } from '../util';
+import Constants from '../constants';
 
 export default function MenuBar() {
   const [subject, setSubject] = useState<string>('');
 
   useEffect(() => {
-    const subject = SUBJECTS[Math.floor(Math.random() * SUBJECTS.length)];
+    const subject =
+      Constants.SUBJECTS[Math.floor(Math.random() * Constants.SUBJECTS.length)];
     setSubject(subject);
   }, []);
 

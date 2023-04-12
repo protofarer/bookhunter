@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Doc, SearchResults, SortType } from './types';
+import { Doc, ScoredDoc, SearchResults, SortType } from './types';
 import Constants from './constants';
 export async function fetchJsonFile(fileUrl: string, limit?: number) {
   try {
@@ -47,11 +47,7 @@ function countMatches(query: string, text: string) {
   }, 0);
 }
 
-export function sortDocsBySortType(
-  query: string,
-  docs: Doc[],
-  sortType: SortType = 'relevance'
-) {
+export function scoreDocs(query: string, docs: Doc[]) {
   const docsWithScores = docs.map((doc) => {
     const keyword = calculateKeywordScore(query, doc);
     const readlog = doc.readinglog_count ?? 0;
@@ -66,116 +62,22 @@ export function sortDocsBySortType(
         ratingcount,
         relevance,
       },
-      sortType,
     };
   });
-
+  return docsWithScores;
+}
+export function sortDocs(
+  scoredDocs: ScoredDoc[],
+  sortType: SortType = 'relevance'
+) {
   return sortType === 'none'
-    ? docsWithScores
-    : docsWithScores.sort((a, b) => {
+    ? scoredDocs
+    : scoredDocs.sort((a, b) => {
         // const aScore = calculateRelevanceScore(query, a);
         // const bScore = calculateRelevanceScore(query, b);
         return b.score[sortType] - a.score[sortType];
       });
 }
-
-const SUBJECTS = [
-  'Architecture',
-  'Art Instruction',
-  'Art History',
-  'Dance',
-  'Design',
-  'Fashion',
-  'Film',
-  'Graphic Design',
-  'Music',
-  'Music Theory',
-  'Painting',
-  'Photography',
-  'Bears',
-  'Cats',
-  'Kittens',
-  'Dogs',
-  'Puppies',
-  'Fantasy',
-  'Historical Fiction',
-  'Horror',
-  'Humor',
-  'Literature',
-  'Magic',
-  'Mystery and detective stories',
-  'Plays',
-  'Poetry',
-  'Romance',
-  'Science Fiction',
-  'Short Stories',
-  'Thriller',
-  'Young Adult',
-  'Biology',
-  'Chemistry',
-  'Mathematics',
-  'Physics',
-  'Programming',
-  'Management',
-  'Entrepreneurship',
-  'Business Economics',
-  'Business Success',
-  'Finance',
-  'Kids Books',
-  'Stories in Rhyme',
-  'Baby Books',
-  'Bedtime Books',
-  'Picture Books',
-  'Ancient Civilization',
-  'Archaeology',
-  'Anthropology',
-  'World War II',
-  'Social Life and Customs',
-  'Cooking',
-  'Cookbooks',
-  'Mental Health',
-  'Exercise',
-  'Nutrition',
-  'Self-help',
-  'Autobiographies',
-  'History',
-  'Politics and Government',
-  'World War II',
-  'Women',
-  'Kings and Rulers',
-  'Composers',
-  'Artists',
-  'Anthropology',
-  'Religion',
-  'Political Science',
-  'Psychology',
-  'Brazil',
-  'India',
-  'Indonesia',
-  'United States',
-  'History',
-  'Mathematics',
-  'Geography',
-  'Psychology',
-  'Algebra',
-  'Education',
-  'Business & Economics',
-  'Science',
-  'Chemistry',
-  'English Language',
-  'Physics',
-  'Computer Science',
-  'English',
-  'French',
-  'Spanish',
-  'German',
-  'Russian',
-  'Italian',
-  'Chinese',
-  'Japanese',
-];
-
-export { SUBJECTS };
 
 type IMakeCoverURL = {
   key: 'isbn' | 'lccn' | 'oclc' | 'olid' | 'id';
@@ -205,14 +107,16 @@ export function processRawResults(
   sortType: SortType,
   filterSettings: FilterSettings
 ) {
-  filterDocs(rawResults.docs, filterSettings);
+  console.log(`processing results...`);
 
-  const scoredSortedDocs = sortDocsBySortType(
-    submittedSearchText,
-    rawResults.docs,
-    sortType
-  );
-  const sortedResults = { ...rawResults, docs: scoredSortedDocs };
+  const filteredDocs = filterDocs(rawResults.docs, filterSettings);
+
+  const scoredDocs = scoreDocs(submittedSearchText, filteredDocs);
+
+  const sortedDocs = sortDocs(scoredDocs, sortType);
+
+  const sortedResults = { ...rawResults, docs: sortedDocs };
+
   return { sortedResults };
 }
 
@@ -272,7 +176,7 @@ function filterDoc(doc: Doc, activeFilters: FilterSettings) {
   );
 }
 
-function filterDocs(docs: Doc[], filterSettings: FilterSettings) {
+export function filterDocs(docs: Doc[], filterSettings: FilterSettings) {
   const activeFilters = { ...filterSettings };
   Object.entries(filterSettings).forEach(([key, valuesArray]) => {
     const activeValues = valuesArray.filter((boolPair) => boolPair[1] === true);
@@ -280,7 +184,8 @@ function filterDocs(docs: Doc[], filterSettings: FilterSettings) {
   });
 
   const filteredDocs = docs.filter((doc: Doc) => filterDoc(doc, activeFilters));
-  console.log(`filteredDocs`, filteredDocs);
+  // console.log(`filteredDocs`, filteredDocs);
+  return filteredDocs;
 }
 
 export interface FilterEntries {

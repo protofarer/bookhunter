@@ -6,9 +6,6 @@ export default function ResultsItem({ doc }: { doc: ScoredDoc }) {
     <ul className="resultsItem">
       <h2>{doc.title}</h2>
       <li>
-        <em>SortType: {doc.sortType}</em>
-      </li>
-      <li>
         <em>rel score: {doc.score.relevance}</em>
       </li>
       <li>

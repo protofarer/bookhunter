@@ -71,17 +71,16 @@ export type SortType =
   | 'relevance'
   | 'none';
 
-type SortInfo = {
+type ScoreInfo = {
   score: {
     keyword: number;
     readlog: number;
     ratingcount: number;
     relevance: number;
   };
-  sortType: SortType;
 };
 
-export type ScoredDoc = Doc & SortInfo;
+export type ScoredDoc = Doc & ScoreInfo;
 
 export type SortedResults = SearchResultsInfo & { docs: ScoredDoc[] };
 
