@@ -1,5 +1,5 @@
 import type { ScoredDoc } from '../types';
-import { makeCoverURL } from '../util';
+import { makeCoverURL } from '../util/util';
 
 export default function ResultsItem({ doc }: { doc: ScoredDoc }) {
   return (

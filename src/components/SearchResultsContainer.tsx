@@ -1,14 +1,7 @@
 import { useEffect, useState } from 'react';
 import { LoaderFunctionArgs, redirect, useLoaderData } from 'react-router-dom';
 import Constants from '../constants';
-import {
-  FilterSettings,
-  fetchData2,
-  filterDocs,
-  initFilterSettings,
-  processRawResults,
-  scoreDocs,
-} from '../util';
+import { fetchData2, processRawResults } from '../util/util';
 import { queryClient } from '../App';
 import SearchBar from './SearchBar';
 import ResultsList from './ResultsList';
@@ -20,6 +13,8 @@ import type {
   SortedResults,
 } from '../types';
 import FilterContainer from './FilterContainer';
+import { FilterSettings, filterDocs, initFilterSettings } from '../util/filter';
+import { scoreDocs } from '../util/sort';
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
@@ -75,6 +70,8 @@ export default function SearchResultsContainer() {
       filterSettings
     );
     const filteredDocs = filterDocs(sortedResults.docs, filterSettings);
+    console.log(`filtereddocs`, filteredDocs);
+
     setSortedResults({ ...sortedResults, docs: scoreDocs(q, filteredDocs) });
   }, [filterSettings]);
 
@@ -110,7 +107,9 @@ export default function SearchResultsContainer() {
     setFilterSettings({
       ...filterSettings,
       [key]: filterSettings[key].map((boolPair) =>
-        boolPair[0] === property ? [boolPair[0], isChecked] : boolPair
+        boolPair[0] === property
+          ? [boolPair[0], isChecked, boolPair[2]]
+          : boolPair
       ),
     });
   }

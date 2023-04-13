@@ -1,5 +1,5 @@
 import Constants from '../constants';
-import { FilterSettings } from '../util';
+import { FilterSettings } from '../util/filter';
 import Filter from './Filter';
 
 export default function FilterContainer({
@@ -15,11 +15,13 @@ export default function FilterContainer({
 }) {
   return (
     <div className="results-filterContainer">
-      {Constants.FILTER_KEYS.filter((x) => filterSettings?.[x]).map((key) => (
+      {Constants.FILTER_KEYS.filter(
+        (filterKey) => filterSettings?.[filterKey]
+      ).map((filterKey) => (
         <Filter
-          key={key}
-          filterKey={key}
-          filterValuesArray={filterSettings[key]}
+          key={filterKey}
+          filterKey={filterKey}
+          filterSetting={filterSettings[filterKey]}
           updateFilterSetting={updateFilterSetting}
         />
       ))}
