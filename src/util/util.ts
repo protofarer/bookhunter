@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { Doc, SearchResults, SortType } from '../types';
+import {
+  Doc,
+  ScoredResults,
+  SearchResults,
+  SortType,
+  SortedResults,
+} from '../types';
 import Constants from '../constants';
 import { FilterEntries, FilterSettings, filterDocs } from './filter';
 import { scoreDocs, sortDocs } from './sort';
@@ -43,23 +49,44 @@ export async function fetchData2(submittedSearchText: string) {
   return { data, ttr };
 }
 
-export function processRawResults(
+export function scoreRawResults(
   rawResults: SearchResults,
-  submittedSearchText: string,
+  submittedSearchText: string
+) {
+  console.log(`processing results...`);
+  console.log(`rawresults`, rawResults);
+
+  const scoredDocs = scoreDocs(submittedSearchText, rawResults.docs);
+
+  const scoredResults = { ...rawResults, docs: scoredDocs };
+
+  const pageCount = scoredResults
+    ? Math.min(
+        Math.ceil(scoredResults.docs.length / Constants.RESULTS_PER_PAGE),
+        Constants.RESULTS_MAX_PAGES
+      )
+    : 0;
+
+  return { scoredResults, pageCount };
+}
+
+export function processResultsViewChange(
+  results: ScoredResults,
   sortType: SortType,
   filterSettings: FilterSettings
 ) {
-  console.log(`processing results...`);
-
-  const filteredDocs = filterDocs(rawResults.docs, filterSettings);
-
-  const scoredDocs = scoreDocs(submittedSearchText, filteredDocs);
-
-  const sortedDocs = sortDocs(scoredDocs, sortType);
-
-  const sortedResults = { ...rawResults, docs: sortedDocs };
-
-  return { sortedResults };
+  const filteredDocs = filterDocs(results.docs, filterSettings);
+  const sortedFilteredDocs = sortDocs(filteredDocs, sortType);
+  const pageCount = sortedFilteredDocs
+    ? Math.min(
+        Math.ceil(sortedFilteredDocs.length / Constants.RESULTS_PER_PAGE),
+        Constants.RESULTS_MAX_PAGES
+      )
+    : 0;
+  return {
+    sortedFilteredResults: { ...results, docs: sortedFilteredDocs },
+    pageCount,
+  };
 }
 
 // Creates a filter object containing values across all docs for all doc keys

@@ -82,7 +82,7 @@ type ScoreInfo = {
 
 export type ScoredDoc = Doc & ScoreInfo;
 
-export type SortedResults = SearchResultsInfo & { docs: ScoredDoc[] };
+export type ScoredResults = SearchResultsInfo & { docs: ScoredDoc[] };
 
 export type LoaderData<TLoaderFn extends LoaderFunction> = Awaited<
   ReturnType<TLoaderFn>

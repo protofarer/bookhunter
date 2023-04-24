@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 import { LoaderFunctionArgs, redirect, useLoaderData } from 'react-router-dom';
 import Constants from '../constants';
-import { fetchData2, processRawResults } from '../util/util';
+import {
+  fetchData2,
+  processResultsViewChange,
+  scoreRawResults,
+} from '../util/util';
 import { queryClient } from '../App';
 import SearchBar from './SearchBar';
 import ResultsList from './ResultsList';
@@ -10,11 +14,10 @@ import type {
   SearchResults,
   SortType,
   LoaderData,
-  SortedResults,
+  ScoredResults,
 } from '../types';
 import FilterContainer from './FilterContainer';
-import { FilterSettings, filterDocs, initFilterSettings } from '../util/filter';
-import { scoreDocs } from '../util/sort';
+import { FilterSettings, initFilterSettings } from '../util/filter';
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
@@ -31,49 +34,47 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const { data: rawResults, ttr }: { data: SearchResults; ttr: string } =
     await queryClient.fetchQuery(['results', q], () => fetchData2(q));
 
-  const pageCount = Math.min(
-    Math.ceil(rawResults.docs.length / Constants.RESULTS_PER_PAGE),
-    Constants.RESULTS_MAX_PAGES
-  );
-
-  return { q, rawResults, ttr, pageCount };
+  return { q, rawResults, ttr };
 };
 
 export default function SearchResultsContainer() {
   const [sortType, setSortType] = useState<SortType>('relevance');
-  const { q, rawResults, ttr, pageCount } = useLoaderData() as LoaderData<
-    typeof loader
-  >;
-  const [sortedResults, setSortedResults] = useState<SortedResults | null>(
-    null
-  );
+  const [pageCount, setPageCount] = useState(0);
+  const { q, rawResults, ttr } = useLoaderData() as LoaderData<typeof loader>;
+  const [processedResults, setProcessedResults] =
+    useState<ScoredResults | null>(null);
   const [filterSettings, setFilterSettings] = useState<FilterSettings>(
     initFilterSettings(rawResults.docs)
   );
 
   useEffect(() => {
-    const { sortedResults } = processRawResults(
-      rawResults,
-      q,
-      sortType,
-      filterSettings
-    );
-    setSortedResults(sortedResults);
+    const { scoredResults, pageCount } = scoreRawResults(rawResults, q);
+    setProcessedResults(scoredResults);
     setFilterSettings(initFilterSettings(rawResults.docs));
-  }, [rawResults, sortType]);
+    setPageCount(pageCount);
+  }, []);
 
   useEffect(() => {
-    const { sortedResults } = processRawResults(
-      rawResults,
-      q,
-      sortType,
-      filterSettings
-    );
-    const filteredDocs = filterDocs(sortedResults.docs, filterSettings);
-    console.log(`filtereddocs`, filteredDocs);
+    console.log(`sort/filtering`);
 
-    setSortedResults({ ...sortedResults, docs: scoreDocs(q, filteredDocs) });
-  }, [filterSettings]);
+    if (processedResults) {
+      const { sortedFilteredResults, pageCount } = processResultsViewChange(
+        processedResults,
+        sortType,
+        filterSettings
+      );
+
+      setProcessedResults({ ...sortedFilteredResults });
+      setPageCount(pageCount);
+    }
+    // // const filteredDocs = filterDocs(sortedResults.docs, filterSettings);
+    // // const scoredDocs = scoreDocs(q, filteredDocs);
+    // // console.log(`filtersettings`, filterSettings);
+
+    // // console.log(`filtereddocs`, filteredDocs);
+
+    // setSortedResults({ ...sortedResults, docs: scoredDocs });
+  }, [sortType, filterSettings]);
 
   // const fetchData = async (limit?: number) => {
   //   return await fetchJsonFile(
@@ -83,7 +84,7 @@ export default function SearchResultsContainer() {
   // };
 
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const docs = sortedResults?.docs.slice(
+  const docs = processedResults?.docs.slice(
     (currentPage - 1) * Constants.RESULTS_PER_PAGE,
     currentPage * Constants.RESULTS_PER_PAGE
   );
@@ -116,7 +117,7 @@ export default function SearchResultsContainer() {
 
   return (
     <>
-      {sortedResults ? (
+      {processedResults ? (
         <div className="searchResultsPage">
           <SearchBar initSearchInput={q} />
           <div className="results">
@@ -129,8 +130,8 @@ export default function SearchResultsContainer() {
             </div>
             <div className="results-info">
               <>
-                {sortedResults?.numFound} result
-                {sortedResults?.numFound > 1 && 's'} | page {currentPage}/
+                {processedResults?.numFound} result
+                {processedResults?.numFound > 1 && 's'} | page {currentPage}/
                 {pageCount} | {(parseInt(ttr) / 1000).toFixed(2)} seconds
               </>
             </div>

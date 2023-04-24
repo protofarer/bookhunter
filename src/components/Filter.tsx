@@ -17,7 +17,6 @@ export default function Filter({
     const { name, value, checked } = e.target;
     console.log(`detect check click, name, val, checked`, name, value, checked);
     updateFilterSetting(name, value, checked);
-    console.log(`filterSetting`, filterSetting);
   }
 
   return (

@@ -1,5 +1,5 @@
 import Constants from '../constants';
-import { Doc } from '../types';
+import { Doc, ScoredDoc } from '../types';
 
 export interface FilterEntries {
   [key: string]: Set<string | number | boolean>;
@@ -62,12 +62,13 @@ function filterDoc(doc: Doc, activeFilters: FilterSettings) {
           return doc[filterKey as AllowedDocKeys] === fval;
         });
       }
+      // default to include doc if filterkey doesn't exist (e.g. unknowns)
       return true;
     }
   );
 }
 
-export function filterDocs(docs: Doc[], filterSettings: FilterSettings) {
+export function filterDocs(docs: ScoredDoc[], filterSettings: FilterSettings) {
   const activeFilters = { ...filterSettings };
   Object.entries(filterSettings).forEach(([key, valuesArray]) => {
     const activeValues = valuesArray.filter((boolPair) => boolPair[1] === true);
