@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { LoaderFunctionArgs, redirect, useLoaderData } from 'react-router-dom';
 import Constants from '../constants';
 import {
+  calcPageCount,
   fetchData2,
   processResultsViewChange,
   scoreRawResults,
@@ -34,46 +35,44 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const { data: rawResults, ttr }: { data: SearchResults; ttr: string } =
     await queryClient.fetchQuery(['results', q], () => fetchData2(q));
 
-  return { q, rawResults, ttr };
+  const scoredResults = scoreRawResults(rawResults, q);
+
+  return { q, scoredResults, ttr };
 };
 
 export default function SearchResultsContainer() {
   const [sortType, setSortType] = useState<SortType>('relevance');
   const [pageCount, setPageCount] = useState(0);
-  const { q, rawResults, ttr } = useLoaderData() as LoaderData<typeof loader>;
+  const { q, scoredResults, ttr } = useLoaderData() as LoaderData<
+    typeof loader
+  >;
   const [processedResults, setProcessedResults] =
     useState<ScoredResults | null>(null);
   const [filterSettings, setFilterSettings] = useState<FilterSettings>(
-    initFilterSettings(rawResults.docs)
+    initFilterSettings(scoredResults.docs)
   );
 
   useEffect(() => {
-    const { scoredResults, pageCount } = scoreRawResults(rawResults, q);
     setProcessedResults(scoredResults);
-    setFilterSettings(initFilterSettings(rawResults.docs));
+    setFilterSettings(initFilterSettings(scoredResults.docs));
     setPageCount(pageCount);
   }, []);
 
   useEffect(() => {
-    console.log(`sort/filtering`);
-
-    if (processedResults) {
-      const { sortedFilteredResults, pageCount } = processResultsViewChange(
-        processedResults,
+    if (scoredResults) {
+      const sortedFilteredResults = processResultsViewChange(
+        scoredResults,
         sortType,
         filterSettings
       );
+      const pageCount = calcPageCount(sortedFilteredResults);
 
-      setProcessedResults({ ...sortedFilteredResults });
+      setProcessedResults({
+        ...sortedFilteredResults,
+        numFound: sortedFilteredResults.docs.length,
+      });
       setPageCount(pageCount);
     }
-    // // const filteredDocs = filterDocs(sortedResults.docs, filterSettings);
-    // // const scoredDocs = scoreDocs(q, filteredDocs);
-    // // console.log(`filtersettings`, filterSettings);
-
-    // // console.log(`filtereddocs`, filteredDocs);
-
-    // setSortedResults({ ...sortedResults, docs: scoredDocs });
   }, [sortType, filterSettings]);
 
   // const fetchData = async (limit?: number) => {

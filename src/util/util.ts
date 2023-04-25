@@ -1,11 +1,5 @@
 import axios from 'axios';
-import {
-  Doc,
-  ScoredResults,
-  SearchResults,
-  SortType,
-  SortedResults,
-} from '../types';
+import { Doc, ScoredResults, SearchResults, SortType } from '../types';
 import Constants from '../constants';
 import { FilterEntries, FilterSettings, filterDocs } from './filter';
 import { scoreDocs, sortDocs } from './sort';
@@ -53,21 +47,21 @@ export function scoreRawResults(
   rawResults: SearchResults,
   submittedSearchText: string
 ) {
-  console.log(`processing results...`);
-  console.log(`rawresults`, rawResults);
-
   const scoredDocs = scoreDocs(submittedSearchText, rawResults.docs);
 
   const scoredResults = { ...rawResults, docs: scoredDocs };
 
+  return scoredResults;
+}
+
+export function calcPageCount(scoredResults: ScoredResults) {
   const pageCount = scoredResults
     ? Math.min(
         Math.ceil(scoredResults.docs.length / Constants.RESULTS_PER_PAGE),
         Constants.RESULTS_MAX_PAGES
       )
     : 0;
-
-  return { scoredResults, pageCount };
+  return pageCount;
 }
 
 export function processResultsViewChange(
@@ -77,16 +71,7 @@ export function processResultsViewChange(
 ) {
   const filteredDocs = filterDocs(results.docs, filterSettings);
   const sortedFilteredDocs = sortDocs(filteredDocs, sortType);
-  const pageCount = sortedFilteredDocs
-    ? Math.min(
-        Math.ceil(sortedFilteredDocs.length / Constants.RESULTS_PER_PAGE),
-        Constants.RESULTS_MAX_PAGES
-      )
-    : 0;
-  return {
-    sortedFilteredResults: { ...results, docs: sortedFilteredDocs },
-    pageCount,
-  };
+  return { ...results, docs: sortedFilteredDocs };
 }
 
 // Creates a filter object containing values across all docs for all doc keys

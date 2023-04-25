@@ -70,13 +70,20 @@ function filterDoc(doc: Doc, activeFilters: FilterSettings) {
 
 export function filterDocs(docs: ScoredDoc[], filterSettings: FilterSettings) {
   const activeFilters = { ...filterSettings };
+  let areNoFiltersActive = true;
   Object.entries(filterSettings).forEach(([key, valuesArray]) => {
-    const activeValues = valuesArray.filter((boolPair) => boolPair[1] === true);
+    const activeValues = valuesArray.filter(
+      (optionValues) => optionValues[1] === true
+    );
+    if (activeValues.length > 0) areNoFiltersActive = false;
     activeFilters[key] = activeValues;
   });
 
+  if (areNoFiltersActive) {
+    return docs;
+  }
+
   const filteredDocs = docs.filter((doc: Doc) => filterDoc(doc, activeFilters));
-  // console.log(`filteredDocs`, filteredDocs);
   return filteredDocs;
 }
 
